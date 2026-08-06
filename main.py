@@ -155,10 +155,10 @@
 # print(f"Dictionary of squares from 1 to 10 : \n{d1}")
 
 ########################################################################################################
-# 11. Write a program to sort a list in ascending order.
+# Q11. Write a program to sort a list in ascending order.
 
 ########################################################################################################
-# 12. Create a program to check if a key exists in a dictionary.
+# Q12. Create a program to check if a key exists in a dictionary.
 
 # d1 = {
 #     "name" : "Kalpesh",
@@ -174,7 +174,7 @@
 #     print(f"{key} is not present in dictionary")
 
 ########################################################################################################
-# # 13. Create a set and perform union, intersection, and difference
+# # Q13. Create a set and perform union, intersection, and difference
 
 # s1 = {12, 12, 14, 15, 16, 16, 18, 15, 16}
 # s2 = {15, 16, 17, 18, 14, 12, 13, 18, 19}
@@ -192,7 +192,7 @@
 # print(symmetric_difference)
 
 ########################################################################################################
-# 14. Write a function to find common elements in two lists.
+# Q14. Write a function to find common elements in two lists.
 
 # def commonElementsInList(ls1, ls2):
 #     common = []
@@ -237,7 +237,7 @@
 # print(f"Common elements in lists are : {result}")
 
 ########################################################################################################
-# 15. Write a function that returns the factorial of a number
+# Q15. Write a function that returns the factorial of a number
 
 # def factorial_of_number(num):
 #     fact = 1
@@ -255,5 +255,73 @@
 # result = factorial_of_number(user_input)
 
 # print(f"factorial of {user_input} is {result}")
+
+########################################################################################################
+# Q16. Create a function that checks whether a string is a palindrome.
+
+# def palindrome_or_not(word):
+#     rev_string = ""
+
+#     for i in range(len(word) - 1, -1, -1):
+#         rev_string += word[i]
+
+#     if rev_string == word:
+#         return "String is palindrome"
+#     else:
+#         return "String is not palindrome"
+
+    
+# user_input = input("Enter your string : ").lower()
+
+# result = palindrome_or_not(user_input)
+
+# print(result)
+
+########################################################################################################
+# # Q17. Write a function to count vowels in a string.
+
+# def count_vowels(word):
+#     count = 0
+
+#     for i in word:
+#         if i == "a" or i == "e" or i == "i" or i == "o" or i == "u":
+#             count += 1
+
+#     return count
+
+
+# user_input = input("Enter string : ").lower()
+
+# result = count_vowels(user_input)
+
+# print(f"There are {result} vowels in string")
+
+########################################################################################################
+# 18. Create a dictionary and iterate over its keys and values.
+# d1 = {
+#     "Name" : "Kalpesh",
+#     "Age" : 22,
+#     "Role" : "AI Engineer",
+#     10 : 40,
+#     11 : 11,
+#     28 : 78
+# }
+
+# print("Keys in dictionary are : ")
+# for keys in d1.keys():
+#     print(keys)
+
+# print("Values in dictionary are : ")
+# for values in d1.values():
+#     print(values)
+
+
+# #Both keys & values
+# print("Keys & Values in dictionary : ")
+# for i, j in d1.items():
+#     print(f"{i} : {j}")
+
+########################################################################################################
+# 19. Write a function to remove all punctuation from a string.
 
 ########################################################################################################
