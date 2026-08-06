@@ -323,5 +323,54 @@
 
 ########################################################################################################
 # 19. Write a function to remove all punctuation from a string.
+# def remove_punctuation(text):
+#     punctuations = """~`!@#$%^&*()_-+={}[]|\\/:;"'<>,.?"""
+
+#     result = ""
+
+#     for char in text:
+#         if char not in punctuations:
+#             result += char
+
+#     return result
+
+# user_input = input("Enter your string :")
+
+# output = remove_punctuation(user_input)
+
+# print(f"String after removing punctuation is :\n{output}")
 
 ########################################################################################################
+# 20. Write a function to capitalize the first letter of each word in a string.
+
+# def capitalize_the_string(text):
+#     updated_text = ""
+
+#     for i in range(len(text)):
+#         if i == 0:
+#             updated_text += text[i].upper()
+#         elif text[i - 1] == " ":
+#             updated_text += text[i].upper()
+#         else:
+#             updated_text += text[i]
+
+#     return updated_text
+
+
+# user_input = input("Enter string : ")
+
+# result = capitalize_the_string(user_input)
+
+# print(f"Updated string is : {result}")
+
+########################################################################################################
+# 22. Write a function to check if a string is an anagram.
+
+
+
+
+
+
+
+
+
