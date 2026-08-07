@@ -364,13 +364,108 @@
 # print(f"Updated string is : {result}")
 
 ########################################################################################################
-# 22. Write a function to check if a string is an anagram.
+# 22. Write a function to check if two strings are an anagram.
+
+# def is_anagram(str1, str2):
+#     if len(str1) != len(str2):
+#         return f"{str1} & {str2} are not anagram"
+    
+#     d1 = {}
+#     d2 = {}
+
+#     for i in range(len(str1)):
+#         if str1[i] not in d1:
+#             d1[str1[i]] = 1
+#         else:
+#             d1[str1[i]] = d1[str1[i]] + 1
 
 
+#     for j in range(len(str2)):
+#         if str2[j] not in d2:
+#             d2[str2[j]] = 1
+#         else:
+#             d2[str2[j]] = d2[str2[j]] + 1
 
 
+#     if d1 == d2:
+#         return f"{str1} & {str2} are anagram"
+#     else:
+#         return f"{str1} & {str2} are not anagram"
 
 
+# user_input1 = input("Enter first string : ")
+# user_input2 = input("Enter second string : ")
+
+# result = is_anagram(user_input1, user_input2)
+
+# print(result)
+
+########################################################################################################
+# 23. Create a nested dictionary to represent student records.
+
+# dictionary = {
+#    "students" : {
+#        "kalpesh" : {
+#            "math" : 98,
+#            "science" : 99,
+#            "physics" : 95,
+#            "chemistry" : 96
+#        },
+
+#        "sanika" : {
+#            "biology" : 100,
+#            "physics" : 98,
+#            "chemistry" : 97,
+#            "science" : 95
+#        },
+
+#        "bhanvase" : {
+#            "english" : 97,
+#            "marathi" : 98,
+#            "hindi" : 96,
+#            "science" : 95
+#        }
+#    }
+# }
+
+# print(dictionary)
+
+########################################################################################################
+# 24. Write a function to flatten a nested list.
+
+# def convert_to_flatten(ls):
+#     flatten_list = []
+
+#     for element in ls:
+#         if type(element) == list:
+#             for ch in element:
+#                 flatten_list.append(ch)
+#         else:
+#             flatten_list.append(element)
 
 
+#     return flatten_list
 
+# list1 = [1, 2, [3, 4], [5, 6]]
+
+# result = convert_to_flatten(list1)
+
+# print(f"flatten_list is : {result}")
+
+########################################################################################################
+# 25. Write a program to find the second highest number in a list.
+
+ls = [5,4,3,2,1]
+
+highest = ls[0]
+sec_highest = ls[1]
+
+for i in range(2,len(ls)):
+    if ls[i] > highest:
+        sec_highest = highest
+        highest = ls[i]
+
+    elif ls[i] > sec_highest:
+        sec_highest = ls[i]
+
+print("second highest number in list :", sec_highest)
