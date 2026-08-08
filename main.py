@@ -455,17 +455,134 @@
 ########################################################################################################
 # 25. Write a program to find the second highest number in a list.
 
-ls = [5,4,3,2,1]
+# ls = [1, 2, 3, 4, 5]
 
-highest = ls[0]
-sec_highest = ls[1]
+# highest = ls[0]
+# sec_highest = ls[0] 
 
-for i in range(2,len(ls)):
-    if ls[i] > highest:
-        sec_highest = highest
-        highest = ls[i]
+# for i in range(len(ls)):
+#     if ls[i] > highest:
+#         sec_highest = highest
+#         highest = ls[i]
 
-    elif ls[i] > sec_highest:
-        sec_highest = ls[i]
+#     elif ls[i] > sec_highest:
+#         sec_highest = ls[i]
 
-print("second highest number in list :", sec_highest)
+# print(f"second highest number in list : {sec_highest}")
+
+########################################################################################################
+# 26. Create a function to rotate a list left by k positions.
+
+# def rotate_list_by_k_position(k, l1):
+    
+#     l2 = []
+
+#     if type(l1) != list:
+#         raise TypeError("Please provide list..")
+    
+#     for i in range(k, len(l1)):
+#         l2.append(l1[i])
+#         # l1.remove(l1[i])
+
+#     for i in range(k):
+#         l2.append(l1[i])
+
+#     return l2
+
+# value_of_k = int(input("Enter the value of k : "))
+
+# ls = [22, 44, 55, 88, 99]
+
+# result = rotate_list_by_k_position(value_of_k, ls)
+
+# print(f"Rotated list is : {result}")
+
+########################################################################################################
+# 27. Write a function to find the missing number from a list of 1 to N.
+
+# def find_missing_value(ls, n):
+#     for i in range(1,n+1):
+#         if i not in ls:
+#             return i
+        
+
+# l = [1,2,3,4,5,6,7,8,9,10,11,12,14,15,16,17,18,19,20]
+
+# result = find_missing_value(l, 20)
+
+# print(f"Missing value in list : {result}")
+
+########################################################################################################
+# # 28. Write a program to remove all None values from a list.
+
+# ls = [None,10, 20, None, 25, 45, None, 40, None]
+
+# ls1 = []
+
+# for element in ls:
+#     if element is not None:
+#         ls1.append(element)
+
+# print(f"list after removing None values : {ls1}")
+
+########################################################################################################
+# 29. Write a function to merge two dictionaries and handle key collisions by summing values.
+
+# def merging_two_dictionaries(d1, d2):
+#     for element in d2:
+#         if element not in d1:
+#             d1[element] = d2[element]
+#         else:
+#             d1[element] = d2[element] + d1[element]
+
+#     return d1
+
+# dc1 = {10:100, 20:200, 30:300}
+# dc2 = {40:400, 50:500, 60:600, 30:200, 10: 11, 20:22}
+
+# result = merging_two_dictionaries(d2 = dc2, d1 = dc1)
+
+# print(f"final dictionary : {result}")
+
+########################################################################################################
+# # 30. Create a function to find unique elements present in only one of two lists.
+
+# def find_unique_elements(ls1, ls2):
+#     new_ls1 = set(ls1)
+#     new_ls2 = set(ls2)
+
+#     unique_elements = new_ls1 ^ new_ls2
+
+#     return unique_elements
+
+# l1 = [1, 2, 3, 4, 5]
+# l2 = [4, 5, 6, 7, 8]
+
+# result = find_unique_elements(l1, l2)
+
+# print(f"Unique elements present in only one list are :{result}")
+
+##################################################  OR   ######################################################
+
+# def find_unique_elements(ls1, ls2):
+#     unique_elements = []
+
+#     for element in ls1:
+#         if element not in ls2:
+#             unique_elements.append(element)
+
+#     for item in ls2:
+#         if item not in ls1:
+#             unique_elements.append(item)
+
+#     return unique_elements
+
+# l1 = [1,2,3,4,5]
+# l2 = [4,5,6,7,8]
+
+# result = find_unique_elements(l1, l2)
+
+# print(f"Unique elements present in only one list are :{result}")
+
+########################################################################################################
+
