@@ -585,4 +585,13 @@
 # print(f"Unique elements present in only one list are :{result}")
 
 ########################################################################################################
+# # Q. Write a Python program to sum all the values in a dictionary?
 
+# d1 = {10: 10, 20:200, 30:300, 40:4, 50: 4, 45: 800}
+
+# total = 0 
+
+# for i in d1:
+#     total += d1[i]
+
+# print(f"Sum of all values in dictionary is {total}")
