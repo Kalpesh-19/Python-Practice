@@ -597,3 +597,87 @@
 # print(f"Sum of all values in dictionary is {total}")
 
 ########################################################################################################
+# Week 3: File Handling, Error Handling,
+# Q1. Write a Python script to read a file and print its contents.
+
+# with open("bio_data.txt") as f:
+#     data  = f.read()
+#     print(data)
+
+########################################################################################################
+# Q2. Create a file and write your name into it.
+
+# with open("my_name.txt","w") as f:
+#     data = "My name is Kalpesh Bapurao Bhanvase" 
+#     f.write(data)
+
+########################################################################################################
+# Q3. Handle a ZeroDivisionError using try-except
+
+# def division(a,b):
+#     return a /  b
+
+# try:
+#     print(division(10,0))
+# except ZeroDivisionError as err:
+#     print(err)
+
+########################################################################################################
+# # Q4. Write a program to handle file not found error.
+
+# try:
+#     with open("Bunny.txt", "r") as f:
+#         print(f.read())
+
+# except FileNotFoundError as err:
+#     print(err)
+
+########################################################################################################
+# Q8. Create a program to count lines and words in a file.
+
+# with open("dummy.txt", "r") as f:
+#         line_count = 0
+#         word_count = 0
+#         for line in f:
+#             line_count += 1
+#             words = line.split()
+#             word_count += len(words)
+
+#         print(f"{line_count} words in file")
+#         print(f"{word_count} lines in file")
+
+########################################################################################################
+# Q9. Write a program to read a CSV file and print its contents.
+
+# with open(r"C:\Users\ADMIN\Downloads\student_data.csv") as f:
+#     print(f.read())
+
+########################################################################################################
+# Q10. Handle multiple exceptions in a single try block.
+print("1 for reading the file")
+print("2 for perform the division")
+print("3 for import module")
+try:
+    choice = int(input("Enter your choice : "))
+
+    if choice == 1:
+        with open("esfjkdc") as f:
+            f.read()
+
+    elif choice == 2:
+        num1 = 10
+        num2 = 0
+        result = num1 / num2
+        print(result)
+
+    elif choice == 3:
+        from something import nothing
+
+except ZeroDivisionError as err:
+    print(err)
+
+except FileNotFoundError as err:
+    print(err)
+
+except ModuleNotFoundError as err:
+    print(err)
