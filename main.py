@@ -673,6 +673,9 @@ try:
     elif choice == 3:
         from something import nothing
 
+    else:
+        print("Invalid Choice! Please enter 1, 2 or 3")
+
 except ZeroDivisionError as err:
     print(err)
 
@@ -680,4 +683,7 @@ except FileNotFoundError as err:
     print(err)
 
 except ModuleNotFoundError as err:
+    print(err)
+
+except ValueError as err:
     print(err)
