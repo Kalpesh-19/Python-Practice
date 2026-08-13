@@ -1,3 +1,778 @@
+##ChatGPT Questions
+
+# name = input("Enter your name: ")
+# age = int(input("Enter your age: "))
+# city = input("Enter your city: ")
+
+
+# print(f"Hello {name}")
+# print(f"You are {age} years old")
+# print(f"You live in {city}")
+
+#################################################################################
+
+# length = int(input("Enter the length: "))
+# breadth = int(input("Enter the Breadth: "))
+
+# area = length * breadth
+
+# perimeter = 2 * (length + breadth)
+
+# print(f"The area of rectangle is {area}.")
+# print(f"The perimeter of rectangle is {perimeter}.")
+
+#################################################################################
+
+# n1 = int(input("Enter first number : "))
+# n2 = int(input("Enter second number : "))
+
+# n1 = n1 + n2
+# n2 = n1 - n2
+# n1 = n1 - n2
+
+# print(f"After swapping: \n first number : {n1} \n second number: {n2}")
+
+##########################  or  #################################################
+
+# n1 = int(input("Enter first number : "))
+# n2 = int(input("Enter second number : "))
+
+# n1, n2 = n2, n1
+
+# print(f"After swapping :\n first number = {n1}\n second number = {n2}")
+
+
+#################################################################################
+
+
+# temp = float(input("Enter the temperature in celsius: "))
+
+# fheit = (9 /5) * temp + 32
+
+# print(f"The temperature in fahrenheit is {fheit}.")
+
+
+#################################################################################
+
+# maths = int(input("Enter your maths marks : "))
+# physics = int(input("Enter your physics marks : "))
+# chemistry = int(input("Enter your chemistry marks : "))
+# social_science = int(input("Enter your social_science marks : "))
+# biology = int(input("Enter your biology marks : "))
+
+# total = maths + physics + chemistry + social_science + biology
+
+# average = total / 5
+
+# print(f"Your total marks are : {total}")
+
+# print(f"Your average is : {average}")
+
+#################################################################################
+
+
+# first_name = input("Enter your first name: ")
+# last_name = input("Enter your last name: ")
+
+# print(f"Welcome {first_name} {last_name}!" )
+
+#################################################################################
+
+
+# string = input("Enter the string: ")
+
+# str_length = len(string)
+
+# print(f"The length of string is {str_length}")
+
+#################################################################################
+
+# user_input = input("Enter the string: ")
+
+# print(f"first letter is : {user_input[0]}")
+# print(f"Last letter is : {user_input[-1]}")
+
+#################################################################################
+
+# input = input("Enter the string : ")
+
+# print(input[::-1])
+
+
+#################################################################################
+
+# name = input("ENTER THE STRING : ") 
+
+# middle = len(name) // 2 
+
+# if len(name) % 2 == 0:
+#     print(name[middle - 1])
+# else:
+#     print(name[middle])
+
+#################################################################################
+
+
+# num = int(input("ENTER THE NUMBER : "))
+
+# if num % 2 == 0:
+#     print("Even")
+# else:
+#     print("Odd")
+
+#################################################################################
+
+
+# num = int(input("ENTER THE NUMBER : "))
+
+# if num > 0:
+#     print("Positive")
+# elif num < 0:
+#     print("Negative")
+# else:
+#     print("Zero")
+
+#################################################################################
+
+# num = int(input("ENTER THE NUMBER : "))
+
+# if num % 5 == 0 and num % 11 == 0:
+#     print("Divisible")
+# else:
+#     print("Not Divisible")
+
+#################################################################################
+
+# num = int(input("ENTER THE NUMBER : "))
+
+# print(num % 10)
+
+#################################################################################
+
+# num = int(input("ENTER THE NUMBER : "))
+
+# sqr = num ** 2
+
+# cube = num ** 3
+
+# print(f"{num}'s square is {sqr} & cube is {cube}")
+
+#################################################################################
+
+
+# num1 = int(input("ENTER FIRST NUMBER : "))
+# num2 = int(input("ENTER SECOND NUMBER : "))
+
+# if num1 > num2:
+#     print(f"{num1} is a largest number.")
+# elif num1 < num2:
+#     print(f"{num2} is a largest number.")
+# else:
+#     print("Both numbers are equal.")
+
+#################################################################################
+
+# num1 = int(input("ENTER THE FIRST NUMBER : "))
+# num2 = int(input("ENTER THE SECOND NUMBER : "))
+# num3 = int(input("ENTER THE THIRD NUMBER : "))
+
+# if num1 == num2 and num1 == num3 and num2 == num3 :
+#     print("All three numbers are equal.")
+# elif num1 >= num2 and num1 >= num3:
+#     print(f"{num1} is the largest number.")
+# elif num2 >= num1 and num2 >= num3:
+#     print(f"{num2} is the largest number.")
+# else :
+#     print(f"{num3} is the largest number.")
+
+
+#################################################################################
+    
+
+# age = int(input("ENTER AGE : "))
+
+# if age >= 18:
+#     print("Eligible")
+# else:
+#     print("Not Eligible")
+
+#################################################################################
+
+
+# year = int(input("ENTER YEAR : "))
+
+# if year % 400 == 0 :
+#     print(f"{year} is leap year ")
+# elif year % 100 == 0 and year % 400 != 0:
+#     print(f"{year} is not leap year ")
+# elif year % 4 == 0 and year % 100 != 0:
+#     print(f"{year} is leap year ")
+# else:
+#     print("Not leap year ")
+
+#################################################################################
+
+
+# marks = int(input("ENTER MARKS : "))
+
+
+# if marks < 0 or marks > 100:
+#     print("Invalid marks")
+# elif marks >= 90 and marks <= 100:
+#     print("you got A grade")
+# elif marks >= 80 and marks <= 89:
+#     print("you got B grade")
+# elif marks >= 70 and marks <= 79:
+#     print("you got C grade")
+# elif marks >= 60 and marks <= 69:
+#     print("you got D grade")
+
+# else:
+#     print("fail")
+
+#################################################################################
+
+# num1 = int(input("ENTER FIRST NUMBER: "))
+# operator = input("ENTER  OPERATOR: ")
+# num2 = int(input("ENTER SECOND NUMBER: "))
+
+    
+# if operator == "+":
+#     result = num1 + num2
+#     print(f"Result : {result}")
+
+# elif operator == "-":
+#     result = num1 - num2
+#     print(f"Result : {result}")
+
+# elif operator == "*":
+#     result = num1 * num2
+#     print(f"Result : {result}")
+    
+# elif operator == "/":
+#     if num2 != 0:
+#         result = num1 / num2
+#         print(f"Result : {result}")
+#     else:
+#         print("cannot divide by zero")
+
+# elif operator == "%":
+#     if num2 != 0:
+#         result = num1 % num2
+#         print(f"Result : {result}")
+#     else:
+#         print("cannot divide by zero")
+
+# else:
+#     print("Invalid operator")
+
+#################################################################################
+
+
+# password = input("ENTER YOUR PASSWORD: ")
+
+# if len(password) >= 8:
+#     print("Strong password")
+# else:
+#     print("Weak password")
+
+#################################################################################
+
+# chr = input("ENTER CHARACTER: ")
+
+# if chr == "a" or chr == "e" or chr == "i" or chr == "o" or chr == "u" or chr == "A" or chr == "E" or chr == "I" or chr == "O" or chr == "U":
+#     print("Vowels")
+# else:
+#     print("Consonant") 
+
+#################################################################################
+
+# character = input("ENTER SINGLE CHARACTER : ")
+
+# if character >= "A" and character <= "Z":
+#     print("Uppercase")
+# elif character >= "a" and character <= "z":
+#     print("Lowercase")
+# else:
+#     print("Not an alphabet")
+
+#################################################################################
+
+# n = int(input("ENTER THE NUMBER : "))
+
+# if n < 0:
+#     n *= -1
+#     print(n)
+# else:
+#     print(n)
+
+#################################################################################
+
+# cost_price = int(input("Enter cost price : "))
+# selling_price = int(input("Enter selling price : "))
+
+# if selling_price == cost_price:
+#     print("No profit No loss")
+# elif selling_price > cost_price:
+#     print("Profit")
+# else:
+#     print("loss")
+
+#################################################################################
+
+# principal = int(input("Enter principal : "))
+# rate = int(input("Enter rate : "))
+# time =  int(input("Enter time : "))
+
+# simple_interest = (principal * rate * time ) / 100
+
+# print(simple_interest)
+
+#################################################################################
+
+# weight = float(input("Enter your weight (in kg): "))
+# height = float(input("Enter your height (in m): "))
+
+# bmi = weight / (height ** 2)
+
+# if bmi < 18.5:
+#     print(f"your BMI is {bmi}")
+#     print("You are underweight")
+
+# elif bmi >= 18.5 and bmi <= 24.9:
+#     print(f"your BMI is {bmi}")
+#     print("You are normal")
+
+# elif bmi >= 25 and bmi <= 29.9:
+#     print(f"your BMI is {bmi}")
+#     print("You are overweight")
+    
+# else:
+#     print(f"your BMI is {bmi}")
+#     print("you are obese")
+
+#################################################################################
+
+
+# username = input("Enter your username : ")
+# password = input("Enter your password : ")
+
+# if username == "admin" and password == "python123":
+#     print("Login successful")
+# else:
+#     print("Invalid credentials")
+
+#################################################################################
+
+
+#Print numbers from 1 to n
+#For loop
+# n = int(input("Enter number :  "))
+
+# for i in range(1,n+1):
+#     print(i)
+
+#While loop
+# n = int(input("ENTER NUMBER : "))
+
+# i = 1
+
+# while i <= n:
+#     print(i)
+#     i += 1
+
+#################################################################################
+
+# n = int(input("ENTER A NUMBER : "))
+
+# i = 2
+
+# while i <= n:
+#     # if i % 2 == 0:
+#     print(i)
+#     i = i + 2
+
+#################################################################################
+
+# n = int(input("Enter number : "))
+
+# i = 1
+
+# sum = 0
+
+# while i <= n:
+#     sum = sum + i
+#     i = i + 1
+
+# print(f"sum is {sum}")
+
+#################################################################################
+
+# n = int(input("Enter the number whose table you want : "))
+
+# for i in range(1,11):
+#     result = n * i
+#     print(f"{n} * {i} = {result}")
+
+#################################################################################
+
+# n = int(input("Enter a number whose factorial you want : "))
+
+# fact = 1
+
+# for i in range(n,0,-1):
+#     fact = fact * i
+    
+# print(f"factorial of {n} is {fact}")
+
+#################################################################################
+
+# n = int(input("Enter number : "))
+
+# count = 0 
+
+# while n != 0:
+#     n = n // 10 
+#     count = count + 1
+
+# print(f"Number of digits : {count}") 
+
+#################################################################################
+
+# n = int(input("ENTER NUMBER : "))
+
+# sum = 0 
+
+# while n != 0 :
+#     rem = n % 10
+#     sum = sum + rem
+#     n = n // 10
+
+# print(f"The sum of digits of number is {sum}")
+
+
+
+#################################################################################
+
+
+# n = int(input("ENTER NUMBER : "))
+
+# r_num = 0
+
+# while n != 0:
+#     rem = n % 10
+#     r_num = r_num * 10 + rem
+#     n = n // 10
+
+# print(f"Reverse Number : {r_num}")
+
+
+#################################################################################
+
+
+# n = int(input("ENTER NUMBER : "))
+
+# copy = n
+
+# r_num = 0
+
+# while n != 0:
+#     rem = n % 10
+#     r_num = r_num * 10 + rem
+#     n = n // 10
+
+# if r_num == copy :
+#     print("palindrome number")
+# else:
+#     print("Not palindrome")
+
+
+#################################################################################
+
+# n = int(input("ENTER NUMBER : "))
+
+# print(f"Factors of {n} are :")
+# for i in range(1, n+1):
+#     if n % i == 0:
+#         print(i)
+
+#################################################################################
+
+# n = int(input("Enter number : "))
+
+# count = 0 
+
+# for i in range(1, n+1):
+#       if n % i == 0:
+#           count = count + 1
+
+# if count == 2 :
+#      print(f"{n} is prime number")
+# else:
+#      print(f"{n} is not prime number")
+
+#################################################################################
+
+# n = int(input("Enter number : "))
+
+# for i in range(1,n+1):
+#     num = i
+
+#     count = 0 
+
+#     for i in range(1, num+1):
+#          if num % i == 0:
+#               count = count + 1
+
+#     if count == 2 :
+#          print(f"{num} is prime number")
+    
+
+#################################################################################
+
+# n = int(input("Enter number : "))
+
+# sum = 0
+
+# for i in range(1,n):
+#     if n % i == 0:
+#         sum = sum + i
+
+# if sum == n:
+#     print(f"{n} is perfect number")
+# else:
+#     print(f"{n} is not perfect number")
+
+#################################################################################
+
+# n =  int(input("Check number is armstrong or not (Enter 3 digit number only): "))
+
+# copy = n
+
+# total = 0
+
+# while n != 0 :
+#     rem = n % 10
+#     cube = rem ** 3
+#     total = total + cube
+#     n = n // 10
+
+# if total == copy:
+#     print(f"{copy} is armstrong number")
+# else:
+#     print(f"{copy} is not armstrong number")
+
+#################################################################################
+
+# n = int(input("Enter number : "))
+
+# previous = 0
+# current = 1
+
+# print(f"Fibonacci series of {n} : \n{previous}\n{current}")
+
+
+# for i in range(2,n):
+#     next = current + previous
+#     print(next)
+#     previous = current
+#     current = next 
+
+#################################################################################
+
+
+# l = [12, 435, 67, 89, 23, 25, 69]
+
+# greatest = l[0]
+# sec_greatest = l[0]
+
+# for i in range(0,len(l)):
+#     if l[i] > greatest:
+#        sec_greatest = greatest
+#        greatest = l[i]
+
+#     elif l[i] > sec_greatest:
+#         sec_greatest = l[i]
+    
+# print(f"{greatest} is greatest & {sec_greatest} is 2nd greatest")
+
+#################################################################################
+
+# l = [12,13,14,15,16]
+
+# for i in range(len(l) -1 ):
+#     if l[i] < l[i+1]:
+#         continue
+#     else:
+#         print("List is not sorted")
+#         break
+# else:
+#     print("List is sorted")
+
+
+########################################################################################################
+### WEEK 1 - BASICS - VARIABLES , DATA TYPES, INPUT/OUTPUT, LOOPS, CONDITONALS 
+
+# Q1. Write a Python program to swap two variables 
+
+# a = int(input("Enter first number : "))
+# b = int(input("Enter second number : "))
+
+# a = a + b 
+# b = a - b 
+# a = a - b
+
+# print("After swapping :")
+# print(f"first number : {a}")
+# print(f"second number : {b}")
+
+                        #OR
+
+# a = int(input("Enter first number : "))
+# b = int(input("Enter second number : "))
+
+# Swap the variables in one line
+# a, b = b, a
+
+# print("After swapping :")
+# print(f"first number : {a}")
+# print(f"second number : {b}")
+
+#########################################################################################################
+
+# Q2. Take user input and display it back to the user
+
+# user_input = input("Enter input : ")
+
+# print(f"You entered : {user_input}")
+
+#########################################################################################################
+
+# # Q6. Convert temperature from Celcius to Fahrenheit
+
+# celcius = float(input("Enter temperature in celcius : "))
+
+# f = (celcius * 9/5) + 32
+
+# print(f"{celcius} degree celcius in Fahrenheit is {f}")
+
+#########################################################################################################
+
+# # Q8. Create a program to count the number of vowels in a string.
+
+# word = input("Enter the string : ")
+
+# count = 0
+
+# for i in range(0,len(word)):
+#     if word[i] == "a" or word[i] == "A":
+#         count = count + 1
+
+#     elif word[i] == "e" or word[i] == "E":
+#         count = count + 1
+
+#     elif word[i] == "i" or word[i] == "I":
+#         count = count + 1
+
+#     elif word[i] == "o" or word[i] == "O":
+#         count = count + 1
+
+#     elif word[i] == "u" or word[i] == "U":
+#         count = count + 1
+
+# print(f"Total counts of vowels in string : {count}")
+
+#########################################################################################################
+
+# # Q11. Write a program to find the sum of first N natural numbers.
+
+# n = int(input("Enter Number (Must be positive & Not a zero) : "))
+
+# sum = 0
+
+# for i in range(1,n+1):
+#     sum = sum + i
+
+
+# print(f"Sum upto {n} is {sum}")
+
+#########################################################################################################
+
+# Q12. Create a number guessing game.
+
+# import random 
+
+# random_number = random.randint(1,10)
+
+# attempts =  0
+
+# while True:
+#     guess = int(input("Enter number : "))
+
+#     attempts += 1
+
+#     if guess > random_number:
+#         print("Too high")
+        
+
+#     elif guess < random_number:
+#         print("Too low")
+        
+
+#     else:
+#         print("Congratulations !! you guessed it !!!")
+#         print(f"You guessed the number in {attempts} attempts")
+#         break
+
+#########################################################################################################
+
+### WEEK 2 - FUNCTIONS, LIST, TUPLE, SET, DICTIONARY
+            
+#1. Write a function to check if a number is even.
+
+# def evenOrOdd():
+#     n = int(input("Enter number : "))
+
+#     if n % 2 == 0:
+#         print(f"{n} is even")
+#     else:
+#         print(f"{n} is a odd")
+
+# evenOrOdd()
+
+#########################################################################################################
+
+# 2. Create a list and find the sum of all its elements.
+
+# ls = [1,2,3,4,2,5,1]
+
+# total = 0
+
+# for i in ls:
+#     total += i
+
+# print(total)
+
+#########################################################################################################
+
+# 3. Write a program to find the maximum and minimum in a list.
+
+# ls = [12,41,25,45,100,20]
+
+# minimum = ls[0]
+# maximum = ls[0]
+
+
+# for i in range(len(ls)):
+#     if maximum < ls[i]:
+#         maximum = ls[i]
+#     elif minimum > ls[i]:
+#         minimum = ls[i]
+    
+# print(f"{maximum} is maximum and {minimum} is minimum")
+
+#########################################################################################################
+
 # Q1. Write a function to check if a number is even
 # def evenOrnot():
 #     user_input = int(input("Enter number : "))
@@ -654,36 +1429,152 @@
 
 ########################################################################################################
 # Q10. Handle multiple exceptions in a single try block.
-print("1 for reading the file")
-print("2 for perform the division")
-print("3 for import module")
-try:
-    choice = int(input("Enter your choice : "))
+# print("1 for reading the file")
+# print("2 for perform the division")
+# print("3 for import module")
 
-    if choice == 1:
-        with open("esfjkdc") as f:
-            f.read()
+# try:
+#     choice = int(input("Enter your choice : "))
 
-    elif choice == 2:
-        num1 = 10
-        num2 = 0
-        result = num1 / num2
-        print(result)
+#     if choice == 1:
+#         with open("esfjkdc") as f:
+#             f.read()
 
-    elif choice == 3:
-        from something import nothing
+#     elif choice == 2:
+#         num1 = 10
+#         num2 = 0
+#         result = num1 / num2
+#         print(result)
 
-    else:
-        print("Invalid Choice! Please enter 1, 2 or 3")
+#     elif choice == 3:
+#         from something import nothing
 
-except ZeroDivisionError as err:
-    print(err)
+#     else:
+#         print("Invalid Choice! Please enter 1, 2 or 3")
 
-except FileNotFoundError as err:
-    print(err)
+# except ZeroDivisionError as err:
+#     print(err)
 
-except ModuleNotFoundError as err:
-    print(err)
+# except FileNotFoundError as err:
+#     print(err)
 
-except ValueError as err:
-    print(err)
+# except ModuleNotFoundError as err:
+#     print(err)
+
+# except ValueError as err:
+#     print(err)
+
+########################################################################################################
+# Q1. Write a program that:
+
+# Opens data.txt in read mode.
+# Reads and prints its contents.
+# Handles FileNotFoundError.
+# Uses with open() so the file is automatically closed.
+
+# try:
+#     with open("data.txt") as f:
+#         print(f.read())
+# except FileNotFoundError as err:
+#     print(err)
+
+########################################################################################################
+
+# Q2. Write a program that:
+
+# Takes two numbers from the user.
+# Divides the first by the second.
+# Handles:
+# ValueError if the user enters something that isn't a number.
+# ZeroDivisionError if the second number is 0.
+# Uses else to print the result only when no exception occurs.
+# Uses finally to print "Program finished".
+
+
+# try:
+#     num1 = int(input("Enter first number : "))
+#     num2 = int(input("Enter second number : "))
+
+#     result = num1 / num2
+
+# except ValueError as err:
+#     print(err)
+
+# except ZeroDivisionError as err:
+#     print(err)
+
+# else:
+#     print(result)
+
+# finally:
+#     print("PROGRAM FINISHED")
+
+########################################################################################################
+# Q3. Write a program that opens notes.txt and:
+
+# Reads all lines.
+# Prints the total number of lines.
+# Handles FileNotFoundError.
+# Handles any unexpected exception using a general Exception.
+
+# Bonus: Print the exception message.
+
+
+# try:
+#     with open("notes.txt") as f:
+#         data = f.readlines()
+#         count = len(data)
+#         print(f"Total number of lines in notes.txt are {count}")
+
+# except FileNotFoundError as err:
+#     print(err)
+
+# except Exception as err:
+#     print(err)
+
+########################################################################################################
+
+# Q4. Ask the user to enter:
+
+# Name
+# Age
+# City
+
+# Store the information in user_data.txt.
+
+# Your program should:
+
+# Open the file in write mode.
+# Write the information.
+# Handle possible exceptions.
+# Confirm that the data was successfully written using else.
+# Print a completion message using finally.
+
+# try:
+#     name = input("Enter your name : ")
+#     age = int(input("Enter your age : "))
+#     city = input("Enter your city : ")
+
+
+#     with open("user_data.txt", "w") as f:
+#         f.write(f"Name : {name}\n")
+#         f.write(f"Age : {age}\n")
+#         f.write(f"City : {city}")
+
+# except ValueError as err:
+#     print(err)
+
+# except FileNotFoundError as err:
+#     print(err)
+
+# except Exception as err:
+#     print(err)
+
+# else:
+#     print("Data successfully written")
+
+# finally:
+#     print("Task Completed")
+
+########################################################################################################
+
