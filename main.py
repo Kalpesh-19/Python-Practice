@@ -1577,4 +1577,163 @@
 #     print("Task Completed")
 
 ########################################################################################################
+# Q5. Simple file manager
 
+# Create a menu:
+
+# 1. Read file
+# 2. Write to file
+# 3. Append to file
+# 4. Exit
+
+# Depending on the user's choice:
+
+# 1 → Read data.txt
+# 2 → Overwrite data.txt
+# 3 → Add content to the end of data.txt
+# 4 → Exit
+
+# Handle:
+
+# Invalid menu input
+# FileNotFoundError
+# ValueError
+# Other unexpected exceptions
+
+
+# try:
+#     print("1. Read File")
+#     print("2. Write to File")
+#     print("3. Append to File")
+#     print("4. Exit")
+
+#     choice = int(input("Enter Your choice : "))
+
+#     if choice == 1:
+#         with open("data.txt", "r") as f:
+#             print(f.read())
+
+#     elif choice == 2:
+#         content = input("Enter content : ")
+#         with open("data.txt", "w") as f:
+#             f.write(content)
+
+#     elif choice == 3:
+#         content = input("Enter content : ")
+#         with open("data.txt", "a") as f:
+#             f.write(f"\n{content}")
+
+#     elif choice == 4:
+#         print("Exiting from file menu")
+
+#     else:
+#         print("Invalid menu input")
+
+# except FileNotFoundError as err:
+#     print(err)
+
+# except ValueError as err:
+#     print(err)
+
+# except Exception as err:
+#     print(err)
+
+########################################################################################################
+
+# Q6. Copy one file into another
+
+# Write a program that:
+
+# source.txt → destination.txt
+
+# The program should:
+
+# Open source.txt.
+# Read its contents.
+# Create/overwrite destination.txt.
+# Write the contents into it.
+# Handle the situation where the source file doesn't exist.
+# Handle other possible exceptions.
+
+# Bonus: Display how many characters were copied.
+
+# try:
+#     with open("source.txt", "r") as f:
+#         content = f.read()
+#         character = len(content)
+
+#     with open("Destination.txt", "w") as f1:
+#         f1.write(content)
+
+
+# except FileNotFoundError as err:
+#     print(err)
+
+# except PermissionError as err:
+#     print(err)
+
+# except Exception as err:
+#     print(err)
+
+# else:
+#     print(f"No of character were copied are {character}")
+#     print("Successfully file Copied!!!")
+
+########################################################################################################
+
+# 7. File-based calculator
+
+# Create a file called numbers.txt containing numbers like:
+
+# 10
+# 20
+# 30
+# abc
+# 40
+# 0
+# 50
+
+# Write a program that:
+
+# Reads the file line by line.
+# Converts each line to an integer.
+# Calculates the sum.
+# Ignores invalid lines such as "abc".
+# Handles ValueError for invalid numbers.
+# Handles FileNotFoundError.
+# Prints the final sum.
+
+# Bonus: Also count:
+
+# Valid numbers
+# Invalid numbers
+
+
+with open("numbers.txt", "r") as f:
+    content = f.readlines()
+    total = 0
+    new_list = []
+    count_valid = 0
+    count_invalid = 0
+    for line in content:
+        
+        if type(line) == str:
+            data = int(line)
+        
+        # if type(line) == int:
+
+        #     new_list.append(line)
+        #     count_valid += 1
+        # elif type(line) != int:
+        #     count_invalid += 1
+        #     continue
+            
+
+    for num in new_list:
+        total += num 
+
+print(f"Final sum : {total}")
+print(f"Valid numbers are {count_valid}")
+print(f"Invalid numbers are {count_invalid}")
+
+    
