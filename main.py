@@ -1709,31 +1709,201 @@
 # Invalid numbers
 
 
-with open("numbers.txt", "r") as f:
-    content = f.readlines()
-    total = 0
-    new_list = []
-    count_valid = 0
-    count_invalid = 0
-    for line in content:
-        
-        if type(line) == str:
-            data = int(line)
-        
-        # if type(line) == int:
 
-        #     new_list.append(line)
-        #     count_valid += 1
-        # elif type(line) != int:
-        #     count_invalid += 1
-        #     continue
-            
+# total = 0
+# valid_count = 0
+# invalid_count = 0
 
-    for num in new_list:
-        total += num 
+# try:
+#     with open("numbers.txt", "r") as f:
+#         for line in f:
+#             try:
+#                 number = int(line)
+#                 total += number
+#                 valid_count += 1
 
-print(f"Final sum : {total}")
-print(f"Valid numbers are {count_valid}")
-print(f"Invalid numbers are {count_invalid}")
+#             except ValueError as err:
+#                 invalid_count += 1
+   
+# except FileNotFoundError as err:
+#     print(err)
 
+# print(f"Final sum is {total}")
+# print(f"Valid numbers : {valid_count}")
+# print(f"Invalid Numbers : {invalid_count}")
     
+########################################################################################################
+
+# 8. Search for a word in a file
+
+# Ask the user:
+
+# Enter a word to search:
+
+# Then search for that word in article.txt.
+
+# Print:
+
+# Word found
+
+# or
+
+# Word not found
+
+# Also print the number of times the word appears.
+
+# Handle:
+
+# File not found
+# Empty file
+# Invalid input
+
+# Bonus: Make the search case-insensitive.
+
+# count = 0
+
+# try:
+#     user_word = input("Enter a word to search : ").lower()
+
+#     if user_word == "":
+#         user_word = input("Please enter word : ")
+
+#     else:
+#         with open("Article.txt", "r") as f:
+#             content = f.read().lower()
+
+#             if not content:
+#                 print("File is empty")
+#             else:
+#                 words = content.lower().split()
+#                 count = words.count(user_word)
+
+#             if count > 0:
+#                 print("Word found")
+#             else:
+#                 print("Word not found")
+
+#         print(f"{count} times word appears")
+
+# except FileNotFoundError as err:
+#     print(err)
+
+########################################################################################################
+
+# 9. Student records system
+
+# Create a program that stores student information in a file:
+
+# 101,Kalpesh,85
+# 102,Rahul,72
+# 103,Priya,91
+
+# Create a menu:
+
+# 1. Add student
+# 2. Display all students
+# 3. Search student by ID
+# 4. Exit
+
+# Requirements:
+
+# Store records in students.txt.
+# When adding a student, validate the ID and marks.
+# Handle invalid numeric input with ValueError.
+# Handle missing files with FileNotFoundError.
+# When searching, display "Student not found" if the ID doesn't exist.
+# Use with open() for every file operation.
+# Don't let one bad input crash the entire program.
+
+
+# print("Menu : ")
+# print("1. Add Student")
+# print("2. Display all students")
+# print("3. Search student by ID")
+# print("4. Exit")
+
+
+# try:
+
+#     choice = int(input("Enter your choice : "))
+
+
+#     if choice == 1:
+#         student_id = int(input("Enter Student's ID : "))
+#         student_name = input("Enter Student's name : ")
+#         student_marks = int(input("Enter Student's marks : "))
+
+#         with open("Students.txt", "a") as f:
+#             f.write(f"{student_id},{student_name},{student_marks}\n")
+        
+#     elif choice == 2:
+#         with open("Students.txt", "r") as f:
+#             print(f.read())
+
+#     elif choice == 3:
+#         search = input("Enter ID to search student : ")
+#         with open("Students.txt", "r") as f:
+#             content = f.read()
+#             for line in f:
+#                 if search not in content:
+#                     print("Student not found")
+#                 else:
+#                     print(line)
+#                     break
+
+#     elif choice == 4:
+#         print("Exit")
+
+#     else:
+#         print("Invalid Choice")
+    
+
+# except ValueError as err:
+#     print(err)
+
+# except FileNotFoundError as err:
+#     print(err)
+
+# except Exception as err:
+#     print(err)
+
+########################################################################################################
+
+# 10. Create a file called server.log:
+
+# INFO: Server started
+# ERROR: Database connection failed
+# INFO: User logged in
+# WARNING: Low memory
+# ERROR: File not found
+# INFO: User logged out
+# ERROR: Database connection failed
+
+# Write a program that:
+
+# Opens the file.
+# Reads it line by line.
+# Counts:
+# INFO
+# WARNING
+# ERROR
+# Displays something like:
+# INFO: 3
+# WARNING: 1
+# ERROR: 3
+# Creates a new file called errors.txt.
+# Stores only ERROR lines in it.
+# Handles:
+# FileNotFoundError
+# PermissionError
+# Unexpected exceptions
+# Uses try-except-else-finally.
+# Uses with open() wherever appropriate.
+
+# Bonus challenge: Ask the user for a keyword and find how many times that keyword appears in the log.
+
+
+########################################################################################################
+# NOTE -- Q8, Q9, Q10  Not solved of Exeption handling & File handling 
+
+########################################################################################################
