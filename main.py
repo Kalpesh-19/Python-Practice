@@ -1907,3 +1907,150 @@
 # NOTE -- Q8, Q9, Q10  Not solved of Exeption handling & File handling 
 
 ########################################################################################################
+###     OOPs in Python (Object-Oriented-Programming in Python)
+# Q1. Create a Student class
+
+# Create a class Student with:
+
+# name
+# age
+# course
+
+# Create one object and display all its information.
+
+# Answer - 
+# class Student:
+#     name = "Kalpesh"
+#     age = 18
+#     course = "Computer Science CS"
+
+# obj = Student()
+
+# print(f"Student's name = {obj.name}")
+# print(f"Student's age = {obj.age}")
+# print(f"Student's course = {obj.course}")
+
+########################################################################################################
+# Q2. Create a Car class
+
+# Create a class Car with attributes:
+
+# brand
+# model
+# color
+
+# Create two objects with different values and display their information.
+
+# Answer -
+# class Car:
+#     def __init__(self, brand, model, color):
+#         self.brand = brand
+#         self.model = model
+#         self.color = color
+
+#     def show(self):
+#         print(f"Brand :- {self.brand}")
+#         print(f"Model :- {self.model}")
+#         print(f"Color :- {self.color}")
+
+# hyundai = Car("Hyundai", "SX (Dark Knight)", "Black")
+# tata = Car("Tata", "Sierra Ev", "Black")
+
+# hyundai.show()
+# print("---------------------------------------")
+# tata.show()
+
+########################################################################################################
+# Q3. Create a Book class with constructor
+
+# Create a class Book with a constructor that accepts:
+
+# title
+# author
+# price
+
+# Create an object and display the book details.
+
+# Answer - 
+# class Book:
+#     def __init__(self, title, author, price):
+#         self.title = title
+#         self.author = author
+#         self.price = price
+
+#     def display(self):
+#         print("Book Details :- ")
+#         print(f"Title :- {self.title}")
+#         print(f"Author :- {self.author}")
+#         print(f"Price :- {self.price}")
+
+
+# book1 = Book("Engineering Mathematics IV", "J.V.Kumbhojkar", 500)
+# book1.display()
+
+########################################################################################################
+# Q4. Create a Mobile class
+
+# Create a class Mobile with:
+
+# brand
+# model
+# price
+
+# Add a method display() that prints all the details.
+
+# Create two objects and call the method for both.
+
+
+# Answer - 
+# class Mobile:
+#     def __init__(self, brand, model, price):
+#         self.brand = brand
+#         self.model = model
+#         self.price = price
+
+#     def display(self):
+#         print("Mobile Detail : ")
+#         print(f"Brand : {self.brand}")
+#         print(f"Model : {self.model}")
+#         print(f"Price : {self.price}")
+
+# samsung = Mobile("Samsung", "S26 ultra", 135000)
+# apple = Mobile("Apple", "iphone 17 pro max", 130000)
+# samsung.display()
+# print("-----------------------------------------")
+# apple.display()
+
+########################################################################################################
+# Q5. Create an Employee class
+
+# Create a class Employee with a constructor that accepts:
+
+# name
+# salary
+
+# Create three employee objects and display their details.
+
+
+# Answer - 
+# class Employee:
+#     def __init__(self, name, salary):
+#         self.name = name
+#         self.salary = salary
+
+#     def details(self):
+#         print("Details : ")
+#         print(f"Name : {self.name}")
+#         print(f"Salary : ₹{self.salary:,}")
+
+# kalpesh = Employee("Kalpesh", 70000)
+# sanika = Employee("Sanika", 80000)
+# bunny = Employee("Bunny", 100000)
+
+# kalpesh.details()
+# print("..........................")
+# sanika.details()
+# print("..........................")
+# bunny.details()
+
+########################################################################################################
