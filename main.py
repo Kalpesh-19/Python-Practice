@@ -2054,3 +2054,233 @@
 # bunny.details()
 
 ########################################################################################################
+# Q6. Student Marks
+
+# Create a Student class with a constructor accepting:
+
+# name
+# marks
+
+# Create a method display_result() that prints:
+
+# Name: Rahul
+# Marks: 85
+# Result: Pass
+
+# Consider a student Pass if marks >= 40.
+
+# Create at least 3 student objects.
+
+
+# Answer -
+# class Student:
+#     def __init__(self, name, marks):
+#         self.name = name
+#         self.marks = marks
+
+#     def display_result(self):
+#         print(f"Name : {self.name}")
+#         print(f"Marks : {self.marks}")
+
+#         if self.marks >= 40:
+#             print(f"Result : Pass")
+#         else:
+#             print(f"Result : Fail")
+
+# rahul = Student("Rahul", 59)
+# shreedhar = Student("Shreedhar", 69)
+# kalpesh = Student("Kalpesh", 39)
+
+# rahul.display_result()
+# print("<---------------------------->")
+# shreedhar.display_result()
+# print("<---------------------------->")
+# kalpesh.display_result()
+
+########################################################################################################
+# Q7. Bank Account
+
+# Create a BankAccount class with a constructor accepting:
+
+# account_holder
+# balance
+
+# Create methods:
+
+# deposit(amount)
+# withdraw(amount)
+# display_balance()
+
+# Rules:
+
+# Deposit should increase the balance.
+# Withdrawal should decrease the balance.
+# Don't allow withdrawal if the amount is greater than the balance.
+
+# Create an object and perform multiple operations.
+
+
+# Answer -
+# class BankAccount:
+#     def __init__(self, account_holder, balance):
+#         self.account_holder = account_holder
+#         self.balance = balance
+
+#     def deposit(self, amount):
+#         if amount > 0:
+#             self.balance += amount
+#         else:
+#             print("Deposit amount must be greater than 0")
+
+
+#     def withdraw(self, amount):
+#         if amount <= 0:
+#             print("Withdrawal amount must be greater than 0")
+#         elif amount > self.balance:
+#             print("Insufficient balance")
+#         else:
+#             self.balance -= amount
+
+#     def display_balance(self):
+#         print(f"Current Balance : {self.balance}")
+
+# kalpesh = BankAccount("Kalpesh", 100000)
+# kalpesh.deposit(10000) 
+# kalpesh.withdraw(600000)
+# kalpesh.display_balance()
+
+########################################################################################################
+# Q8. Rectangle
+
+# Create a Rectangle class with a constructor accepting:
+
+# length
+# width
+
+# Create methods:
+
+# area()
+# perimeter()
+
+# Create two rectangle objects with different dimensions and display their area and perimeter.
+
+
+# Answer -
+# class Rectangle:
+#     def __init__(self, length, width):
+#         self.length = length
+#         self.width = width
+
+#     def area(self):
+#         area = self.length * self.width
+#         return area
+
+#     def perimeter(self):
+#         perimeter = 2 * (self.length + self.width)
+#         return perimeter
+
+# print("Object 1")
+# obj1 = Rectangle(12, 12)
+# print(f"Area of rectangle : {obj1.area()}")
+# print(f"Perimeter of rectangle : {obj1.perimeter()}")
+
+# print("---------------------------------------------")
+
+# print("Object 2")
+# obj2 = Rectangle(22, 25)
+# print(f"Area of rectangle : {obj2.area()}")
+# print(f"Perimeter of rectangle : {obj2.perimeter()}")
+
+########################################################################################################
+# Q9. Product
+
+# Create a Product class with:
+
+# name
+# price
+# quantity
+
+# Use a constructor to initialize these values.
+
+# Create a method:
+
+# total_price()
+
+# which returns:
+
+# price × quantity
+
+# Create three product objects and find the total price of each.
+
+
+# Answer -
+# class Product:
+#     def __init__(self, name, price, quantity):
+#         self.name = name
+#         self.price = price
+#         self.quantity = quantity
+
+#     def total_price(self):
+#         return self.price * self.quantity
+
+
+# shampoo = Product("Shampoo", 50, 200)
+# pen = Product("Pen", 44, 400)
+# laptop = Product("Laptop", 122, 63)
+
+# print(f"{shampoo.name} Total Price : {shampoo.total_price()}")
+# print(f"{pen.name} Total Price : {pen.total_price()}")
+# print(f"{laptop.name} Total Price : {laptop.total_price()}")
+
+########################################################################################################
+# Q10. Employee Salary
+
+# Create an Employee class with:
+
+# name
+# salary
+# department
+
+# Use a constructor to initialize them.
+
+# Create a method display().
+
+# Also create a method:
+
+# annual_salary()
+
+# which returns the employee's yearly salary.
+
+# Create at least 3 employees.
+
+
+# Answer -
+# class Employee:
+#     def __init__(self, name, salary, department):
+#         self.name = name
+#         self.salary = salary
+#         self.department = department
+
+#     def display(self):
+#         print(f"Employee's name : {self.name}")
+#         print(f"Salary : {self.salary}")
+#         print(f"Department : {self.department}")
+
+#     def annual_salary(self):
+#         return self.salary * 12
+
+
+# ezio = Employee("Ezio", 75000, "IT")
+# hela = Employee("Hela", 65000, "Consulting")
+# killer = Employee("killer", 78000, "CS")
+
+# ezio.display()
+# print(f"Annual salary : {ezio.annual_salary()}")
+# print("------------------------------------------")
+# hela.display()
+# print(f"Annual salary : {hela.annual_salary()}")
+# print("-------------------------------------------")
+# killer.display()
+# print(f"Annual salary : {killer.annual_salary()}")
+
+########################################################################################################
