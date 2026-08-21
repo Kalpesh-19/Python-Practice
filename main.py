@@ -2284,3 +2284,173 @@
 # print(f"Annual salary : {killer.annual_salary()}")
 
 ########################################################################################################
+# Q11. Library Book System
+
+# Create a Book class with:
+
+# title
+# author
+# price
+# available
+
+# Use a constructor to initialize the values.
+
+# Create methods:
+
+# display()
+# borrow_book()
+# return_book()
+
+# Rules:
+
+# If the book is available, borrow_book() should make it unavailable.
+# If it is already borrowed, display an appropriate message.
+# return_book() should make it available again.
+
+# Create at least 3 book objects and test different operations.
+
+
+# Answer -
+# class Book:
+#     def __init__(self, title, author, price, available):
+#         self.title = title
+#         self.author = author
+#         self.price = price
+#         self.available = available.lower()
+
+
+#     def display(self):
+#         print("Book Details : ")
+#         print(f"Title : {self.title}")
+#         print(f"Author : {self.author}")
+#         print(f"Price : {self.price}")
+#         print(f"Available : {self.available}")
+
+#     def borrow_book(self):
+#         if self.available == "yes":
+#             self.available = "no"
+#         else:
+#             print(f"{self.title}'s book is Not Available")
+
+        
+#     def return_book(self):
+#         if self.available == "no":
+#             self.available = "yes"
+#         else:
+#             print(f"{self.title} is already available")
+
+# book1 = Book("Engineering Mathemarics IV", "G.V.kumbhojkar", 500, "YES")
+# book2 = Book("Mechaninc", "Dr. Dhananjay Wankhede", 200, "No")
+# book3 = Book("Social Media Analytics", "Renuka Sanga", 1500, "yes")
+
+# book1.display()
+# print("-----------------------")
+# book2.display()
+# book2.borrow_book()
+# print("-----------------------")
+# book3.display()
+# book3.return_book()
+
+########################################################################################################
+# Q12. Bank Account System
+
+# Create a BankAccount class with:
+
+# account_number
+# holder_name
+# balance
+
+# Methods:
+
+# deposit(amount)
+# withdraw(amount)
+# display_account()
+
+# Rules:
+
+# Deposit amount must be greater than 0.
+# Withdrawal amount must be greater than 0.
+# Withdrawal cannot exceed the balance.
+
+# Create two bank account objects and perform different transactions on each.
+
+# Challenge: Make sure changing one account does not affect the other account.
+
+
+# Answer - 
+# class BankAccount:
+#     def __init__(self, account_number, holder_name, balance):
+#         self.account_number = account_number
+#         self.holder_name = holder_name
+#         self.balance = balance
+
+#     def display_account(self):
+#         print("Account Details : ")
+#         print(f"Name : {self.holder_name}")
+#         print(f"Account Number : {self.account_number}")
+#         print(f"Balance : {self.balance}")
+
+
+#     def deposit(self, amount):
+#         if amount > 0:
+#             self.balance += amount
+#         else:
+#             print("Amount must be greater than 0")
+
+
+#     def withdrawal(self, amount):
+#         if amount <= 0:
+#             print("Amount must be greater than 0")
+#         elif amount <= self.balance:
+#             self.balance -= amount
+#         else:
+#             print("Insufficient Balance")
+
+
+# kalpesh = BankAccount("1245", "Kalpesh", 35600)
+# kalpesh.deposit(50000)
+# kalpesh.display_account()
+# print("-----------------------------------------")
+# sanika = BankAccount("4567", "Sanika", 60000)
+# sanika.withdrawal(8050)
+# sanika.display_account()
+
+########################################################################################################
+# Q13. Shopping Cart
+
+# Create a Product class with:
+
+# name
+# price
+
+# Create a ShoppingCart class.
+
+# The cart should be able to:
+
+# add_product()
+# remove_product()
+# display_cart()
+# calculate_total()
+
+# Create multiple Product objects and add them to the shopping cart.
+
+# For example:
+
+# Laptop → ₹50000
+# Mouse → ₹1000
+# Keyboard → ₹2000
+
+# The cart should calculate:
+
+# Total = ₹53000 
+
+
+# Answer -
+# class Product:
+#     def __init__(self, name, price):
+#         self.name = name
+#         self.price = price
+
+
+# class ShoppingCart:
+#     def add_product(self):
