@@ -2529,50 +2529,186 @@
 
 # Answer - 
 
-class Student:
-    def __init__(self, name, roll_number, marks):
-        self.name = name
-        self.roll_number = roll_number
-        if len(marks) == 5:
-            self.marks = marks
-        else:
-            print("Please enter  marks of 5 subjects")
+# class Student:
+#     def __init__(self, name, roll_number, marks):
+#         self.name = name
+#         self.roll_number = roll_number
+#         if len(marks) == 5:
+#             self.marks = marks
+#         else:
+#             print("Please enter  marks of 5 subjects")
 
-    def calculate_total(self):
-        total = 0 
-        for score in self.marks:
-            total += score
+#     def calculate_total(self):
+#         total = 0 
+#         for score in self.marks:
+#             total += score
 
-        return total
+#         return total
 
-    def calculate_percentage(self):
-        total = self.calculate_total()        
-        percentage = (total / 500) * 100
-        print(f"Percentage : {percentage}")
+#     def calculate_percentage(self):
+#         total = self.calculate_total()        
+#         percentage = (total / 500) * 100
+#         # print(f"Percentage : {percentage}")
+#         return percentage
 
 
-    def display_result(self):
-        for marks in self.marks:
-            if marks >= 40:
-                continue
-            else:
-                print("Student Failed")
-                break
-        else:
-            print("Student Passed")
+#     def display_result(self):
+#         for marks in self.marks:
+#             if marks >= 40:
+#                 continue
+#             else:
+#                 print("Student Failed")
+#                 break
+#         else:
+#             print("Student Passed")
 
-kalpesh = Student("Kalpesh", 5, [50, 55, 45, 75, 85])
-print(kalpesh.calculate_total())
-kalpesh.calculate_percentage()
-kalpesh.display_result()
-print("--------------------------------------------------")
-sanika = Student("Sanika", 6, [45, 60, 58, 85, 90])
-print(sanika.calculate_total())
-sanika.calculate_percentage()
-sanika.display_result()
-print("--------------------------------------------------")
-bunny = Student("Bunny", 7, [75, 78, 38, 75, 90])
-print(bunny.calculate_total())
-bunny.calculate_percentage()
-bunny.display_result()
-print("--------------------------------------------------")
+# kalpesh = Student("Kalpesh", 5, [50, 55, 45, 75, 85])
+# print(kalpesh.calculate_total())
+# kalpesh.calculate_percentage()
+# kalpesh.display_result()
+# print("--------------------------------------------------")
+# sanika = Student("Sanika", 6, [45, 60, 58, 85, 90])
+# print(sanika.calculate_total())
+# sanika.calculate_percentage()
+# sanika.display_result()
+# print("--------------------------------------------------")
+# bunny = Student("Bunny", 7, [75, 78, 38, 75, 90])
+# print(bunny.calculate_total())
+# bunny.calculate_percentage()
+# bunny.display_result()
+# print("--------------------------------------------------")
+
+# students = [kalpesh, sanika, bunny]
+# highest_student = None
+# highest_percentage = 0
+
+# for student in students:
+#     percentage = student.calculate_percentage()
+#     if percentage > highest_percentage:
+#         highest_percentage = percentage
+#         highest_student = student
+
+# print(f"Highest Student : {highest_student.name}")
+# print(f"Highest percentage : {highest_percentage}")
+
+########################################################################################################
+# Q15. Mini ATM System ⭐
+
+# Create a class ATM with:
+
+# account_holder
+# pin
+# balance
+
+# Use a constructor to initialize them.
+
+# Create methods:
+
+# check_balance()
+# deposit()
+# withdraw()
+# change_pin()
+
+# The user should only be allowed to perform operations after entering the correct PIN.
+
+# Rules:
+
+# Correct PIN → allow operations.
+# Wrong PIN → deny access.
+# Withdrawal cannot exceed balance.
+# Deposit must be positive.
+# New PIN should replace the old PIN.
+
+# Create two ATM/account objects and make sure their data remains separate.
+
+# Challenge: Create a simple menu:
+
+# 1. Check Balance
+# 2. Deposit
+# 3. Withdraw
+# 4. Change PIN
+# 5. Exit
+
+
+# Answer -
+
+# class ATM:
+#     def __init__(self, account_holder, pin, balance):
+#         self.account_holder = account_holder
+#         self.pin = pin
+#         self.balance = balance
+
+#     def check_balance(self, pin):
+#         if pin == self.pin:
+#             print(f"Balance : {self.balance}") 
+#         else:
+#             print("Please Enter correct pin")
+
+
+
+#     def deposit(self, amount, pin):
+#         if pin == self.pin: 
+#             if amount > 0:
+#                 self.balance += amount
+#             else:
+#                 print("Amount must be greater than 0")
+#         else:
+#             print("Please Enter correct pin")
+
+
+
+#     def withdraw(self, amount, pin):
+#         if pin == self.pin:
+#             if amount <= 0:
+#                 print("Amount must be greater than 0")
+#             elif amount > self.balance:
+#                 print("Insufficient Balance")
+#             else:
+#                 self.balance -= amount
+#         else:
+#             print("Please Enter correct pin")
+    
+
+
+#     def change_pin(self, pin):
+#         if pin == self.pin:
+#             new_pin = int(input("Enter New PIN : "))
+#             if len(str(new_pin)) == 4:
+#                 self.pin = new_pin
+#                 print("PIN changed successfully")
+#             else:
+#                 print("PIN must contain exactly 4 digits")
+#         else:
+#             print("Please Enter correct pin")
+
+
+# user1 = ATM("Kalpesh", 5566, 45500)
+
+    
+
+# while True:
+#     print("Menu")
+#     print("1. Check Balance")
+#     print("2. Deposit")
+#     print("3. Withdraw")
+#     print("4. change pin")
+#     print("5. Exit")
+
+#     choice = int(input("Enter your choice : "))
+
+#     if choice == 1:
+#         user1.check_balance(5566)
+#     elif choice == 2:
+#         user1.deposit(75000,5566)
+#     elif choice == 3:
+#         user1.withdraw(5000, 5566)
+#     elif choice == 4:
+#         user1.change_pin(5566)
+#     elif choice == 5:
+#         print("Exit")
+#         break
+#     else:
+#         print("Invalid Choice")
+
+# Half code of this question
+########################################################################################################
