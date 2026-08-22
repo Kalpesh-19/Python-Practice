@@ -2453,4 +2453,126 @@
 
 
 # class ShoppingCart:
-#     def add_product(self):
+#     def __init__(self):
+#         self.products = []
+
+#     def add_product(self, product):
+#         self.products.append(product)
+#         print("Product Added successfully.")
+
+
+#     def display_cart(self):
+#         cart_items = {}
+#         for product in self.products:
+#             cart_items[product.name] = product.price
+
+#         print(f"Cart : {cart_items}")
+
+#     def calculate_price(self):
+#         total = 0
+#         for product in self.products:
+#             total += product.price
+
+#         print(f"Total Price : {total}")
+        
+
+#     def remove_product(self, product):
+#         if product in self.products:
+#             self.products.remove(product)
+#             print("Product Removed successfully.")
+#         else:
+#             print("Product not found in cart")
+
+
+# cart = ShoppingCart()
+# keyboard = Product("Ant Esports mk500 pro", 1229)
+# laptop = Product("Lenovo loq", 75000)
+# mouse = Product("Apple Mini mouse", 5000)
+# ipad = Product("One plus 9pro", 4520)
+# cart.add_product(laptop)
+# cart.add_product(keyboard)
+# cart.add_product(mouse)
+# cart.add_product(ipad)
+# cart.remove_product(ipad)
+# cart.display_cart()
+# cart.calculate_price()
+
+########################################################################################################
+# Q14. Student Result System
+
+# Create a Student class with:
+
+# name
+# roll_number
+# marks
+
+# Use a constructor.
+
+# Create methods:
+
+# calculate_total()
+# calculate_percentage()
+# display_result()
+
+# Rules:
+
+# Store marks for 5 subjects.
+# Calculate total marks.
+# Calculate percentage.
+# Display whether the student passed or failed.
+# Assume the student must score at least 40 in every subject to pass.
+
+# Create at least 3 student objects.
+
+# Challenge: Display the student with the highest percentage.
+
+
+# Answer - 
+
+class Student:
+    def __init__(self, name, roll_number, marks):
+        self.name = name
+        self.roll_number = roll_number
+        if len(marks) == 5:
+            self.marks = marks
+        else:
+            print("Please enter  marks of 5 subjects")
+
+    def calculate_total(self):
+        total = 0 
+        for score in self.marks:
+            total += score
+
+        return total
+
+    def calculate_percentage(self):
+        total = self.calculate_total()        
+        percentage = (total / 500) * 100
+        print(f"Percentage : {percentage}")
+
+
+    def display_result(self):
+        for marks in self.marks:
+            if marks >= 40:
+                continue
+            else:
+                print("Student Failed")
+                break
+        else:
+            print("Student Passed")
+
+kalpesh = Student("Kalpesh", 5, [50, 55, 45, 75, 85])
+print(kalpesh.calculate_total())
+kalpesh.calculate_percentage()
+kalpesh.display_result()
+print("--------------------------------------------------")
+sanika = Student("Sanika", 6, [45, 60, 58, 85, 90])
+print(sanika.calculate_total())
+sanika.calculate_percentage()
+sanika.display_result()
+print("--------------------------------------------------")
+bunny = Student("Bunny", 7, [75, 78, 38, 75, 90])
+print(bunny.calculate_total())
+bunny.calculate_percentage()
+bunny.display_result()
+print("--------------------------------------------------")
