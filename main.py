@@ -1908,6 +1908,8 @@
 
 ########################################################################################################
 ###     OOPs in Python (Object-Oriented-Programming in Python)
+##      Classes, Objects & Constructor
+
 # Q1. Create a Student class
 
 # Create a class Student with:
@@ -2712,3 +2714,75 @@
 
 # Half code of this question
 ########################################################################################################
+
+###Types of Attributes & Methods 
+# Class Attributes , Instance Attributes
+# Instance Method, Class Method, Static Method
+
+# Q1. Create a class Student with an instance attribute name set via the constructor. 
+# Add an instance method greet() that prints "Hi, I'm <name>".
+
+# Answer -
+# class Student:
+#     def __init__(self, name):
+#         self.name = name
+
+#     def greet(self):
+#         return f"Hi, I'm {self.name}"
+
+# student1 = Student("Bunny")
+# print(student1.greet())
+
+########################################################################################################
+# Q2. Create a class Circle with a class attribute pi = 3.14.
+# Write an instance method area(self, radius) that uses pi to calculate and return the area.
+
+# Answer -
+# class Circle:
+#     pi = 3.14
+
+#     def area(self, radius):
+#         area = self.pi * radius ** 2
+#         return area
+
+# area1 = Circle()
+# print(area1.area(50))
+
+########################################################################################################
+# Q3.  Create a class Counter with a class attribute count = 0. Every time an object is created, increment count in the constructor. 
+# Print Counter.count after creating 3 objects.
+
+# Answer -
+# class Counter:
+#     count = 0
+
+#     def __init__(self):
+#         Counter.count += 1
+
+# obj1 = Counter()
+# obj2 = Counter()
+# obj3 = Counter()
+
+# print(Counter.count)
+
+########################################################################################################
+# Q4. Create a class BankAccount with an instance attribute balance. 
+# Add a static method is_valid_amount(amount) that returns True if amount > 0, else False. 
+# Use it inside a deposit() instance method before updating balance.
+
+# Answer -
+class BankAccount:
+    def __init__(self, balance):
+        self.balance = balance
+
+    def deposit(self, amount):
+        @staticmethod
+        def is_valid_amout(amount):
+            if amount > 0:
+                self.balance += amount
+                return True
+            else:
+                return False
+
+obj = BankAccount(75000)
+obj.deposit(25000)
