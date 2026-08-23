@@ -2771,18 +2771,97 @@
 # Use it inside a deposit() instance method before updating balance.
 
 # Answer -
-class BankAccount:
-    def __init__(self, balance):
-        self.balance = balance
+# class BankAccount:
+#     def __init__(self, balance):
+#         self.balance = balance
 
-    def deposit(self, amount):
-        @staticmethod
-        def is_valid_amout(amount):
-            if amount > 0:
-                self.balance += amount
-                return True
-            else:
-                return False
+#     @staticmethod
+#     def is_valid_amount(amount):
+#         if amount > 0: 
+#             return True
+#         else:
+#             return False
 
-obj = BankAccount(75000)
-obj.deposit(25000)
+#     def deposit(self, amount):
+#         result = self.is_valid_amount(amount)
+#         if result:
+#             self.balance += amount
+#         else:
+#             print("Amount must be greater than 0")
+
+# user1 = BankAccount(75000)
+# user1.deposit(25000)
+# print(user1.balance)
+
+########################################################################################################
+# Q5. Create a class Employee with instance attributes name and salary, and a class attribute company_name = "TechCorp". 
+# Add a class method change_company(cls, new_name) that updates company_name for the class.
+
+# Answer -
+# class Employee:
+#     def __init__(self, name, salary):
+#         self.name = name
+#         self.salary = salary
+
+#     company_name = "TechCorp"
+    
+
+#     @classmethod
+#     def change_company(cls, new_name):
+#        cls.company_name = new_name
+
+
+# obj = Employee("Kalpesh", 75000)
+# obj.change_company("freeFire")
+# print(obj.company_name)
+
+# obj2 = Employee("Sanika", 60000)
+# print(obj2.company_name)
+
+########################################################################################################
+# Q6. Create a class Product with instance attributes price and quantity. 
+# Add an instance method total_cost() and a static method apply_tax(amount, tax_rate) that returns amount + (amount * tax_rate). 
+# Combine both to print the total cost with 5% tax.
+
+
+# Answer -
+# class Product:
+#     def __init__(self, price, quantity):
+#         self.price = price
+#         self.quantity = quantity
+
+#     def total_cost(self):
+#         total_cost = self.price * self.quantity
+#         return total_cost
+
+#     @staticmethod
+#     def apply_tax(amount, tax_rate):
+#         result = amount * tax_rate
+#         applied_tax = result + amount
+#         return applied_tax
+
+
+# milk = Product(56, 10)
+# total_cost_of_milk = milk.total_cost()
+# final_value_of_milk = milk.apply_tax(total_cost_of_milk,0.05)
+# print(f"Total cost of milk : {total_cost_of_milk}")
+# print(f"Final value with tax : {final_value_of_milk}")
+
+########################################################################################################
+# Q7. Demonstrate the difference between an instance attribute and a class attribute by creating a class Dog with class attribute species = "Canine" and instance attribute name. 
+# Change species using one object and show that it does not affect other objects (explain why, based on how you changed it).
+
+# Answer -
+class Dog:
+    def __init__(self, name):
+        self.name = name 
+
+    species = "Canine"
+    self.species = "wolf"
+
+dog1 = Dog("rocky")
+dog2 = Dog("Simha")
+print(dog1.species)
+print(dog2.species)
+
+########################################################################################################
