@@ -2852,16 +2852,213 @@
 # Change species using one object and show that it does not affect other objects (explain why, based on how you changed it).
 
 # Answer -
-class Dog:
-    def __init__(self, name):
-        self.name = name 
+# class Dog:
+#     species = "Canine"
 
-    species = "Canine"
-    self.species = "wolf"
+#     def __init__(self, name):
+#         self.name = name 
 
-dog1 = Dog("rocky")
-dog2 = Dog("Simha")
-print(dog1.species)
-print(dog2.species)
+
+# dog1 = Dog("rocky")
+# dog2 = Dog("Simha")
+# dog1.species = "Wolf"
+# print(dog1.species)
+# print(dog2.species)
+# print(Dog.species)
+
+########################################################################################################
+
+### Types of attributes & methods,
+### Four Pillars of OOPs :
+### Inheritance, polymorphism, encapsulation, abstraction
+
+# Q1. Instance Attribute
+# Create a Student class with an instance attribute name and age. 
+# Create 3 student objects with different values.
+
+# Answer-
+# class Student:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+
+
+# student1 = Student("Kalpesh", 22)
+# student2 = Student("Sanika", 12)
+# student3 = Student("Bunny", 20)
+
+########################################################################################################
+# Q2. Class Attribute
+# Create a Car class with a class attribute wheels = 4. 
+# Create two car objects and display the wheels of both.
+
+# Answer -
+# class Car:
+#     wheels = 4
+
+# innova = Car()
+# fortuner = Car()
+# print(f"Innova has {innova.wheels} wheels")
+# print(f"Fortuner has {fortuner.wheels} wheels")
+
+########################################################################################################
+# Q3. Instance Method
+# Create a BankAccount class with an instance attribute balance. 
+# Create an instance method show_balance() that displays the balance.
+
+# Answer -
+# class BankAccount:
+#     def __init__(self, balance):
+#         self.balance = balance
+
+#     def show_balance(self):
+#         return self.balance
+
+# kalpesh = BankAccount(75000)
+# print(f"Kalpesh's balance : {kalpesh.show_balance()}")
+
+########################################################################################################
+# Q4. Class Method
+# Create a Student class with a class attribute school_name = "ABC School". 
+# Create a class method that changes the school name.
+
+# Answer -
+# class Student:
+#     school_name = "ABC School"
+
+#     @classmethod
+#     def change_name(cls, new_name):
+#         cls.school_name = new_name
+
+# obj1 = Student()
+# obj1.change_name("XYZ School")
+# print(obj1.school_name)
+
+########################################################################################################
+# Q5. Static Method
+# Create a Calculator class with a static method is_even(number) that returns True if the number is even.
+
+# Answer -
+# class Calculator:
+#     @staticmethod
+#     def is_even(number):
+#         if number % 2 == 0:
+#             return True
+#         else:
+#             return False
+
+
+# result = Calculator.is_even(4)
+# print(result)
+
+########################################################################################################
+# Q6. Combined Attributes
+# Create an Employee class containing:
+
+# instance attribute: name
+# instance attribute: salary
+# class attribute: company = "ABC"
+
+# Display all three values.
+
+# Answer -
+# class Employee:
+#     def __init__(self, name, salary):
+#         self.name = name
+#         self.salary = salary
+
+#     company = "ABC"
+
+# kalpesh = Employee("kalpesh", 75000)
+# print(kalpesh.name)
+# print(kalpesh.salary)
+# print(kalpesh.company)
+# print("-----------------------------------------")
+# bunny = Employee("Bunny", 70000)
+# print(bunny.name)
+# print(bunny.salary)
+# print(bunny.company)
+
+########################################################################################################
+# Q7. Combined Methods
+# Create a MathUtils class containing:
+
+# an instance method to calculate square
+# a class method to display the class name
+# a static method to check whether a number is positive
+
+# Answer -
+# class MathUtils:
+#     def calculate_square(self, number):
+#         return number ** 2
+
+#     @classmethod
+#     def class_name(cls):
+#         print(f"Class name is {cls.__name__}")
+
+#     @staticmethod
+#     def is_positive(number):
+#         if number > 0 :
+#             return True
+#         else:
+#             return False
+
+# obj1 = MathUtils()
+# print(obj1.calculate_square(45))
+# MathUtils.class_name()
+# print(obj1.is_positive(5))
+
+########################################################################################################
+# Q8. Basic Inheritance
+# Create a Vehicle class with a method start(). Create a Car class that inherits from Vehicle.
+
+# Answer -
+
+# class Vehicle:
+#     def start(self):
+#         print("Vehicle is starting")
+
+# class Car(Vehicle):
+#     name = "Innova"
+
+# car1 = Car()
+# car1.start()
+
+########################################################################################################
+# Q9. Parent + Child Methods
+# Create a Person class with eat(). Create a Student class inheriting from Person with an additional method study().
+
+# Answer -
+# class Person:
+#     def eat(self):
+#         print("Person is eating")
+
+# class Student(Person):
+#     def study(self):
+#         print("Student is studying")
+
+# kalpesh = Student()
+# kalpesh.eat()
+# kalpesh.study()
+
+########################################################################################################
+# Q10. Constructor Inheritance
+# Create a Person class with a constructor accepting name. 
+# Create a Student class that inherits from it and adds roll_no.
+
+# Answer -
+# class Person:
+#     def __init__(self,name):
+#         self.name = name
+
+
+# class Student(Person):
+#     def __init__(self, name, roll_no):
+#         super().__init__(name)
+#         self.roll_no = roll_no
+
+# kalpesh = Student("Kalpesh", 101 )
+# print(kalpesh.name)
+# print(kalpesh.roll_no)
 
 ########################################################################################################
