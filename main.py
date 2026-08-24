@@ -3062,3 +3062,191 @@
 # print(kalpesh.roll_no)
 
 ########################################################################################################
+# Q11. Method Overriding
+# Create a Animal class with sound(). Create Dog and Cat classes that override sound().
+
+# Anser -
+# class Animal:
+#     def sound(self):
+#         print("Animal makes Sound")
+
+# class Dog(Animal):
+#     def sound(self):
+#         print("Dog barks")
+
+# class Cat(Animal):
+#     def sound(self):
+#         print("Cat meows")
+
+# dog1 = Dog()
+# dog1.sound()
+
+# cat1 = Cat()
+# cat1.sound()
+
+########################################################################################################
+# Q12. super()
+# Create a Vehicle class with a constructor that initializes brand. Create a Car class that adds model. Use super().
+
+# Answer -
+
+# class Vehicle:
+#     def __init__(self, brand):
+#         self.brand = brand
+
+#     def start(self):
+#         print("Vehicle is starting")
+
+# class Car(Vehicle):
+#     def __init__(self, brand, model):
+#         super().__init__(brand)
+#         self.model = model
+
+#     def start(self):
+#         super().start()
+#         print("Car is ready to drive")
+
+
+# car1 = Car("Toyota", "Innova")
+# car1.start()
+
+########################################################################################################
+# Q13. Private Attribute
+# Create a BankAccount class with a private attribute __balance. Create methods to deposit and display the balance.
+
+# Answer -
+# class BankAccount:
+#     def __init__(self, balance, account_no):
+#         self.__balance = balance
+#         self.account_no = account_no
+
+#     def deposit(self, amount):
+#         self.__balance += amount
+#         print("Amount Deposited successfully")
+
+#     def show_balance(self):
+#         print(f"Current Balance : {self.__balance}")
+
+# user1 = BankAccount(75000, 1234)
+# user1.deposit(25000)
+# user1.show_balance()
+
+########################################################################################################
+# Q14. Protected Attribute
+# Create a Person class with a protected attribute _age. Create a Student class that accesses the protected attribute.
+
+# Answer -
+# class Person:
+#     def __init__(self, age):
+#         self._age = age
+
+# class Student(Person):
+#     def __init__(self, age):
+#         super().__init__(age)
+
+#     def show_age(self):
+#         print(f"Person's age is {self._age}")
+
+# s1 = Student(26)
+# s1.show_age()
+
+########################################################################################################
+# Q15. Private Method
+# Create a User class with a private method __show_password(). Call it through another public method.
+
+# Answer -
+# class User:
+#     def __show_password(self, password):
+#         print(f"Password : {password}")
+
+
+#     def display_password(self):
+#         self.__show_password(12345)
+
+# obj = User()
+# obj.display_password()
+
+########################################################################################################
+# Attributes & Methods
+
+# Q16. Class Attribute Counter
+# Create an Employee class with a class attribute employee_count.
+
+# Every time an object is created, increase the count.
+
+# Display the total number of employees created.
+
+# Answer -
+
+# class Employee:
+#     employee_count = 0
+
+#     def __init__(self):
+#         Employee.employee_count +=  1
+
+# employee1 = Employee()
+# employee2 = Employee()
+# employee3 = Employee()
+
+# print(f"Total Employees: {Employee.employee_count}")
+
+########################################################################################################
+# Q17. Class Method as Alternative Constructor
+# Create a Student class with name and age.
+
+# Create a class method:
+
+# from_string("Rahul,21")
+
+# It should create and return a Student object.
+
+# Answer -
+# class Student:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+
+#     @classmethod
+#     def from_string(cls, data):
+#         result = data.split(",")
+#         name , age = result
+#         age = int(age)
+#         obj = cls(name, age)
+
+#         return obj
+
+# print(Student.from_string("Kalpesh,22"))
+# obj_student = Student.from_string("Kalpesh,22")
+# print(obj_student.name)
+# print(obj_student.age)
+
+########################################################################################################
+# Q18. Static Validation Method
+# Create a BankAccount class with an instance attribute balance.
+
+# Create a static method:
+
+# is_valid_amount(amount)
+
+# It should return True if amount > 0.
+
+# Use this method inside deposit().
+
+
+# Answer -
+class BankAccount:
+    def __init__(self, balance):
+        self.balance = balance
+
+    @staticmethod
+    def is_valid_amount(amount):
+        if amount > 0:
+            return True
+        else:
+            return False
+
+    def deposit(self, amount):
+        self.is_valid_amount(amount)
+
+user1 = BankAccount(75000)
+user1.deposit(25000)
