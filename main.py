@@ -3234,19 +3234,109 @@
 
 
 # Answer -
-class BankAccount:
-    def __init__(self, balance):
-        self.balance = balance
+# class BankAccount:
+#     def __init__(self, balance):
+#         self.balance = balance
 
-    @staticmethod
-    def is_valid_amount(amount):
-        if amount > 0:
-            return True
-        else:
-            return False
+#     @staticmethod
+#     def is_valid_amount(amount):
+#         if amount > 0:
+#             return True
+#         else:
+#             return False
 
-    def deposit(self, amount):
-        self.is_valid_amount(amount)
+#     def deposit(self, amount):
+#         if BankAccount.is_valid_amount(amount):
+#             self.balance += amount
+#         else:
+#             print("Deposit Rejected")
 
-user1 = BankAccount(75000)
-user1.deposit(25000)
+# user1 = BankAccount(75000)
+# user1.deposit(25000)
+# print(user1.balance)
+
+########################################################################################################
+# Q19. Class Method + Class Attribute
+# Create a Company class with:
+
+# company_name
+# employee_count
+
+# Create a class method that changes the company name.
+
+# Create another class method that displays the number of employees.
+
+# Answer -
+# class Company:
+#     company_name = "AB Company"
+#     employee_count = 0
+
+#     def __init__(self):
+#         Company.employee_count += 1
+
+#     @classmethod
+#     def change_company_name(cls, new_name):
+#         cls.company_name = new_name
+#         print(f"New Company name : {cls.company_name}")
+
+#     @classmethod
+#     def show_employee_count(cls):
+#         print(f"No of Employees : {cls.employee_count}") 
+
+# employee1 = Company()
+# employee1.change_company_name("Bunny Esportsz")
+# employee1.show_employee_count()
+# print("---------------------------------------------")
+# employee2 = Company()
+# employee2.change_company_name("Coding Community")
+# employee2.show_employee_count()
+
+########################################################################################################
+# Q20. Identify Method Type
+# Create a class containing:
+
+# one instance attribute
+# one class attribute
+# one instance method
+# one class method
+# one static method
+
+# Then create objects and demonstrate how each one is accessed.
+
+# Answer -
+# class Student:
+#     def __init__(self, name, age):
+#         self.name = name
+
+#         if Student.is_valid_age(age):
+#             self.age = age
+#         else:
+#             print("Age must be greater than 4 or less than 26")
+
+#     school = "JP Morgan"
+#     student_count = 0
+
+#     def display_info(self):
+#         print(f"Student's Name : {self.name}")
+#         print(f"Student's age : {self.age}")
+#         print(f"School : {Student.school}")
+
+#     @classmethod
+#     def change_school(cls, new_school):
+#         cls.school = new_school
+
+#     @staticmethod
+#     def is_valid_age(age):
+#         if 5 <= age <= 25:          #AND operator works here
+#             return True
+#         else:
+#             return False
+
+
+# kalpesh = Student("Kalpesh", 22)
+# kalpesh.display_info()
+# Student.change_school("Apna college")
+# Student.is_valid_age(22)
+# kalpesh.display_info()
+
+########################################################################################################
