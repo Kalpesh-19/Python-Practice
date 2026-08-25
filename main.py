@@ -3340,3 +3340,117 @@
 # kalpesh.display_info()
 
 ########################################################################################################
+# Q21. Multilevel Inheritance
+# Create:
+
+# Animal
+#    ↓
+# Mammal
+#    ↓
+# Dog
+
+# Give each class one unique method and demonstrate that a Dog object can access all three.
+
+
+# Answer -
+# class Animal:
+#     def eat(self):
+#         print("Animal is eating")
+
+# class Mammal(Animal):
+#     def walk(self):
+#         print("Mammal is walking")
+
+# class Dog(Mammal):
+#     def bark(self):
+#         print("Dog is barking")
+
+# obj = Dog()
+
+# obj.eat()
+# obj.walk()
+# obj.bark()
+
+########################################################################################################
+# Q22. Hierarchical Inheritance
+# Create a parent class Shape.
+
+# Create:
+
+# Circle
+# Rectangle
+# Triangle
+
+# as child classes.
+
+# Give each child class its own area() method.
+
+
+# Answer -
+# class Shape:
+#     def display(self):
+#         print("This is a shape")
+
+# class Circle(Shape):
+#     pi = 3.14
+
+#     @classmethod
+#     def area(cls,radius):
+#         return cls.pi * radius ** 2
+    
+# class Rectangle(Shape):
+#     def area(self, length, width):
+#         return length * width
+
+# class Triangle(Shape):
+#     def area(self, base, height):
+#         area = 1/2 * base * height
+#         return area
+
+
+# ball = Circle()
+# ball.display()
+# print(f"Area of ball : {ball.area(4)}")
+# print("---------------------------------------------")
+# table = Rectangle()
+# table.display()
+# print(f"Area of table : {table.area(12, 45)}")
+# print("---------------------------------------------")
+# pyramid = Triangle()
+# pyramid.display()
+# print(f"Area of Triangle : {pyramid.area(36, 18)}")
+
+########################################################################################################
+# Q23. Multiple Inheritance
+# Create:
+
+# Father
+# Mother
+# Child
+
+# where Child inherits from both Father and Mother.
+
+# Give Father and Mother different methods and access them using the Child object.
+
+
+# Answer -
+# class Mother:
+#     def mother_method(self):
+#         print("Mother's method")
+
+# class Father:
+#     def father_method(self):
+#         print("Father's method")
+   
+
+# class Child(Mother, Father):
+#     def child_method(self):
+#         print("Child's method")
+
+
+# obj_child = Child()
+# obj_child.father_method()
+# obj_child.mother_method()
+# obj_child.child_method()
+
+########################################################################################################
