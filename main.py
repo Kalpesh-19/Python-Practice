@@ -3454,3 +3454,426 @@
 # obj_child.child_method()
 
 ########################################################################################################
+# Q24 — Constructor + super()
+
+# Create a Person class with:
+
+# name
+# age
+
+# Then create an Employee class that inherits from Person and adds:
+
+# salary
+# Requirements
+
+# Person:
+
+# Person("Kalpesh", 25)
+
+# should initialize:
+
+# name
+# age
+
+# Employee:
+
+# Employee("Kalpesh", 25, 75000)
+
+# should initialize:
+
+# name
+# age
+# salary
+# Important
+
+# Inside Employee.__init__(), use:
+
+# super().__init__(...)
+
+# to initialize the parent attributes.
+
+# Then display all three values.
+
+
+# Answer -
+# class Person:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+
+# class Employee(Person):
+#     def __init__(self, name, age, salary):
+#         super().__init__(name, age)
+#         self.salary = salary
+
+
+# employee1 = Employee("Kalpesh", 22, 75000)
+# print(f"Employee name : {employee1.name}")
+# print(f"Employee's age : {employee1.age}")
+# print(f"Salary : {employee1.salary}")
+
+########################################################################################################
+# 🟡 Q25 — Method Overriding + super()
+
+# Now let's combine method overriding and super().
+
+# Create a Vehicle class with a method:
+
+# start()
+
+# that prints:
+
+# Vehicle is starting
+
+# Then create a Car class that inherits from Vehicle.
+
+# Inside Car, override start().
+
+# Your Car.start() should:
+
+# Call the parent's start() using super()
+# Then print:
+# Car is ready to drive
+# Expected output:
+# Vehicle is starting
+# Car is ready to drive
+# 🧠 The important part
+
+# Your Car should have its own:
+
+# start()
+
+# but inside it, you should also call:
+
+# super().start()
+
+# This is different from Q11 because there you overrode the method without calling the parent version.
+
+
+# Answer -
+# class Vehicle:
+#     def start(self):
+#         print("Vehicle is starting")
+
+
+# class Car(Vehicle):
+#     def start(self):
+#         super().start()
+#         print("Car is ready to drive")
+
+
+# porsche = Car()
+# porsche.start()
+
+########################################################################################################
+# 🟡 Q26 — Polymorphism: Same Method, Different Behavior
+
+# Now we're moving into polymorphism.
+
+# Create three classes:
+
+# Dog
+# Cat
+# Cow
+
+# Each class should have the same method:
+
+# sound()
+
+# But each should behave differently:
+
+# Dog  → "Dog barks"
+# Cat  → "Cat meows"
+# Cow  → "Cow moos"
+
+# Then create a function:
+
+# make_sound(animal)
+
+# The function should call:
+
+# animal.sound()
+
+# Finally, pass a Dog, Cat, and Cow object to make_sound().
+
+# 🧠 Important
+
+# Don't use:
+
+# if animal is Dog:
+#     ...
+# elif animal is Cat:
+#     ...
+
+# The whole point is that the same function should work with different objects because they all provide the same sound() method.
+
+# This is polymorphism.
+
+
+
+# Answer -
+# class Dog:
+#     def sound(self):
+#         print("Dog Barks")
+
+# class Cat:
+#     def sound(self):
+#         print("Cat Meows")
+
+# class Cow:
+#     def sound(self):
+#         print("Cow Moos")
+
+
+# def make_sound(animal):
+#     animal.sound()
+
+# dog = Dog()
+# cat = Cat()
+# cow = Cow()
+
+# make_sound(dog)
+# make_sound(cat)
+# make_sound(cow)
+
+########################################################################################################
+# 🟡 Q27 — Polymorphism with Different Classes
+
+# Create two classes:
+
+# Circle
+# Rectangle
+
+# Both classes should have:
+# area()
+
+# Circle
+# Take radius and calculate:
+# π × radius²
+
+# You can use:
+# 3.14
+
+# Rectangle
+# Take length and width and calculate:
+# length × width
+
+# Then create a function:
+# print_area(shape)
+# which simply calls:
+# shape.area()
+
+# Finally, pass both a Circle object and a Rectangle object to print_area().
+
+# 🧠 Important
+# Again, don't use if/elif to determine the object's type.
+# The function should work because both objects provide an area() method.
+
+
+
+# Answer -
+# class Circle:
+#     def __init__(self, radius):
+#         self.radius = radius
+
+#     pi = 3.14
+    
+#     def area(self):
+#         return Circle.pi * self.radius ** 2
+
+# class Rectangle:
+#     def __init__(self, length, width):
+#         self.length = length
+#         self.width = width 
+
+#     def area(self):
+#         return self.length * self.width
+
+
+# def print_area(shape):
+#     return shape.area()
+
+# ball = Circle(5)
+# table = Rectangle(12, 26)
+# print(f"Area of Ball : {print_area(ball)}")
+# print(f"Area of Table : {print_area(table)}")
+
+########################################################################################################
+# 🟡 Q28 — Duck Typing
+
+# Now we're going one step deeper into polymorphism.
+
+# Create three completely unrelated classes:
+# Printer
+# Scanner
+# Camera
+
+# Do not make them inherit from one another.
+
+# Each class should have the same method:
+# start()
+
+# They should print:
+# Printer → Printer is starting
+# Scanner → Scanner is starting
+# Camera  → Camera is starting
+
+# Then create:
+# start_device(device)
+# This function should simply call:
+# device.start()
+
+# Finally:
+# start_device(printer)
+# start_device(scanner)
+# start_device(camera)
+
+# 🧠 Important
+# There should be no inheritance between these classes.
+# The function doesn't care what type of object it receives.
+
+# It only cares:
+# Does this object have a start() method?
+# This is called duck typing in Python.
+
+
+# Answer -
+# class Printer:
+#     def start(self):
+#         print("Printer is starting")
+
+# class Scanner:
+#     def start(self):
+#         print("Scanner is starting")
+
+# class Camera:
+#     def start(self):
+#         print("Camera is starting")
+
+
+# def start_device(device):
+#     device.start()
+
+# obj_printer = Printer()
+# obj_scanner = Scanner()
+# obj_camera = Camera()
+
+# start_device(obj_printer)
+# start_device(obj_scanner)
+# start_device(obj_camera)
+
+########################################################################################################
+# 🟡 Q29 — Encapsulation: Controlled Bank Balance
+
+# Create a BankAccount class with a private attribute:
+# __balance
+
+# Requirements
+# 1. Constructor
+# Accept:
+# balance
+# and store it privately.
+
+# 2. deposit(amount)
+# Add money to the balance.
+# But only allow the deposit if:
+# amount > 0
+
+# 3. withdraw(amount)
+# Subtract money from the balance only if:
+# amount > 0
+# and:
+# amount <= balance
+# If the amount is greater than the balance, print:
+# Insufficient balance
+
+# 4. get_balance()
+# Return or display the private balance.
+
+# 🧠 Important
+# Outside the class, you should not directly access:
+# account.__balance
+
+# The balance should be controlled through:
+# deposit()
+# withdraw()
+# get_balance()
+
+# Test your class with:
+# Initial balance: 10000
+# Deposit: 5000
+# Withdraw: 3000
+# Try withdrawing: 20000
+
+# This question is testing encapsulation + validation + instance methods.
+
+
+# Answer -
+# class BankAccount:
+#     def __init__(self, balance):
+#         self.__balance = balance 
+
+#     def deposit(self, amount):
+#         if amount > 0:
+#             self.__balance += amount
+#         else:
+#             print("Amount must be greater than 0")
+
+#     def withdraw(self, amount):
+#         if 0 < amount <= self.__balance:
+#             self.__balance -= amount
+#         else:
+#             print("Insufficient Balance")
+
+#     def get_balance(self):
+#         print(f"Current Balance : {self.__balance}")
+
+
+# user1 = BankAccount(10000)
+# user1.deposit(5000)
+# user1.withdraw(3000)
+# user1.get_balance()
+# user1.withdraw(20000)
+
+########################################################################################################
+# 🟡 Q30 — Encapsulation: Password Protection
+
+# Create a User class with two private attributes:
+# __username
+# __password
+
+# Requirements
+# Constructor
+# Accept:
+# username
+# password
+# and store both privately.
+
+# 1. change_password(new_password)
+# Allow the user to change their password.
+
+# 2. verify_password(password)
+# Check whether the supplied password matches the stored password.
+# It should return:
+# True
+# if correct, otherwise:
+# False
+
+# 3. display_username()
+# Display the username.
+
+# Important 🔐
+# You should not provide a method that directly displays the password.
+# And outside the class, don't do:
+# user.__password
+
+# Test your class
+# Create:
+# username = "Kalpesh"
+# password = "12345"
+
+# Then:
+# Verify "12345" → should return True
+# Verify "99999" → should return False
+# Change password to "54321"
+# Verify "54321" → should return True
