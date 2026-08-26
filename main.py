@@ -3877,3 +3877,223 @@
 # Verify "99999" → should return False
 # Change password to "54321"
 # Verify "54321" → should return True
+
+
+# Answer -
+# class User:
+#     def __init__(self, username, password):
+#         self.__username = username
+#         self.__password = password
+
+#     def change_password(self, new_password):
+#         self.__password = new_password
+
+#     def verify_password(self, password):
+#         if password == self.__password:
+#             return True
+#         else:
+#             return False
+
+#     def display_username(self):
+#         print(f"Username : {self.__username}")
+
+# kalpesh = User("Kalpesh", 12345)
+# print(kalpesh.verify_password(12345))
+# print(kalpesh.verify_password(99999))
+# kalpesh.change_password(54321)
+# print(kalpesh.verify_password(54321))
+# kalpesh.display_username()
+
+########################################################################################################
+# 🔴 Q31 — Bank Account System
+
+# Build a BankAccount class with the following requirements.
+# Attributes
+# Instance attributes:
+# account_holder
+# __balance
+# __balance must be private.
+
+# Class attribute:
+# bank_name = "ABC Bank"
+
+# Methods
+# 1. deposit(amount)
+# Deposit money only if the amount is valid.
+
+# 2. withdraw(amount)
+# Withdraw money only if:
+# amount > 0
+# and sufficient balance exists.
+
+# 3. check_balance()
+# Display the current balance.
+
+# 4. Static method
+# Create:
+# is_valid_amount(amount)
+# It should return True if the amount is greater than 0.
+
+# 5. Class method
+# Create:
+# change_bank_name(new_name)
+# which changes the bank name for all accounts.
+
+# Test your system
+# Create two accounts:
+# Kalpesh → ₹75,000
+# Bunny   → ₹50,000
+
+# Perform some deposits and withdrawals.
+# Then change the bank name using the class method.
+# Finally, display:
+# Account holder
+# Balance
+# Bank name
+
+# 🔥 Challenge
+# Think carefully about which things should be:
+# Instance attribute
+# Class attribute
+# Instance method
+# Class method
+# Static method
+# Private attribute
+
+# Don't just code it—design the class first in your head.
+
+# This is your first hard-level question. Take your time. 💪
+
+
+# Answer -
+# class BankAccount:
+#     def __init__(self, account_holder, balance):
+#         self.account_holder = account_holder
+#         self.__balance = balance
+
+
+#     bank_name = "ABC Bank"
+
+#     def deposit(self, amount):
+#         if BankAccount.is_valid_amount(amount):
+#             self.__balance += amount
+#         else:
+#             print("Amount must be greater than 0")
+
+#     def withdraw(self, amount):
+#         if 0 < amount <= self.__balance:
+#             self.__balance -= amount
+#         else:
+#             print("Insufficient balance")
+
+#     def current_balance(self):
+#         return self.__balance
+
+#     @staticmethod
+#     def is_valid_amount(amount):
+#         if amount > 0:
+#             return True
+#         else:
+#             return False
+
+#     @classmethod
+#     def change_bank_name(cls, new_name):
+#         cls.bank_name = new_name
+
+
+# kalpesh = BankAccount("Kalpesh", 75000)
+# bunny = BankAccount("Bunny", 50000)
+# kalpesh.deposit(45000)
+# bunny.deposit(100000)
+# kalpesh.deposit(-20000)
+# kalpesh.change_bank_name("Free Fire")
+# print("---------------------------------------------------")
+# print(f"Account Holder : {kalpesh.account_holder}")
+# print(f"Account Holder : {bunny.account_holder}")
+# print("---------------------------------------------------")
+# print(f"Kalpesh's Balance : {kalpesh.current_balance()}")
+# print(f"Bunny's Balance : {bunny.current_balance()}")
+# print("---------------------------------------------------")
+# print(f"Kalpesh's Bank name : {kalpesh.bank_name}")
+# print(f"Bunny's Bank name : {bunny.bank_name}")
+# print("---------------------------------------------------")
+
+########################################################################################################
+# 🔴 Q32 — Employee Management System
+
+# Create an Employee class.
+
+# Requirements
+
+# Class attributes
+# company = "ABC Ltd"
+# employee_count = 0
+
+# Instance attributes
+# Each employee should have:
+# name
+# salary
+
+# Every time an employee is created, employee_count should increase.
+
+# Methods
+# 1. display_info()
+
+# Display:
+# Employee name
+# Salary
+# Company
+
+# 2. change_company(new_company)
+# Use a class method to change the company name for all employees.
+
+# 3. is_valid_salary(salary)
+# Use a static method.
+# A salary is valid only if:
+# salary > 0
+
+# 4. Salary validation
+# The constructor should use is_valid_salary() before accepting the salary.
+# If an invalid salary is provided, display:
+# Invalid salary
+
+# 🔥 Test your system
+# Create three employees:
+# Kalpesh → 75,000
+# Bunny   → 70,000
+# Sanika  → 60,000
+
+# Then:
+# Display all employee information.
+# Display total employee count.
+# Change the company name.
+# Display employee information again.
+# Try creating an employee with a negative salary.
+# 🧠 Design challenge
+
+# Before coding, identify:
+# name           → ?
+# salary         → ?
+# company        → ?
+# employee_count → ?
+
+# display_info()      → ?
+# change_company()    → ?
+# is_valid_salary()   → ?
+
+# This question is very similar to Q20, but now you're applying the concepts in a more realistic employee-management scenario.
+
+class Employee:
+    company = "ABC ltd"
+    employee_count = 0
+
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+        Employee.employee_count += 1
+
+    def display_info(self):
+        print(f"Employee name : {self.name}")
+        print(f"Salary : {self.salary}")
+        print(f"Company : {Employee.company}")
+
