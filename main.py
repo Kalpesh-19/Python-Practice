@@ -4069,8 +4069,8 @@
 # Change the company name.
 # Display employee information again.
 # Try creating an employee with a negative salary.
-# 🧠 Design challenge
 
+# 🧠 Design challenge
 # Before coding, identify:
 # name           → ?
 # salary         → ?
@@ -4083,17 +4083,263 @@
 
 # This question is very similar to Q20, but now you're applying the concepts in a more realistic employee-management scenario.
 
-class Employee:
-    company = "ABC ltd"
-    employee_count = 0
 
-    def __init__(self, name, salary):
-        self.name = name
-        self.salary = salary
-        Employee.employee_count += 1
+# Answer -
+# class Employee:
+#     company = "ABC ltd"
+#     employee_count = 0
 
-    def display_info(self):
-        print(f"Employee name : {self.name}")
-        print(f"Salary : {self.salary}")
-        print(f"Company : {Employee.company}")
+#     def __init__(self, name, salary):
+#         self.name = name
+#         if Employee.is_valid_salary(salary):
+#             self.salary = salary
+#             Employee.employee_count += 1
 
+#         else:
+#             print("Invalid salary")
+
+#     def display_info(self):
+#         print(f"Employee name : {self.name}")
+#         print(f"Salary : {self.salary}")
+#         print(f"Company : {Employee.company}")
+
+#     @classmethod
+#     def change_company(cls, new_company):
+#         cls.company = new_company
+
+#     @staticmethod
+#     def is_valid_salary(salary):
+#         if salary > 0:
+#             return True
+#         else:
+#             return False
+
+# kalpesh = Employee("Kalpesh", 75000)
+# bunny = Employee("Bunny", 70000)
+# sanika = Employee("Sanika", 60000)
+# killer = Employee("Killer", -70000)
+
+# kalpesh.display_info()
+# sanika.display_info()
+# bunny.display_info()
+# kalpesh.change_company("XXX ltd")
+# print("-----------     After Changing Company    ---------------------------")
+# kalpesh.display_info()
+# sanika.display_info()
+# bunny.display_info()
+# print("------    ---------------")
+# print(f"Total Employees : {Employee.employee_count}")
+
+########################################################################################################
+# 🔴 Q33 — E-Commerce Product System
+
+# Now we're going to combine Inheritance + Method Overriding + Polymorphism.
+
+# Create a parent class:
+# Product
+# It should have:
+# name
+# price
+# as instance attributes.
+# And a method:
+# calculate_discount()
+# The parent version can simply return the original price.
+
+# Create three child classes
+# Electronics
+# Clothing
+# Food
+
+# All three should inherit from Product.
+# Each should override calculate_discount() with a different discount.
+# For example:
+# Electronics → 10% discount
+# Clothing    → 20% discount
+# Food        → 5% discount
+
+# You can calculate the final price like:
+# final_price = price - discount
+# Then create a polymorphic function
+# Create:
+# show_final_price(product)
+
+# It should simply do:
+# print(product.calculate_discount())
+
+# Don't use if/elif to check whether the product is Electronics, Clothing, or Food.
+# Test it
+# Create:
+# Laptop → ₹50,000
+# T-Shirt → ₹2,000
+# Pizza → ₹500
+
+# Then pass all three objects to:
+# show_final_price()
+
+# 🧠 Concepts you're combining
+# Product
+#    │
+#    ├── Electronics → calculate_discount()
+#    ├── Clothing    → calculate_discount()
+#    └── Food        → calculate_discount()
+#                        ↓
+#                polymorphic function
+
+# This is a real OOP design pattern: the caller doesn't need to know which child class it's dealing with.
+# Take your time with this one. 💪
+
+
+# Answer -
+# class Product:
+#     def __init__(self, name, price):
+#         self.name = name
+#         self.price = price
+
+#     def calculate_discount(self):
+#         return self.price
+
+# class Electronic(Product):
+#     def __init__(self, name, price):
+#         super().__init__(name, price)
+
+#     def calculate_discount(self):
+#         final_price = self.price - (self.price * 0.1)
+#         return final_price
+
+# class Clothing(Product):
+#     def __init__(self, name, price):
+#         super().__init__(name, price)
+
+#     def calculate_discount(self):
+#         final_price = self.price - (self.price * 0.2)
+#         return final_price
+
+# class Food(Product):
+#     def __init__(self, name, price):
+#         super().__init__(name, price)
+
+#     def calculate_discount(self):
+#         final_price = self.price - (self.price *  0.05)
+#         return final_price
+
+
+# def show_final_price(product):
+#     print(f"Final price of {product.name} : {product.calculate_discount()}")
+
+
+# laptop = Electronic("Laptop", 85000)
+# t_shirt = Clothing("Tees", 2000)
+# pizza = Food("Pizza", 500)
+
+# show_final_price(laptop)
+# show_final_price(t_shirt)
+# show_final_price(pizza)
+
+########################################################################################################
+# 🔴 Q34 — Vehicle Rental System
+
+# Create a parent class:
+# Vehicle
+
+# Vehicle attributes:
+# brand
+# rent_per_day
+
+# Vehicle method:
+# Create:
+# calculate_rent(days)
+
+# The parent version can simply return:
+# rent_per_day × days
+
+
+# Create three child classes:
+# Car
+# Bike
+# Truck
+
+# All inherit from Vehicle.
+
+# Each should override calculate_rent(days).
+
+# Use different pricing rules:
+# Car
+# Normal rent:
+# rent_per_day × days
+
+# Bike
+# Give a 10% discount on the total rent.
+
+# Truck
+# Add a ₹500 service charge to the total rent.
+
+# Static method
+# Create:
+# is_valid_days(days)
+# It should return True if:
+# days > 0
+# Otherwise False.
+# Use this validation before calculating rent.
+
+# Polymorphic function
+# Create:
+# show_rent(vehicle, days)
+# It should call:
+# vehicle.calculate_rent(days)
+
+# Do not use if/elif to determine whether it's a Car, Bike, or Truck.
+
+# Test with
+# Car   → ₹2,000/day
+# Bike  → ₹800/day
+# Truck → ₹3,000/day
+
+# Calculate rent for:
+# 5 days
+
+# Also test an invalid value such as:
+# 0 days
+
+# 🧠 Concepts being tested
+# Inheritance
+#      ↓
+# Method Overriding
+#      ↓
+# Polymorphism
+#      ↓
+# Static Method
+#      ↓
+# Validation
+
+# This one is harder because you need to decide where the validation belongs and how each child should calculate its own rent.
+
+# Try it yourself. 💪
+
+
+# Answer -
+class Vehicle:
+    def __init__(self, brand, rent_per_days):
+        self.brand = brand
+        self.rent_per_days = rent_per_days
+
+    def calculate_rent(self, days):
+        return self.rent_per_days * days
+
+
+class Car(Vehicle):
+    def calculate_rent(self, days):
+        return self.rent_per_days * days
+
+class Bike(Vehicle):
+    def calculate_rent(self, days):
+        rent = self.rent_per_days * days
+        discount = rent * 0.1
+        total_rent = rent - discount
+        return total_rent
+
+class Truck(Vehicle):
+    service_charge = 500
+    def calculate_rent(self, days):
+        rent = self.rent_per_days * days
+        total_rent = rent + Truck.service_charge
+        return total_rent
