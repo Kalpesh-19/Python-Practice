@@ -4317,29 +4317,201 @@
 
 
 # Answer -
-class Vehicle:
-    def __init__(self, brand, rent_per_days):
-        self.brand = brand
-        self.rent_per_days = rent_per_days
+# class Vehicle:
+#     def __init__(self, brand, rent_per_day):
+#         self.brand = brand
+#         self.rent_per_day = rent_per_day
 
-    def calculate_rent(self, days):
-        return self.rent_per_days * days
+#     def calculate_rent(self, days):
+#         if Vehicle.is_valid_days(days):
+#             return self.rent_per_day * days
+#         else:
+#             print("Days must be greater than 0")
+
+#     @staticmethod 
+#     def is_valid_days(days):
+#         if days > 0:
+#             return True
+#         else:
+#             return False
 
 
-class Car(Vehicle):
-    def calculate_rent(self, days):
-        return self.rent_per_days * days
+# class Car(Vehicle):
+#     def __init__(self, brand, rent_per_day):
+#         super().__init__(brand, rent_per_day)
 
-class Bike(Vehicle):
-    def calculate_rent(self, days):
-        rent = self.rent_per_days * days
-        discount = rent * 0.1
-        total_rent = rent - discount
-        return total_rent
+#     def calculate_rent(self, days):
+#         if Vehicle.is_valid_days(days):
+#             return self.rent_per_day * days
+#         else:
+#             print("Days must be greater than 0")
 
-class Truck(Vehicle):
-    service_charge = 500
-    def calculate_rent(self, days):
-        rent = self.rent_per_days * days
-        total_rent = rent + Truck.service_charge
-        return total_rent
+   
+
+# class Bike(Vehicle):
+#     def __init__(self, brand, rent_per_day):
+#         super().__init__(brand, rent_per_day)
+
+#     def calculate_rent(self, days):
+#         if Vehicle.is_valid_days(days):
+#             rent = self.rent_per_day * days
+#             discount = rent * 0.1
+#             total_rent = rent - discount
+#             return total_rent
+#         else:
+#             print("Days must be greater than 0")
+
+  
+
+# class Truck(Vehicle):
+#     def __init__(self, brand, rent_per_day):
+#         super().__init__(brand, rent_per_day)
+
+#     service_charge = 500
+#     def calculate_rent(self, days):
+#         if Vehicle.is_valid_days(days):
+#             rent = self.rent_per_day * days
+#             total_rent = rent + Truck.service_charge
+#             return total_rent
+#         else:
+#             print("Days must be greater than 0")
+
+
+# def show_rent(vehicle, days):
+#     print(f"Rent of {vehicle.brand} : {vehicle.calculate_rent(days)}")
+
+# sumo = Truck("BharatBENZ", 200)
+# ninja_h2r = Bike("Kawasaki", 20)
+# safari = Car("TATA", 45)
+# xuv700 = Car("Mahindra", 120)
+
+# show_rent(sumo, 45)
+# show_rent(ninja_h2r, 120)
+# show_rent(safari, 10)
+# show_rent(xuv700, -8)
+
+########################################################################################################
+# 🔴 Q35 — Employee Salary System
+
+# Now we're going to combine inheritance + method overriding + polymorphism in a more realistic system.
+
+# Create this hierarchy:
+
+#              Employee
+#             /    |    \
+#        Manager Developer Intern
+
+# Parent: Employee
+# Attributes:
+# name
+# base_salary
+
+# Create a method:
+# calculate_salary()
+# For the parent, simply return base_salary.
+
+# Manager
+# A manager gets a 30% bonus.
+# For example:
+# Base salary = ₹100,000
+# Bonus = ₹30,000
+# Final = ₹130,000
+# Override calculate_salary().
+
+# Developer
+# A developer gets a 20% bonus.
+# Base salary = ₹100,000
+# Bonus = ₹20,000
+# Final = ₹120,000
+# Override calculate_salary().
+
+# Intern
+# An intern gets no bonus.
+# Return the base salary.
+
+# Polymorphic function
+# Create:
+# generate_payslip(employee)
+# It should display:
+# Employee Name
+# Final Salary
+# and simply call:
+# employee.calculate_salary()
+
+# Do not use if/elif to determine the employee type.
+
+# Test with:
+# Manager   → Kalpesh → ₹100,000
+# Developer → Bunny   → ₹80,000
+# Intern    → Sanika  → ₹30,000
+
+# 🧠 Your goal
+# Understand this:
+# generate_payslip()
+#         ↓
+# employee.calculate_salary()
+#         ↓
+#  ┌──────────────┬──────────────┬──────────────┐
+#  Manager        Developer       Intern
+#  +30%           +20%            +0%
+
+# Same method call, different behavior.
+
+# This is one of the most important practical uses of polymorphism.
+
+# Try it yourself. 💪
+
+
+# Answer -
+# class Employee:
+#     def __init__(self, name, base_salary):
+#         self.name = name
+#         self.base_salary = base_salary
+
+#     def calculate_salary(self):
+#         return self.base_salary
+
+
+# class Manager(Employee):
+#     def __init__(self, name, base_salary):
+#         super().__init__(name, base_salary)
+
+#     def calculate_salary(self):
+#         final_salary = self.base_salary + 30000
+#         return final_salary
+
+
+# class Developer(Employee):
+#     def __init__(self, name, base_salary):
+#         super().__init__(name, base_salary)
+    
+#     def calculate_salary(self):
+#         final_salary =  self.base_salary + 20000
+#         return final_salary
+
+
+# class Intern(Employee):
+#     def __init__(self, name, base_salary):
+#         super().__init__(name, base_salary)
+
+#     def calculate_salary(self):
+#         return self.base_salary
+
+
+# def generate_payslip(employee):
+#     print(f"Employee Name : {employee.name}")
+#     print(f"Final Salary : {employee.calculate_salary()}")
+
+
+# kalpesh = Manager("Kalpesh", 100000)
+# bunny = Developer("Bunny", 80000)
+# sanika = Intern("Sanika", 30000)
+
+# generate_payslip(kalpesh)
+# print("------------------")
+# generate_payslip(bunny)
+# print("------------------")
+# generate_payslip(sanika)
+# print("------------------")
+
+########################################################################################################
