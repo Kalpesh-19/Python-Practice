@@ -4732,61 +4732,351 @@
 
 
 # Answer -
-class LibraryItem:
-    total_items = 0
+# class LibraryItem:
+#     total_items = 0
 
-    def __init__(self, title, is_borrowed):
-        LibraryItem.total_items += 1
-        self.title = title
-        self.__is_borrowed = False
+#     def __init__(self, title, is_borrowed):
+#         LibraryItem.total_items += 1
+#         self.title = title
+#         self.__is_borrowed = False
 
-    def borrow_item(self):
-        if self.__is_borrowed:
-            print("Item is already borrowed")
+#     def borrow_item(self):
+#         if self.__is_borrowed:
+#             print("Item is already borrowed")
+#         else:
+#             print("Borrow Successfully")
+#             self.__is_borrowed = True
+
+#     def return_item(self):
+#         if self.__is_borrowed:
+#             print("Return Successfully")
+#             self.__is_borrowed = False
+#         else:
+#             print("Item was not borrowed")
+
+
+# class Book(LibraryItem):
+#     def __init__(self, title, is_borrowed):
+#         super().__init__(title, is_borrowed)
+
+#     def get_item_type(self):
+#         return "Book"
+
+    
+# class Magazine(LibraryItem):
+#     def __init__(self, title, is_borrowed):
+#         super().__init__(title, is_borrowed)
+
+#     def get_item_type(self):
+#         return "Magazine"
+
+    
+# def display_item(item):
+#     print(f"Title : {item.title}")
+#     item_type = item.get_item_type()
+#     print(f"Item Type : {item_type}")
+
+
+# book = Book("Python_basic", False)
+# magazine = Magazine("Tech Monthly", False)
+
+# book.borrow_item()
+# magazine.return_item()
+# book.borrow_item()
+# book.return_item()
+# book.return_item()
+
+# print(f"No. of. Items : {LibraryItem.total_items}")
+# display_item(book)
+# display_item(magazine)
+
+########################################################################################################
+# 🔴 Q38 — Payment System
+
+# This question will combine:
+# Abstraction
+# Inheritance
+# Method overriding
+# Polymorphism
+
+# Create an abstract class Payment
+# Use Python's ABC and @abstractmethod.
+# The parent class should have:
+# amount
+# Create an abstract method:
+# pay()
+
+# The Payment class should not be directly usable to make a payment.
+
+# Create three child classes
+# Payment
+#    │
+#    ├── CreditCard
+#    ├── UPI
+#    └── Cash
+
+# Each class should override:
+# pay()
+# For example:
+# CreditCard → print that payment was made using a credit card.
+# UPI → print that payment was made using UPI.
+# Cash → print that payment was made using cash.
+
+# Polymorphic function
+# Create:
+# def process_payment(payment):
+# Inside it, call:
+# payment.pay()
+
+# Do not use:
+# if
+# elif
+# to check the payment type.
+
+# Test with
+# credit_card = CreditCard(5000)
+# upi = UPI(2500)
+# cash = Cash(1000)
+
+# Then:
+# process_payment(credit_card)
+# process_payment(upi)
+# process_payment(cash)
+# 🧠 Main concept
+
+# The same code:
+# payment.pay()
+# should behave differently depending on the object:
+
+# CreditCard → Credit Card payment
+# UPI        → UPI payment
+# Cash       → Cash payment
+
+# This question mainly tests abstraction + polymorphism. 💪
+
+
+
+# Answer -
+# from abc import ABC, abstractmethod
+
+# class Payment(ABC):
+#     def __init__(self, amount):
+#         self.amount = amount
+
+#     @abstractmethod
+#     def pay(self):
+#         pass
+
+
+# class CreditCard(Payment):
+#     def __init__(self, amount):
+#         super().__init__(amount)
+
+#     def pay(self):
+#         print(f"Payment of {self.amount} was made using Credit Card")
+
+# class UPI(Payment):
+#     def __init__(self, amount):
+#         super().__init__(amount)
+
+#     def pay(self):
+#         print(f"Payment of {self.amount} was made using UPI")
+
+
+# class Cash(Payment):
+#     def __init__(self, amount):
+#         super().__init__(amount)
+
+#     def pay(self):
+#         print(f"Payment of {self.amount} was made using Cash")
+
+
+# def process_payment(payment):
+#     payment.pay()
+
+
+# credit_card = CreditCard(5000)
+# upi = UPI(15000)
+# cash = Cash(10000)
+# process_payment(credit_card)
+# process_payment(upi)
+# process_payment(cash)
+
+########################################################################################################
+# 🔴 Q39 — Employee Management System
+
+# This question combines:
+# Abstraction
+# Inheritance
+# Encapsulation
+# Polymorphism
+# Static methods
+
+# 1. Create an abstract class Employee
+# Use:
+# from abc import ABC, abstractmethod
+# The Employee class should inherit from ABC.
+# Private attributes
+# The constructor should accept:
+# name
+# salary
+# Store both as private attributes:
+# self.__name
+# self.__salary
+
+# 2. Create an abstract method
+# Create:
+# calculate_salary()
+# Every child class must implement this method.
+
+# 3. Create child classes
+#               Employee
+#              /        \
+#        FullTime      PartTime
+
+# FullTime
+# Its calculate_salary() should simply return the salary.
+
+# PartTime
+# Add another attribute:
+# hours_worked
+# hourly_rate
+# Its calculate_salary() should calculate:
+# hours_worked × hourly_rate
+
+# 4. Encapsulation
+# Because name and salary are private, create methods to access them.
+# For example:
+# get_name()
+# get_salary()
+# You may use these methods wherever needed.
+
+# 5. Static method
+# Create:
+# is_valid_amount(amount)
+# It should return:
+# True  → amount > 0
+# False → otherwise
+# Use it to validate:
+# salary
+# hourly_rate
+# hours_worked
+
+# 6. Polymorphic function
+# Create a function outside the classes:
+# def generate_report(employee):
+# It should display:
+# Employee Name
+# Final Salary
+# The function should work with both:
+# FullTime
+# PartTime
+
+# Without using:
+# if
+# elif
+
+# 🧠 Hint
+
+# The function can use something like:
+# employee.get_name()
+# employee.calculate_salary()
+
+# 7. Test with
+# FullTime Employee
+# Name: Kalpesh
+# Salary: 75000
+# PartTime Employee
+# Name: Bunny
+# Hours Worked: 120
+# Hourly Rate: 500
+
+# Then call:
+# generate_report(full_time_employee)
+# generate_report(part_time_employee)
+
+# Expected final salaries:
+# Kalpesh → 75000
+# Bunny → 120 × 500 = 60000
+
+# 💪 Challenge
+# Try to make invalid values such as:
+# salary = -5000
+# hourly_rate = 0
+# hours_worked = -10
+# get rejected using your static validation method.
+
+# This is Q39.
+
+
+# Asnwer -
+from abc import ABC, abstractmethod
+
+class Employee(ABC):
+    def __init__(self, name, salary):
+        self.__name = name
+        self.__salary = salary
+
+    @abstractmethod
+    def calculate_salary(self):
+        pass
+
+    @abstractmethod
+    def is_valid_amount(self):
+        pass
+
+    
+
+    
+
+class FullTime(Employee):
+    def __init__(self, name, salary):
+        super().__init__(name, salary)
+
+    def calculate_salary(self, amount):
+        if FullTime.is_valid_amount(amount):
+            return self.__salary
         else:
-            print("Borrow Successfully")
-            self.__is_borrowed = True
+            print("Amount must be greater than 0")
 
-    def return_item(self):
-        if self.__is_borrowed:
-            print("Return Successfully")
-            self.__is_borrowed = False
+    @staticmethod
+    def is_valid_amount(amount):
+        if amount > 0:
+            return True
         else:
-            print("Item was not borrowed")
+            return False
+
+  
+    
+class PartTime(Employee):
+    def __init__(self, name, salary, hours_worked, hourly_rate):
+        super().__init__(name, salary)
+        self.hours_worked = hours_worked
+        self.hourly_rate = hourly_rate
+
+    def calculate_salary(self, amount):
+        if FullTime.is_valid_amount(amount):
+            final_salary = self.hours_worked * self.hourly_rate
+            return final_salary
+        else:
+            print("Amount must be greater than 0")
+
+    @staticmethod
+    def is_valid_amount(amount):
+        if amount > 0:
+            return True
+        else:
+            return False
+
+    
 
 
-class Book(LibraryItem):
-    def __init__(self, title, is_borrowed):
-        super().__init__(title, is_borrowed)
-
-    def get_item_type(self):
-        print("Type of item : Book")
-
-    def display_item(self, item):
-        print(f"Title : {item.title}")
-        item.get_item_type()
-
-class Magazine(LibraryItem):
-    def __init__(self, title, is_borrowed):
-        super().__init__(title, is_borrowed)
-
-    def get_item_type(self):
-        print("Type of item : Magazine")
-
-    def display_item(self, item):
-        print(f"Title : {item.title}")
-        item.get_item_type()
+def generate_report(employee):
+    print(f"{employee.__name}'s Salary : {employee.calculate_salary()}")
 
 
-book = Book("Python_basic", False)
-magazine = Magazine("Tech Monthly", False)
+kalpesh = FullTime("Kalpesh", 75000)
+bunny = PartTime("Bunny", 50000, 20, 700)
 
-book.display_item(book)
-book.borrow_item()
-magazine.return_item()
-book.borrow_item()
-book.return_item()
-book.return_item()
-
-print(LibraryItem.total_items)
-
+generate_report(kalpesh)
+generate_report(bunny)
