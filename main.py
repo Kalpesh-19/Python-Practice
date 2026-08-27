@@ -4515,3 +4515,278 @@
 # print("------------------")
 
 ########################################################################################################
+# 🔴 Q36 — ATM System
+
+# Now we're combining encapsulation + static method + validation + controlled access.
+
+# Create an ATM class.
+# Private attributes
+# The class should have:
+# __balance
+# __pin
+
+# Both must be private.
+
+# The constructor should accept:
+# balance
+# pin
+
+# 1. check_balance(pin)
+# The user provides a PIN.
+# If the PIN is correct, display the balance.
+# If incorrect:
+# Invalid PIN
+
+# 2. deposit(pin, amount)
+# Before depositing:
+# Verify the PIN.
+# Amount must be greater than 0.
+# If both are valid, update the balance.
+
+# 3. withdraw(pin, amount)
+# Before withdrawing:
+# Verify the PIN.
+# Amount must be greater than 0.
+# Amount must not exceed the balance.
+# If valid, update the balance.
+
+# 4. Static method
+# Create:
+# is_valid_amount(amount)
+# It should return:
+# True  → amount > 0
+# False → otherwise
+
+# Use this static method in both:
+# deposit()
+# withdraw()
+
+# Test
+# Create:
+# atm = ATM(50000, 1234)
+
+# Then test:
+# check_balance(1234)
+# deposit(1234, 10000)
+# withdraw(1234, 5000)
+# check_balance(1234)
+# check_balance(9999)
+# withdraw(1234, 100000)
+# deposit(1234, -500)
+
+# 🧠 Important
+# Don't create a public:
+# balance
+# or:
+# pin
+# Both should remain private:
+# self.__balance
+# self.__pin
+
+# The outside world should interact with them only through your methods.
+
+# This is a realistic application of encapsulation.
+
+# Try it yourself. 💪
+
+
+
+# Answer -
+# class ATM:
+#     def __init__(self, balance, pin):
+#         self.__balance = balance
+#         self.__pin = pin
+
+
+#     def check_balance(self, pin):
+#         if pin == self.__pin:
+#             print(f"Current balance : {self.__balance}") 
+#         else:
+#             print("Invalid Pin")
+
+
+#     def deposit(self, pin, amount):
+#         if pin == self.__pin:
+#             if ATM.is_valid_amount(amount):
+#                 self.__balance += amount
+#             else:
+#                 print("Amount must be greater than 0")
+#         else:
+#             print("Invalid Pin")
+
+
+#     def withdraw(self,  pin, amount):
+#         if pin == self.__pin:
+#             if ATM.is_valid_amount(amount):
+#                 if amount <= self.__balance:
+#                     self.__balance -= amount
+#                 else:
+#                     print("Insufficient Balance")
+#             else:
+#                 print("Amount must be greater than 0")
+#         else:
+#             print("Invalid Pin")
+
+
+#     @staticmethod
+#     def is_valid_amount(amount):
+#         if amount > 0:
+#             return True
+#         else:
+#             return False
+
+
+# atm = ATM(10000, 1234)
+# atm.check_balance(1234)
+# atm.deposit(1234, 10000)
+# atm.withdraw(1234, 5000)
+# atm.check_balance(1234)
+# atm.check_balance(9999)
+# atm.withdraw(1234,100000)
+# atm.deposit(1234, -500)
+
+########################################################################################################
+# 🔴 Q37 — Library Management System
+
+# Now let's combine inheritance + encapsulation + class attributes + polymorphism.
+
+# Create a parent class called:
+# LibraryItem
+
+# Parent class attributes
+# Each library item should have:
+# title
+# Also create a class attribute:
+# total_items = 0
+# Every time a new library item is created, increase total_items.
+
+# Create two child classes
+# Book
+# Magazine
+# Both should inherit from LibraryItem.
+
+# 🔐 Encapsulation
+# Each item should have a private attribute:
+# __is_borrowed
+
+# Initially:
+# False
+
+# Methods
+# borrow_item()
+# If the item is not borrowed:
+# Borrowed successfully
+# and change __is_borrowed to True.
+# Otherwise:
+# Item is already borrowed
+
+# return_item()
+# If the item is borrowed:
+# Returned successfully
+# and change it back to False.
+# Otherwise:
+# Item was not borrowed
+
+# Polymorphism
+# Both Book and Magazine should have:
+# get_item_type()
+# But return different values:
+# Book
+# Magazine
+
+# Then create:
+# display_item(item)
+# It should display:
+# Title
+# Item Type
+# using:
+# item.get_item_type()
+
+# No if/elif for checking the item type.
+
+# Test it
+# Create:
+# Book → "Python Basics"
+# Magazine → "Tech Monthly"
+
+# Then:
+# Display both items.
+# Borrow the book.
+# Try borrowing the book again.
+# Return the book.
+# Try returning the book again.
+# Display:
+# LibraryItem.total_items
+# 🧠 Design hint
+
+# Think about where each thing belongs:
+
+# title           → instance attribute
+# total_items     → class attribute
+# __is_borrowed   → private instance attribute
+# borrow_item()   → instance method
+# return_item()   → instance method
+# get_item_type() → overridden method
+
+# Try designing it yourself first. 💪
+
+
+# Answer -
+class LibraryItem:
+    total_items = 0
+
+    def __init__(self, title, is_borrowed):
+        LibraryItem.total_items += 1
+        self.title = title
+        self.__is_borrowed = False
+
+    def borrow_item(self):
+        if self.__is_borrowed:
+            print("Item is already borrowed")
+        else:
+            print("Borrow Successfully")
+            self.__is_borrowed = True
+
+    def return_item(self):
+        if self.__is_borrowed:
+            print("Return Successfully")
+            self.__is_borrowed = False
+        else:
+            print("Item was not borrowed")
+
+
+class Book(LibraryItem):
+    def __init__(self, title, is_borrowed):
+        super().__init__(title, is_borrowed)
+
+    def get_item_type(self):
+        print("Type of item : Book")
+
+    def display_item(self, item):
+        print(f"Title : {item.title}")
+        item.get_item_type()
+
+class Magazine(LibraryItem):
+    def __init__(self, title, is_borrowed):
+        super().__init__(title, is_borrowed)
+
+    def get_item_type(self):
+        print("Type of item : Magazine")
+
+    def display_item(self, item):
+        print(f"Title : {item.title}")
+        item.get_item_type()
+
+
+book = Book("Python_basic", False)
+magazine = Magazine("Tech Monthly", False)
+
+book.display_item(book)
+book.borrow_item()
+magazine.return_item()
+book.borrow_item()
+book.return_item()
+book.return_item()
+
+print(LibraryItem.total_items)
+
