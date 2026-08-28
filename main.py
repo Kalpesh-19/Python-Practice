@@ -5010,73 +5010,71 @@
 
 
 # Asnwer -
-from abc import ABC, abstractmethod
+# from abc import ABC, abstractmethod
 
-class Employee(ABC):
-    def __init__(self, name, salary):
-        self.__name = name
-        self.__salary = salary
+# class Employee(ABC):
+#     def __init__(self, name, salary):
+#         self.__name = name
+#         self.__salary = salary
 
-    @abstractmethod
-    def calculate_salary(self):
-        pass
+#     def get_name(self):
+#         return self.__name
 
-    @abstractmethod
-    def is_valid_amount(self):
-        pass
+#     def get_salary(self):
+#         return self.__salary
 
-    
+#     @staticmethod
+#     def is_valid_amount(amount):
+#         if amount > 0:
+#             return True
+#         else:
+#             return False
 
-    
+#     @abstractmethod
+#     def calculate_salary(self):
+#         pass
 
-class FullTime(Employee):
-    def __init__(self, name, salary):
-        super().__init__(name, salary)
 
-    def calculate_salary(self, amount):
-        if FullTime.is_valid_amount(amount):
-            return self.__salary
-        else:
-            print("Amount must be greater than 0")
+# class FullTime(Employee):
+#     def __init__(self, name, salary):
+#         if Employee.is_valid_amount(salary):
+#             super().__init__(name, salary)
+#         else:
+#             print("Salary must be greater than 0")
 
-    @staticmethod
-    def is_valid_amount(amount):
-        if amount > 0:
-            return True
-        else:
-            return False
-
-  
-    
-class PartTime(Employee):
-    def __init__(self, name, salary, hours_worked, hourly_rate):
-        super().__init__(name, salary)
-        self.hours_worked = hours_worked
-        self.hourly_rate = hourly_rate
-
-    def calculate_salary(self, amount):
-        if FullTime.is_valid_amount(amount):
-            final_salary = self.hours_worked * self.hourly_rate
-            return final_salary
-        else:
-            print("Amount must be greater than 0")
-
-    @staticmethod
-    def is_valid_amount(amount):
-        if amount > 0:
-            return True
-        else:
-            return False
-
+#     def calculate_salary(self):
+#         return self.get_salary()
     
 
 
-def generate_report(employee):
-    print(f"{employee.__name}'s Salary : {employee.calculate_salary()}")
+# class PartTime(Employee):
+#     def __init__(self, name, salary, hours_worked, hourly_rate):
+#         if Employee.is_valid_amount(salary):
+#             super().__init__(name, salary)
+#         else:
+#             print("Salary must be greater than 0")
+
+#         if Employee.is_valid_amount(hours_worked):
+#             self.hours_worked = hours_worked
+#         else:
+#             print("Hours worked must be greater than 0")
+
+#         if Employee.is_valid_amount(hourly_rate):
+#             self.hourly_rate = hourly_rate
+#         else:
+#             print("Hourly rate must be greater than 0")
+
+#     def calculate_salary(self):
+#         final_salary = self.hours_worked * self.hourly_rate
+#         return final_salary
 
 
-kalpesh = FullTime("Kalpesh", 75000)
-bunny = PartTime("Bunny", 50000, 20, 700)
+# def generate_report(employee):
+#     print(f"Employee's Name ; {employee.get_name()}")
+#     print(f"Employee's Salary : {employee.calculate_salary()}")
 
-generate_report(kalpesh)
-generate_report(bunny)
+# kalpesh = FullTime("Kalpesh", 75000)
+# bunny = PartTime("Bunny", 80000, 8, 450)
+
+# generate_report(kalpesh)
+# generate_report(bunny)
