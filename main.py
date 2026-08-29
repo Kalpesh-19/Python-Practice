@@ -5040,7 +5040,7 @@
 #         if Employee.is_valid_amount(salary):
 #             super().__init__(name, salary)
 #         else:
-#             print("Salary must be greater than 0")
+#             raise ValueError("Salary must be greater than 0")
 
 #     def calculate_salary(self):
 #         return self.get_salary()
@@ -5052,17 +5052,17 @@
 #         if Employee.is_valid_amount(salary):
 #             super().__init__(name, salary)
 #         else:
-#             print("Salary must be greater than 0")
+#             raise ValueError("Salary must be greater than 0")
 
 #         if Employee.is_valid_amount(hours_worked):
 #             self.hours_worked = hours_worked
 #         else:
-#             print("Hours worked must be greater than 0")
+#             raise ValueError("Hours worked must be greater than 0")
 
 #         if Employee.is_valid_amount(hourly_rate):
 #             self.hourly_rate = hourly_rate
 #         else:
-#             print("Hourly rate must be greater than 0")
+#             raise ValueError("Hourly rate must be greater than 0")
 
 #     def calculate_salary(self):
 #         final_salary = self.hours_worked * self.hourly_rate
@@ -5070,7 +5070,7 @@
 
 
 # def generate_report(employee):
-#     print(f"Employee's Name ; {employee.get_name()}")
+#     print(f"Employee's Name : {employee.get_name()}")
 #     print(f"Employee's Salary : {employee.calculate_salary()}")
 
 # kalpesh = FullTime("Kalpesh", 75000)
@@ -5078,3 +5078,254 @@
 
 # generate_report(kalpesh)
 # generate_report(bunny)
+
+########################################################################################################
+# 🔥 Q40 — Final OOP Challenge: Bank Account System
+
+# This final question combines everything you have learned:
+
+# Instance attributes & methods
+# Class attributes & methods
+# Static methods
+# Inheritance
+# Method overriding
+# Polymorphism
+# Encapsulation
+# Abstraction
+# super()
+# Validation
+
+# 🎯 Your Task
+# Create an abstract parent class called BankAccount.
+
+# 1. Class attribute
+# bank_name = "ABC Bank"
+# Also create:
+# total_accounts = 0
+# Every valid account created should increase total_accounts by 1.
+
+# 2. Constructor
+# The BankAccount constructor should accept:
+# account_holder
+# account_number
+# balance
+
+# Store:
+# account_holder → normal instance attribute
+# account_number → private attribute
+# balance → private attribute
+
+# For example:
+# self.account_holder = account_holder
+# self.__account_number = account_number
+# self.__balance = balance
+# Validate the initial balance before creating the account.
+# The balance must be:
+# balance >= 0
+# If invalid, raise:
+# ValueError
+
+# 3. Encapsulation
+# Create getter methods:
+# get_account_number()
+# get_balance()
+# Since these attributes are private, child classes should use these methods instead of directly accessing the private attributes.
+
+# 4. Instance methods
+# Create:
+# deposit(amount)
+# Validate the amount.
+# Amount must be greater than 0.
+# Add it to the balance.
+# withdraw(amount)
+# Make this an abstract method because different account types will have different withdrawal rules.
+
+# 5. Static method
+# Create:
+# is_valid_amount(amount)
+# It should return:
+# True  → amount > 0
+# False → amount <= 0
+# Use it inside deposit() and the child classes' withdraw() methods.
+
+# 6. Class methods
+# Create:
+# change_bank_name(new_name)
+# This changes the bank name for all accounts.
+# Also create:
+# show_total_accounts()
+# It should display the total number of valid accounts created.
+
+
+# 7. Create two child classes
+#              BankAccount
+#             /           \
+#            /             \
+#    SavingsAccount      CurrentAccount
+
+# 🟢 SavingsAccount
+
+# Add:
+# minimum_balance
+# Withdrawal rule:
+# The user cannot withdraw money if the remaining balance becomes less than minimum_balance.
+# Example:
+# Balance = 10000
+# Minimum Balance = 2000
+
+# Withdraw 5000
+# Remaining = 5000 ✅
+
+# Withdraw 9000
+# Remaining = 1000 ❌
+
+# Override:
+# withdraw(amount)
+
+# 🟡 CurrentAccount
+# Add:
+# overdraft_limit
+# The account is allowed to go below 0, but only up to the overdraft limit.
+
+# Example:
+# Balance = 10000
+# Overdraft limit = 5000
+
+# Withdraw 12000
+# New balance = -2000 ✅
+
+# Withdraw 16000
+# New balance = -6000 ❌
+
+# Override:
+# withdraw(amount)
+
+# 8. Polymorphism
+# Create a function outside the classes:
+# def process_withdrawal(account, amount):
+# Inside it, call:
+# account.withdraw(amount)
+# The same function should work with both:
+# SavingsAccount
+# CurrentAccount
+# without using if or elif to check the account type.
+
+# 9. Test your program
+# Create:
+# Savings Account
+# Account Holder: Kalpesh
+# Account Number: 101
+# Balance: 10000
+# Minimum Balance: 2000
+
+# And:
+# Current Account
+# Account Holder: Bunny
+# Account Number: 102
+# Balance: 10000
+# Overdraft Limit: 5000
+
+# Then test:
+# process_withdrawal(savings, 5000)     # Should succeed
+# process_withdrawal(savings, 9000)     # Should fail
+
+# process_withdrawal(current, 12000)    # Should succeed
+# process_withdrawal(current, 16000)    # Should fail
+
+# Also test:
+# A valid deposit
+# An invalid deposit such as -500
+# Changing the bank name
+# Displaying total accounts
+
+# 🧠 Important Hint
+# Because __balance is private, you cannot directly do this in child classes:
+# self.__balance -= amount
+# Think about how you can safely update the balance.
+# You can create an additional method in the parent class, such as:
+# def update_balance(self, new_balance):
+# Then your child classes can use:
+# self.update_balance(new_balance)
+
+
+# Answer -
+from abc import ABC, abstractmethod
+
+class BankAccount(ABC):
+    bank_name = "ABC Bank"
+    total_accounts = 0
+
+    def __init__(self, account_holder, account_number, balance):
+        self.account_holder = account_holder
+        self.__account_number = account_number
+        if balance >= 0 :
+            self.__balance = balance
+        else:
+            raise ValueError("Balance must be greater than 0")
+
+    def get_account_number(self):
+        return self.account_number
+
+    def get_balance(self):
+        return self.__balance
+
+    def deposit(self, amount):
+        if BankAccount.is_valid_amount(amount):
+            self.__balance += amount
+            return self.__balance
+        else:
+            print("Amount must be greater than 0")
+
+    @abstractmethod
+    def withdraw(self, amount):
+        if BankAccount.is_valid_amount(amount):
+            self.__balance -= amount
+            return self.__balance
+        else:
+            print("Amount must be greater than 0")
+
+    @staticmethod
+    def is_valid_amount(amount):
+        if amount > 0:
+            return True
+        else:
+            return False
+
+    @classmethod
+    def change_bank_name(cls, new_name):
+        cls.bank_name = new_name
+        return cls.bank_name 
+
+    @classmethod
+    def show_total_accounts(cls):
+        print(f"Total Accounts : {cls.total_accounts}")
+
+        
+class SavingsAccount(BankAccount):
+    def __init__(self, account_holder, account_number, balance):
+        super().__init__(account_holder, account_number, balance)
+
+    minimum_balance = 500
+
+    def withdraw(self, amount):
+        if BankAccount.is_valid_amount(amount):
+            self.balance = self.get_balance()
+            self.balance -= amount
+
+        if self.balance < SavingsAccount.minimum_balance:
+            self.balance = self.get_balance()
+            print("Insufficient balance")
+        else:
+            self.balance -= amount
+            print("Withdraw successful")
+
+
+class CurrentAccount(BankAccount):
+    def __init__(self, account_holder, account_number, balance):
+        super().__init__(account_holder, account_number, balance)
+
+    overdraft_limit = 5000
+
+    def withdraw(self, amount):
+        if BankAccount.is_valid_amount(amount):
+            self.balance = self.get_balance()
