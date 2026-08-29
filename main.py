@@ -5249,83 +5249,123 @@
 
 
 # Answer -
-from abc import ABC, abstractmethod
+# from abc import ABC, abstractmethod
 
-class BankAccount(ABC):
-    bank_name = "ABC Bank"
-    total_accounts = 0
+# class BankAccount(ABC):
+#     bank_name = "ABC Bank"
+#     total_accounts = 0
 
-    def __init__(self, account_holder, account_number, balance):
-        self.account_holder = account_holder
-        self.__account_number = account_number
-        if balance >= 0 :
-            self.__balance = balance
-        else:
-            raise ValueError("Balance must be greater than 0")
+#     def __init__(self, account_holder, account_number, balance):
+#         self.account_holder = account_holder
+#         self.__account_number = account_number
+#         if balance >= 0 :
+#             self.__balance = balance
+#             BankAccount.total_accounts += 1
 
-    def get_account_number(self):
-        return self.account_number
+#         else:
+#             raise ValueError("Balance must be greater than or equal to 0")
 
-    def get_balance(self):
-        return self.__balance
+#     def get_account_number(self):
+#         return self.__account_number
 
-    def deposit(self, amount):
-        if BankAccount.is_valid_amount(amount):
-            self.__balance += amount
-            return self.__balance
-        else:
-            print("Amount must be greater than 0")
+#     def get_balance(self):
+#         return self.__balance
 
-    @abstractmethod
-    def withdraw(self, amount):
-        if BankAccount.is_valid_amount(amount):
-            self.__balance -= amount
-            return self.__balance
-        else:
-            print("Amount must be greater than 0")
+#     def update_balance(self, new_balance):
+#         self.__balance = new_balance
+        
 
-    @staticmethod
-    def is_valid_amount(amount):
-        if amount > 0:
-            return True
-        else:
-            return False
+#     def deposit(self, amount):
+#         if BankAccount.is_valid_amount(amount):
+#             self.__balance += amount
+#             print("Amount deposited successfully")
+#             return self.__balance
+#         else:
+#             print("Amount must be greater than 0")
 
-    @classmethod
-    def change_bank_name(cls, new_name):
-        cls.bank_name = new_name
-        return cls.bank_name 
+#     @abstractmethod
+#     def withdraw(self, amount):
+#         pass
 
-    @classmethod
-    def show_total_accounts(cls):
-        print(f"Total Accounts : {cls.total_accounts}")
+#     @staticmethod
+#     def is_valid_amount(amount):
+#         if amount > 0:
+#             return True
+#         else:
+#             return False
+
+#     @classmethod
+#     def change_bank_name(cls, new_name):
+#         cls.bank_name = new_name
+#         return cls.bank_name 
+
+#     @classmethod
+#     def show_total_accounts(cls):
+#         print(f"Total Accounts : {cls.total_accounts}")
+
 
         
-class SavingsAccount(BankAccount):
-    def __init__(self, account_holder, account_number, balance):
-        super().__init__(account_holder, account_number, balance)
+# class SavingsAccount(BankAccount):
+#     def __init__(self, account_holder, account_number, balance):
+#         super().__init__(account_holder, account_number, balance)
 
-    minimum_balance = 500
+#     minimum_balance = 2000
 
-    def withdraw(self, amount):
-        if BankAccount.is_valid_amount(amount):
-            self.balance = self.get_balance()
-            self.balance -= amount
+#     def withdraw(self, amount):
+#         if BankAccount.is_valid_amount(amount):
+#             current_balance = self.get_balance()
+#             new_balance = current_balance - amount
 
-        if self.balance < SavingsAccount.minimum_balance:
-            self.balance = self.get_balance()
-            print("Insufficient balance")
-        else:
-            self.balance -= amount
-            print("Withdraw successful")
+#             if new_balance >=  SavingsAccount.minimum_balance:
+#                 self.update_balance(new_balance)
+#                 print("Withdraw successfully")
+
+#             else:
+#                 print("Insufficient balance")
+
+#         else:
+#             print("Amount must be greater than 0")
+
+        
 
 
-class CurrentAccount(BankAccount):
-    def __init__(self, account_holder, account_number, balance):
-        super().__init__(account_holder, account_number, balance)
+# class CurrentAccount(BankAccount):
+#     def __init__(self, account_holder, account_number, balance):
+#         super().__init__(account_holder, account_number, balance)
 
-    overdraft_limit = 5000
+#     overdraft_limit = -5000
 
-    def withdraw(self, amount):
-        if BankAccount.is_valid_amount(amount):
-            self.balance = self.get_balance()
+#     def withdraw(self, amount):
+#         if BankAccount.is_valid_amount(amount):
+#             current_balance = self.get_balance()
+#             new_balance = current_balance - amount
+        
+#             if new_balance >= CurrentAccount.overdraft_limit:
+#                 self.update_balance(new_balance)
+#                 print("Withdraw Successfully")
+#             else:
+#                 print("Overdraft limit exceeded")
+
+#         else:
+#             print("Amount must be greater than 0")
+
+# def process_withdraw(account, amount):
+#     account.withdraw(amount)
+
+
+# kalpesh = SavingsAccount("Kalpesh", 101, 10000)
+# sanika = CurrentAccount("Sanika", 102, 10000)
+
+# process_withdraw(kalpesh, -5000)
+# process_withdraw(kalpesh, 9000)
+
+# process_withdraw(sanika, 12000)
+# process_withdraw(sanika, 16000)
+
+# kalpesh.deposit(-15000)
+# kalpesh.deposit(15000)
+
+# print(f"New bank name : {kalpesh.change_bank_name('XXX bank')}")
+# BankAccount.show_total_accounts()
+
+########################################################################################################
