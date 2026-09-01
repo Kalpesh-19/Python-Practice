@@ -5369,3 +5369,305 @@
 # BankAccount.show_total_accounts()
 
 ########################################################################################################
+
+###Abstraction Questions
+# Question 1: Animal Sound
+
+# Create an abstract class Animal.
+
+# It should contain an abstract method:
+
+# make_sound()
+
+# Create two child classes:
+
+# Dog
+# Cat
+
+# Implement make_sound() differently for both classes.
+
+# Example:
+
+# Dog → Bark
+# Cat → Meow
+
+# Goal: Understand basic abstract classes and abstract methods.
+
+# Answer -
+# from abc import ABC, abstractmethod
+
+# class Animal(ABC):
+#     @abstractmethod
+#     def make_sound(self):
+#         pass
+
+# class Dog(Animal):
+#     def make_sound(self):
+#         print("Dog Barks")
+
+# class Cat(Animal):
+#     def make_sound(self):
+#         print("Cat Meow")
+
+# dog = Dog()
+# cat = Cat()
+
+# dog.make_sound()
+# cat.make_sound()
+
+########################################################################################################
+# Question 2: Shape Area
+
+# Create an abstract class Shape.
+
+# Create an abstract method:
+
+# area()
+
+# Create two child classes:
+
+# Circle
+# Rectangle
+
+# Each class should calculate and return its own area.
+
+# Example:
+
+# circle = Circle(5)
+# rectangle = Rectangle(10, 5)
+
+# Goal: Same method name, different implementations.
+
+# Answer -
+# from abc import ABC, abstractmethod
+
+# class Shape(ABC):
+#     @abstractmethod
+#     def area(self):
+#         pass
+
+# class Circle(Shape):
+#     def __init__(self, radius):
+#         self.radius = radius
+#         self.pi = 3.14
+
+#     def area(self):
+#         return self.pi * (self.radius ** 2)
+
+# class Rectangle(Shape):
+#     def __init__(self, length, width):
+#         self.length = length
+#         self.width = width
+
+#     def area(self):
+#         return self.length * self.width
+
+# table = Rectangle(12, 45)
+# circle = Circle(10)
+
+# print(f"Area of Table : {table.area()}")
+# print(f"Area of circle : {circle.area()}")
+
+########################################################################################################
+# Question 3: Payment System
+
+# Create an abstract class Payment.
+
+# Add an abstract method:
+
+# pay(amount)
+
+# Create:
+
+# CreditCardPayment
+# UPIPayment
+# CashPayment
+
+# Each class should implement the payment process differently.
+
+# Example output:
+
+# Paid ₹500 using Credit Card
+# Paid ₹500 using UPI
+# Paid ₹500 using Cash
+
+# Goal: Understand why abstraction is useful in real-world systems.
+
+
+# Answer -
+# from abc import ABC, abstractmethod
+
+# class Payment(ABC):
+#     @abstractmethod
+#     def pay(self, amount):
+#         pass
+
+# class CreditCardPayment(Payment):
+#     def pay(self, amount):
+#         print(f"Paid ₹{amount} using Credit Card")
+
+# class UPI(Payment):
+#     def pay(self, amount):
+#         print(f"Paid ₹{amount} using UPI")
+
+# class Cash(Payment):
+#     def pay(self, amount):
+#         print(f"Paid ₹{amount} using Cash ")
+
+
+# credit_card = CreditCardPayment()
+# upi = UPI()
+# cash = Cash()
+
+# cash.pay(1000)
+# upi.pay(1200)
+# credit_card.pay(1400)
+
+########################################################################################################
+# Question 4: Employee Salary System
+
+# Create an abstract class Employee.
+
+# It should have:
+
+# calculate_salary()
+
+# Create two employee types:
+
+# FullTimeEmployee
+# PartTimeEmployee
+
+# Rules:
+
+# Full-time salary = fixed monthly salary
+
+# Part-time salary = hourly_rate × hours_worked
+
+# Store the employee's name as an instance attribute.
+
+# Then create multiple employee objects and calculate their salaries.
+
+# Challenge: Use a list of employees and call calculate_salary() for each one.
+
+
+# Answer -
+# from abc import ABC, abstractmethod
+
+# class Employee(ABC):
+#     @abstractmethod
+#     def calculate_salary(self):
+#         pass
+
+# class FullTime(Employee):
+#     def __init__(self, name, salary):
+#         self.name = name
+#         self.salary = salary
+
+#     def calculate_salary(self):
+#         return self.salary
+
+# class PartTime(Employee):
+#     def __init__(self, name, hours_worked, hourly_rate):
+#         self.name = name
+#         self.hours_worked = hours_worked
+#         self.hourly_rate = hourly_rate
+        
+#     def calculate_salary(self):
+#         return self.hours_worked * self.hourly_rate
+
+
+# kalpesh = PartTime("Kalpesh", 8, 500 )
+# bunny = FullTime("Bunny", 30000 )
+# killer = FullTime("Killer", 45000)
+# prime = PartTime("Prime", 9, 700)
+
+# employees = [kalpesh, bunny, prime, killer]
+
+# for employee in employees:
+#     print(f"{employee.name}'s Salary : {employee.calculate_salary()}")
+
+########################################################################################################
+# Question 5: Vehicle Rental System
+
+# Create an abstract class Vehicle.
+
+# It should contain:
+
+# calculate_rent(days)
+
+# Create:
+
+# Car
+# Bike
+# Truck
+
+# Each vehicle should have a different daily rental price.
+
+# Example:
+
+# Car → ₹2000/day
+# Bike → ₹500/day
+# Truck → ₹5000/day
+
+# Your program should allow:
+
+# vehicles = [car, bike, truck]
+
+# Then calculate the rent for each vehicle for 3 days.
+
+# Concepts combined:
+
+# Abstraction
+# Inheritance
+# Polymorphism
+
+
+# Answer -
+# from abc import ABC, abstractmethod
+
+# class Vehicle(ABC):
+#     @abstractmethod
+#     def calculate_rent(self, days):
+#         pass
+
+
+# class Car(Vehicle):
+#     def __init__(self, name):
+#         self.name = name
+
+#     rent_per_day = 2000
+
+#     def calculate_rent(self, days):
+#         return Car.rent_per_day * days
+
+
+# class Bike(Vehicle):
+#     def __init__(self, name):
+#         self.name = name
+
+#     rent_per_day = 500
+
+#     def calculate_rent(self, days):
+#         return Bike.rent_per_day * days
+
+
+# class Truck(Vehicle):
+#     def __init__(self, name):
+#         self.name = name
+
+#     rent_per_day = 5000
+
+#     def calculate_rent(self, days):
+#         return Truck.rent_per_day * days
+
+
+# car = Car("Fortuner")
+# bike = Bike("h2r")
+# truck = Truck("BharatBENZ")
+
+# vehicles = [car, bike, truck]
+
+# for vehicle in vehicles:
+#     print(f"{vehicle.name}'s rent for 3 days : {vehicle.calculate_rent(3)}")
+
+########################################################################################################
