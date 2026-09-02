@@ -5671,3 +5671,438 @@
 #     print(f"{vehicle.name}'s rent for 3 days : {vehicle.calculate_rent(3)}")
 
 ########################################################################################################
+# Question 6: Notification System
+
+# Create an abstract class:
+# Notification
+
+# Add an abstract method:
+# send(message)
+
+# Create:
+# EmailNotification
+# SMSNotification
+# PushNotification
+
+# Each class should send the message differently.
+
+# Example:
+# Sending Email: Hello
+# Sending SMS: Hello
+# Sending Push Notification: Hello
+
+# Challenge
+# Create a function:
+# def send_notification(notification, message):
+
+# The function should work with any notification object.
+
+# Example:
+# send_notification(EmailNotification(), "Interview tomorrow")
+# send_notification(SMSNotification(), "Interview tomorrow")
+
+# Think about why this is useful in a real application.
+
+
+# Answer -
+# from abc import ABC, abstractmethod
+
+# class Notification(ABC):
+#     @abstractmethod
+#     def send(self, message):
+#         pass
+
+
+# class EmailNotification(Notification):
+#     def send(self, message):
+#         return f"Sending Email : {message}"
+
+    
+# class SMSNotification(Notification):
+#     def send(self, message):
+#         return f"Sending SMS : {message}"
+
+
+# class PushNotification(Notification):
+#     def send(self, message):
+#         return f"Sending Push Notification : {message}"
+
+# def send_notification(notification, message):
+#     print(notification.send(message))
+
+# email = EmailNotification()
+# sms = SMSNotification()
+# push = PushNotification()
+
+# send_notification(push, "Code push on github")
+# send_notification(sms, "I am coder")
+# send_notification(email, "email send to me")
+
+########################################################################################################
+# Question 7: Bank Account System
+
+# Create an abstract class BankAccount.
+# Common attributes:
+# account_holder
+# balance
+
+# Abstract method:
+# withdraw(amount)
+
+# Create:
+# SavingsAccount
+# CurrentAccount
+
+# Rules:
+# Savings Account
+# Cannot withdraw more than the available balance.
+
+# Current Account
+# Can withdraw beyond the balance up to an overdraft limit.
+
+# Example:
+# Savings balance = 10000
+# Withdraw = 12000
+# → Insufficient Balance
+
+# For CurrentAccount:
+# Balance = 10000
+# Overdraft Limit = 5000
+# Withdraw = 14000
+# → Allowed
+
+# Concepts combined:
+# Abstraction
+# Encapsulation
+# Inheritance
+# Method overriding
+
+
+# Answer -
+# from abc import ABC, abstractmethod
+
+# class BankAccount(ABC):
+#     def __init__(self, account_holder, balance):
+#         self.account_holder = account_holder
+#         self.balance = balance
+
+#     @abstractmethod
+#     def withdraw(self, amount):
+#         pass
+
+
+# class SavingsAccount(BankAccount):
+#     def __init__(self, account_holder, balance):
+#         super().__init__(account_holder, balance)
+
+#     def withdraw(self, amount):
+#         if amount > 0:
+#             if amount <= self.balance:
+#                 self.balance -= amount
+#                 print(f"₹{amount} Withdraw Successfully")
+#             else:
+#                 print("Insufficient Balance")
+#         else:
+#             print("Amount must be greater than 0")
+
+
+# class CurrentAccount(BankAccount):
+#     def __init__(self, account_holder, balance):
+#         super().__init__(account_holder, balance)
+
+#     over_draft_limit = -5000
+
+#     def withdraw(self, amount):
+#         if amount > 0:
+#             final_balance = self.balance - amount
+#             if final_balance < CurrentAccount.over_draft_limit:
+#                 print("Over Draft limit Exceeded")
+#             else:
+#                 self.balance = final_balance
+#                 print(f"₹{amount} Withdraw Successfully")
+#         else:
+#             print("Amount must be greater than 0")
+
+
+# current_account = CurrentAccount("Kalpesh", 10000)
+# current_account.withdraw(12000)
+
+# saving_account = SavingsAccount("Bunny", 25000)
+# saving_account.withdraw(5000)
+
+########################################################################################################
+# Question 8: Food Delivery System
+
+# Create an abstract class:
+# Order
+
+# It should contain common information:
+# customer_name
+# items
+
+# Create abstract methods:
+# calculate_total()
+# place_order()
+
+# Create two child classes:
+# RestaurantOrder
+# GroceryOrder
+
+# Rules:
+# RestaurantOrder
+# Total = item prices + delivery fee
+# GroceryOrder
+# Total = item prices + packaging fee
+
+# Example:
+# order1 = RestaurantOrder(
+#     "Bunny",
+#     {"Pizza": 300, "Burger": 150}
+# )
+
+# order2 = GroceryOrder(
+#     "Bunny",
+#     {"Milk": 50, "Bread": 40}
+# )
+
+# Your program should process both orders using a loop:
+# orders = [order1, order2]
+
+# Challenge: You should not need to check:
+# if type(order) == RestaurantOrder:
+# Use polymorphism instead.
+
+
+# Answer -
+# from abc import ABC, abstractmethod
+
+# class Order(ABC):
+#     def __init__(self, customer_name, items):
+#         self.customer_name = customer_name
+#         self.items = items
+
+#     @abstractmethod
+#     def calculate_total(self):
+#         pass
+
+#     @abstractmethod
+#     def place_order(self):
+#         pass
+
+
+# class RestaurantOrder(Order):
+#     delivery_fee = 50
+
+#     def calculate_total(self):
+#         total_price = 0
+#         for item in self.items:
+#             total_price += self.items[item]
+#         return total_price  + RestaurantOrder.delivery_fee
+
+#     def place_order(self):
+#         print("Order Placed Successfully")
+
+
+# class GroceryOrder(Order):
+#     packaging_fee = 40
+
+#     def calculate_total(self):
+#         total_price = 0
+#         for item in self.items:
+#             total_price += self.items[item]
+#         return total_price  + GroceryOrder.packaging_fee
+
+#     def place_order(self):
+#         print("Order Placed Successfully")
+
+
+# order1 = RestaurantOrder("Kalpesh", {"Vadapav" : 10, "Popcorn" : 10, "Burger" : 99})
+# order2 = GroceryOrder("Bunny", {"Pizza" : 1599, "Rice" : 4522 })
+
+# orders = [order1, order2]
+
+# for order in orders:
+#     order.place_order()
+#     print(f"Total Price : {order.calculate_total()}")
+
+########################################################################################################
+# Question 9: File Processing System
+
+# Create an abstract class:
+# FileProcessor
+
+# It should define:
+# read_file()
+# process()
+
+# Create:
+# TextFileProcessor
+# CSVFileProcessor
+# JSONFileProcessor
+
+# Each processor should implement:
+# Reading the file.
+# Processing the data.
+
+# For example:
+# TextFileProcessor
+# → Count words
+
+# CSVFileProcessor
+# → Count rows
+
+# JSONFileProcessor
+# → Count keys
+
+# Challenge
+# Create a function:
+# def process_file(processor):
+# It should work for every type of processor:
+# process_file(TextFileProcessor(...))
+# process_file(CSVFileProcessor(...))
+# process_file(JSONFileProcessor(...))
+
+# Interview concept: Design your code so new file types can be added later without changing process_file().
+
+# For example, later:
+# XMLFileProcessor
+# should work automatically.
+
+
+# Answer -
+# from abc import ABC, abstractmethod
+
+# class FileProcessor(ABC):
+#     @abstractmethod
+#     def read_file(self):
+#         pass
+
+#     @abstractmethod
+#     def process(self):
+#         pass
+
+
+# class TextFileProcessor(FileProcessor):
+#     def read_file(self, txt_file):
+#         with open(f"{txt_file}") as f:
+#             data = f.read()
+#             words = data.split()
+#             total_words = 0
+#             for i in range(len(words)):
+#                 total_words += i
+#         return total_words
+
+#     def process(self):
+#         pass
+
+
+# class CSVFileProcessor(FileProcessor):
+#     def read_file(self, csv_file):
+#         with open(f"{csv_file}") as f:
+#             data = f.read()
+#             rows = 0
+#             for row in data:
+#                 rows += 1
+#         return rows
+
+
+#     def process(self):
+#         pass
+
+
+# csv = CSVFileProcessor()
+
+# print(csv.read_file("bio_data.txt"))
+
+########################################################################################################
+# Question 10: E-Commerce Discount System ⭐
+# This is the hardest challenge.
+
+# Create an abstract class:
+# Discount
+
+# It should contain an abstract method:
+# calculate_discount(cart_total)
+
+# Create different discount classes:
+# PercentageDiscount
+# FixedDiscount
+# NoDiscount
+
+# Rules:
+# Percentage Discount
+# 10% discount
+# Example:
+# Cart Total = ₹1000
+# Discount = ₹100
+# Final Amount = ₹900
+
+# Fixed Discount
+# ₹200 discount
+# Example:
+# Cart Total = ₹1000
+# Final Amount = ₹800
+
+# No Discount
+# Final Amount = same as cart total
+
+# Now create a ShoppingCart class.
+# It should have:
+# cart_total
+# discount
+
+# Create a method:
+# checkout()
+# The cart should work with any discount strategy.
+
+# Example:
+# discount1 = PercentageDiscount(10)
+
+# cart = ShoppingCart(
+#     cart_total=2000,
+#     discount=discount1
+# )
+
+# cart.checkout()
+
+# Later, you should be able to do:
+# cart.discount = FixedDiscount(500)
+# without changing the ShoppingCart class.
+
+# Final Challenge
+# Add a new class:
+# BuyOneGetOneDiscount
+# Can you add it without modifying the existing ShoppingCart code?
+
+# If yes, then you're understanding a very important real-world OOP design principle.
+
+
+
+# Answer -
+from abc import ABC, abstractmethod
+
+class Discount(ABC):
+    @abstractmethod
+    def calculate_discount(self, cart_total):
+        pass
+
+
+class PercentageDiscount(Discount):
+    def calculate_discount(self, cart_total):
+        discount = cart_total * 0.1
+        final_price = cart_total - discount
+        return final_price
+
+
+class FixedDiscount(Discount):
+    def calculate_discount(self, cart_total):
+        final_price = cart_total - 200
+        return final_price
+
+
+class NoDiscount(Discount):
+    def calculate_discount(self, cart_total):
+        return cart_total
+
+class Shopping_cart():
+    
