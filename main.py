@@ -6079,30 +6079,56 @@
 
 
 # Answer -
-from abc import ABC, abstractmethod
+# from abc import ABC, abstractmethod
 
-class Discount(ABC):
-    @abstractmethod
-    def calculate_discount(self, cart_total):
-        pass
-
-
-class PercentageDiscount(Discount):
-    def calculate_discount(self, cart_total):
-        discount = cart_total * 0.1
-        final_price = cart_total - discount
-        return final_price
+# class Discount(ABC):
+#     @abstractmethod
+#     def calculate_discount(self, cart_total):
+#         pass
 
 
-class FixedDiscount(Discount):
-    def calculate_discount(self, cart_total):
-        final_price = cart_total - 200
-        return final_price
+# class PercentageDiscount(Discount):
+#     def __init__(self, percentage):
+#         self.percentage = percentage
+
+#     def calculate_discount(self, cart_total):
+#         discount = cart_total * self.percentage / 100
+#         return cart_total - discount
 
 
-class NoDiscount(Discount):
-    def calculate_discount(self, cart_total):
-        return cart_total
+# class FixedDiscount(Discount):
+#     def __init__(self, discount):
+#         self.discount = discount
 
-class Shopping_cart():
+#     def calculate_discount(self, cart_total):
+#         return max(0, cart_total - self.discount)
+
+
+# class NoDiscount(Discount):
+#     def calculate_discount(self, cart_total):
+#         return cart_total
+
+
+# class ShoppingCart():
+#     def __init__(self, cart_total, discount):
+#         self.cart_total = cart_total
+#         self.discount = discount
+
     
+#     def checkout(self):
+#         return self.discount.calculate_discount(self.cart_total)
+
+
+# discount1 = PercentageDiscount(20)
+# discount2 = FixedDiscount(300)
+# discount3 = NoDiscount()
+
+# carts = [ShoppingCart(4500, discount1), 
+#          ShoppingCart(1000, discount2),
+#          ShoppingCart(5200, discount3)
+#     ]
+
+# for cart in carts:
+#     print(cart.checkout())
+
+########################################################################################################
