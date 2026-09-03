@@ -5971,8 +5971,12 @@
 
 # Answer -
 # from abc import ABC, abstractmethod
+# import json
 
 # class FileProcessor(ABC):
+#     def __init__(self, file):
+#         self.file = file
+
 #     @abstractmethod
 #     def read_file(self):
 #         pass
@@ -5983,36 +5987,55 @@
 
 
 # class TextFileProcessor(FileProcessor):
-#     def read_file(self, txt_file):
-#         with open(f"{txt_file}") as f:
+#     def read_file(self):
+#         with open(f"{self.file}") as f:
 #             data = f.read()
-#             words = data.split()
-#             total_words = 0
-#             for i in range(len(words)):
-#                 total_words += i
-#         return total_words
-
+#         return data
+    
 #     def process(self):
-#         pass
+#         content = self.read_file()
+#         words = content.split()
+#         total_words = len(words)
+#         print(f"Total words : {total_words}") 
 
 
 # class CSVFileProcessor(FileProcessor):
-#     def read_file(self, csv_file):
-#         with open(f"{csv_file}") as f:
+#     def read_file(self):
+#         with open(f"{self.file}") as f:
 #             data = f.read()
-#             rows = 0
-#             for row in data:
-#                 rows += 1
-#         return rows
-
+#         return data
 
 #     def process(self):
-#         pass
+#         content = self.read_file()
+#         rows = content.splitlines()
+#         total_rows = len(rows) - 1
+#         print(f"Total Rows : {total_rows}")         
 
 
-# csv = CSVFileProcessor()
+# class JSONFileProcessor(FileProcessor):
+#     def read_file(self):
+#         with open(f"{self.file}") as f:
+#             data = json.load(f)
+#             return data 
 
-# print(csv.read_file("bio_data.txt"))
+#     def process(self):
+#         content = self.read_file()
+#         keys = content.keys()
+#         total_keys = len(keys)
+#         print(f"Total Keys : {total_keys}") 
+
+    
+# def process_file(processor):
+#      processor.process()
+
+
+# obj1 = TextFileProcessor("my_name.txt")
+# obj2 = CSVFileProcessor("data.txt")
+# obj3 = JSONFileProcessor("sample.json")
+
+# process_file(obj1)
+# process_file(obj2)
+# process_file(obj3)
 
 ########################################################################################################
 # Question 10: E-Commerce Discount System ⭐
