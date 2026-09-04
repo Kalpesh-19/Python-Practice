@@ -6586,28 +6586,236 @@
 
 
 # Answer -
-class Calculator:
-    def __call__(self, a, b, operation):
-        if operation == "add":
-            return a + b
-        elif operation == "subtract":
-            return a - b
-        elif operation == "multiply":
-            return a * b
-        elif operation == "divide":
-            return a / b
-        else:
-            return "Invalid Operation"
+# class Calculator:
+#     def __call__(self, a, b, operation):
+#         if operation == "+":
+#             return a + b
+#         elif operation == "-":
+#             return a - b
+#         elif operation == "*":
+#             return a * b
+#         elif operation == "/":
+#             return a / b
+#         else:
+#             return "Invalid Operation"
 
-cal = Calculator()
-
-
-try:
-    print(cal(10, 20, "multiply"))
-    print(cal(10, 5, "divide"))
+# cal = Calculator()
 
 
-except ZeroDivisionError as err:
-    print(err)
-    print(cal(10, 45, "Subtract"))
+# try:
+#     print(cal(10, 20, "*"))
+#     print(cal(10, 0, "/"))
 
+
+# except ZeroDivisionError as err:
+#     print(err)
+#     print(cal(10, 45, "-"))
+#     print(cal(45, 100, "+"))
+
+########################################################################################################
+# Question 10: Build Your Own Iterator 🚀
+# Create a class called EvenNumbers.
+
+# Example:
+# numbers = EvenNumbers(10)
+
+# Make this work:
+# for num in numbers:
+#     print(num)
+
+# Expected:
+# 2
+# 4
+# 6
+# 8
+# 10
+
+# Implement:
+# __iter__
+# __next__
+
+# Challenge
+# Your class should also work with:
+# list(numbers)
+
+# And:
+# for num in EvenNumbers(20):
+#     print(num)
+
+# Important question to think about
+# What should happen when there are no more numbers?
+# You will discover why Python uses:
+# StopIteration
+
+# This is one of the most important concepts behind:
+# for loops
+# generators
+# iterators
+# data pipelines
+# many Python libraries
+
+
+
+# Answer -
+# class EvenNumbers:
+#     def __init__(self, current, end):
+#         self.current = current
+#         self.end = end
+        
+
+#     def __iter__(self):
+#         return self
+
+#     def __next__(self):
+#         if self.current > self.end:         ##Stop Condition
+#             raise StopIteration 
+#         value = self.current                ##Storing start value
+#         self.current += 2                   ##Steps Condition
+#         return value                        ##return Start value
+    
+# numbers = EvenNumbers(2,10)
+# for num in numbers:
+#     print(num)
+
+########################################################################################################
+
+###Advance Stuff Questions:
+
+###Decorator & *args, **kwargs Questions:
+
+
+# Question 1: Sum of Any Numbers
+# Create a function:
+# def calculate_sum(*args):
+#     pass
+
+# It should accept any number of integers and return their sum.
+
+# Example:
+# calculate_sum(1, 2, 3)
+# # 6
+
+# calculate_sum(10, 20, 30, 40)
+# # 100
+
+# Interview concepts: *args, loops, aggregation.
+
+
+# Answer -
+# def calculate_sum(*args):
+#     total = 0
+#     for num in args:
+#         total += num
+#     return total
+
+
+# print(f"Sum of Numbers : {calculate_sum(1, 2, 3)}")
+# print(f"Sum of Numbers : {calculate_sum(10, 20, 30, 40)}")
+
+########################################################################################################
+# Question 2: Student Information
+
+# Create a function:
+# def student_info(name, **kwargs):
+#     pass
+
+# Example:
+# student_info(
+#     "Bunny",
+#     age=21,
+#     city="Mumbai",
+#     skill="Python"
+# )
+
+# Expected output:
+# Name: Bunny
+# age: 21
+# city: Mumbai
+# skill: Python
+
+# Challenge: What happens internally to all the keyword arguments?
+
+
+# Answer -
+
+# def student_info(name, **kwargs):
+#     print(f"Name : {name}")
+
+#     for key,value in kwargs.items():
+#         print(f"{key} : {value}")
+
+
+# student_info("Kalpesh", age = 22, skill = "Python", city = "Mumbai")
+
+########################################################################################################
+# Question 3: Flexible Calculator
+
+# Create a function that accepts:
+# def calculator(operation, *numbers):
+#     pass
+
+# It should support:
+# calculator("add", 10, 20, 30)
+# # 60
+
+# calculator("multiply", 2, 3, 4)
+# # 24
+
+# Bonus:
+# calculator("max", 10, 50, 20)
+
+# Interview concepts: *args, conditionals, edge cases.
+
+
+# Answer -
+# def calculator(operation, *numbers):
+#     if operation == "add":
+#         total = 0
+
+#         for num in numbers:
+#             total += num
+#         return total
+
+    
+#     elif operation == "multiply":
+#         total = 1
+
+#         for num in numbers:
+#             total *= num
+#         return total
+
+    
+#     elif operation == "max":
+#         if len(numbers) <= 0:
+#             raise ValueError("Comparison need atleast one or more numbers")
+        
+#         maximum = numbers[0]
+
+#         for num in numbers:
+#             if maximum < num:
+#                 maximum = num
+#         return maximum
+
+
+#     elif operation == "divide":
+#         if len(numbers) != 2:
+#             raise ValueError("Division requires two numbers")
+        
+#         a, b = numbers
+
+#         if b  == 0:
+#             raise ZeroDivisionError("Cannot divide by zero")
+        
+#         return a / b
+        
+#     else:
+#         raise ValueError("Invalid Operation")
+    
+
+# print(f"Total  Addition : {calculator('add', 10, 20 ,30)}")
+# print(f"Total multiplication : {calculator('multiply', 2, 3, 4)}")
+# print(f"Maximum Number : {calculator('max', 10, 50, 30)}")
+# print(f"Final Division : {calculator('divide', 0, 20)}")
+# calculator("power", 2, 2)
+
+########################################################################################################
