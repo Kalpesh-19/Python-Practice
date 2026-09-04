@@ -6430,3 +6430,184 @@
 # print(employee1 == employee2)
 
 ########################################################################################################
+# Question 7: Create Your Own List-Like Object
+# Create a class called MyList.
+# Internally, it should contain a Python list:
+# self.data = [10, 20, 30, 40]
+
+# Make this work:
+# my_list = MyList([10, 20, 30, 40])
+
+# print(my_list[0])
+# print(my_list[2])
+
+# Implement:
+# __getitem__
+
+# Challenge
+# Also make this work:
+# my_list[1] = 100
+# Now implement:
+# __setitem__
+
+# Finally:
+# print(my_list)
+
+# This is an important exercise because you are learning how Python makes your custom object behave like a built-in container.
+
+
+# Answer -
+# class MyList:
+#     def __init__(self, data):
+#         self.data = data
+
+#     def __getitem__(self, index):
+#         return self.data[index]
+
+
+#     def __setitem__(self, index, value):
+#         self.data[index] = value
+
+
+# my_list = MyList([10, 20, 30, 40, 50])
+# print(my_list[1])
+# my_list[4] = 600
+# print(my_list[4])
+# print(my_list.data)
+
+########################################################################################################
+# Question 8: Shopping Cart System
+# Create a ShoppingCart class.
+# Requirements:
+# cart = ShoppingCart()
+
+# Make this work:
+# cart.add_item("Laptop", 50000)
+# cart.add_item("Mouse", 1000)
+# cart.add_item("Keyboard", 3000)
+
+# Implement dunder methods so that:
+# Get number of items
+# print(len(cart))
+
+# Output:
+# 3
+
+# Access an item
+# print(cart[0])
+
+# Combine two carts
+# cart3 = cart1 + cart2
+# The new cart should contain items from both carts.
+
+# Print cart nicely
+# print(cart3)
+
+# Use:
+# __len__
+# __getitem__
+# __add__
+# __str__
+
+# This question combines multiple dunder methods and is good logic practice.
+
+
+# Answer -
+# class ShoppingCart():
+#     def __init__(self):
+#         self.items = {}
+
+
+#     def add_item(self, item, price):
+#         self.items[item] = price
+
+#     def __len__(self):
+#         return len(self.items)
+
+#     def __getitem__(self, index):
+#         return self.items[index]
+
+#     def __add__(self, other):
+#         cart3 = ShoppingCart()
+#         for item, price in self.items.items():
+#             cart3.add_item(item, price)
+
+#         for item, price in other.items.items():
+#             cart3.add_item(item, price)
+#         return cart3
+
+#     def __str__(self):
+#         return f"Shopping Cart : {self.items}"
+
+
+
+# cart1 = ShoppingCart()
+# cart2 = ShoppingCart()
+# cart1.add_item("Laptop", 50000)
+# cart1.add_item("Mouse", 1000)
+# cart2.add_item("Keyboard", 3000)
+# print(len(cart1))
+# print(cart1["Mouse"])
+# print(cart1 + cart2)
+# print(cart1)
+
+########################################################################################################
+# Question 9: Callable Calculator
+# Create a class called Calculator.
+# Normally, objects are not called like functions.
+
+# But make this work:
+# calc = Calculator()
+# print(calc(10, 20))
+
+# Expected:
+# 30
+
+# Implement:
+# __call__
+
+# Challenge
+# Support different operations:
+# calc(10, 20, "add")
+# calc(10, 20, "subtract")
+# calc(10, 20, "multiply")
+# calc(10, 20, "divide")
+
+# Example:
+# 30
+# -10
+# 200
+# 0.5
+
+# Extra challenge
+# Handle:
+# calc(10, 0, "divide")
+# without crashing your program.
+
+
+# Answer -
+class Calculator:
+    def __call__(self, a, b, operation):
+        if operation == "add":
+            return a + b
+        elif operation == "subtract":
+            return a - b
+        elif operation == "multiply":
+            return a * b
+        elif operation == "divide":
+            return a / b
+        else:
+            return "Invalid Operation"
+
+cal = Calculator()
+
+
+try:
+    print(cal(10, 20, "multiply"))
+    print(cal(10, 5, "divide"))
+
+
+except ZeroDivisionError as err:
+    print(err)
+    print(cal(10, 45, "Subtract"))
+
