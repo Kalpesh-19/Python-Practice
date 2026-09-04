@@ -6155,3 +6155,169 @@
 #     print(cart.checkout())
 
 ########################################################################################################
+
+###Dunder Methods Questions:
+
+# Question 1: Student Information
+# Create a Student class with:
+# name
+# age
+# course
+
+# Implement:
+# __init__
+# __str__
+
+# Example:
+# s1 = Student("Rahul", 21, "Python")
+# print(s1)
+
+# Expected output:
+# Student: Rahul | Age: 21 | Course: Python
+
+# Concept: Understanding how print(object) calls __str__().
+
+
+# Answer -
+# class Student:
+#     def __init__(self, name, age, course):
+#         self.name = name
+#         self.age = age
+#         self.course = course
+
+
+#     def __str__(self):
+#         return f"Student : {self.name} | Age: {self.age} | Course: {self.course}"
+
+
+# s1 = Student("Kalpesh", 22, "Python")
+# print(s1)
+
+########################################################################################################
+# Question 2: Book Representation
+# Create a Book class with:
+# title
+# author
+# price
+
+# Implement both:
+# __str__
+# __repr__
+
+# Then test:
+# book = Book("Atomic Habits", "James Clear", 500)
+# print(book)
+# print([book])
+
+# Your task is to understand the difference between:
+# __str__()
+# and
+# __repr__()
+
+# Interview relevance: This is a common question for checking whether you understand object representation.
+
+
+# Answer -
+# class Book:
+#     def __init__(self, title, author, price):
+#         self.title = title
+#         self.author = author
+#         self.price = price
+
+#     def __str__(self):
+#         return f"Book Title : {self.title}"
+
+#     def __repr__(self):
+#         return (
+#                 f"Book(title : '{self.title}', "
+#                 f"author : '{self.author}', "
+#                 f"price : {self.price})"
+#         )
+
+
+# book1 = Book("Python Programming", "Kalpesh", 599)
+# print(book1)
+# print([book1])
+
+########################################################################################################
+# Question 3: Custom len()
+
+# Create a class called Playlist.
+# It should store a list of songs.
+
+# Example:
+# playlist = Playlist([
+#     "Song A",
+#     "Song B",
+#     "Song C"
+# ])
+
+# Make this work:
+# print(len(playlist))
+
+# Expected:
+# 3
+
+# You need to implement:
+# __len__
+
+# Challenge
+# Also create a method:
+# add_song(song)
+
+# After adding a song:
+# playlist.add_song("Song D")
+# print(len(playlist))
+
+# Output:
+# 4
+
+
+# Answer -
+# class Playlist:
+#     def __init__(self, songs):
+#         self.songs = songs
+
+#     def add_song(self, song):
+#         self.songs.append(song)
+
+#     def __len__(self):
+#         return len(self.songs)
+
+
+# playlist = Playlist(["Song A", "Song B", "Song C"])
+# print(f"Length of Playlist : {len(playlist)}")
+# playlist.add_song("Song D")
+# print(f"Length of Playlist : {len(playlist)}")
+
+########################################################################################################
+# 🟡 Medium Level
+# Question 4: Add Two Bank Accounts
+# Create a BankAccount class:
+# account_holder
+# balance
+
+# Implement __add__ so that this works:
+# a1 = BankAccount("Rahul", 10000)
+# a2 = BankAccount("Amit", 15000)
+
+# print(a1 + a2)
+
+# Expected output:
+# 25000
+
+# Challenge
+# Instead of returning just an integer, return a new BankAccount object.
+
+# For example:
+
+# a3 = a1 + a2
+
+# print(a3)
+
+# Think carefully:
+
+# What should the new account holder's name be?
+# Should the original accounts change?
+
+# Concept: Operator overloading.
