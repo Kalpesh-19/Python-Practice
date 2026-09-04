@@ -6321,3 +6321,112 @@
 # Should the original accounts change?
 
 # Concept: Operator overloading.
+
+
+# Answer -
+# class BankAccount:
+#     def __init__(self, account_holder, balance):
+#         self.account_holder = account_holder
+#         self.balance = balance
+
+#     def __add__(self, other):
+#         return self.balance + other.balance
+
+# acc1 = BankAccount("Kalpesh", 10000)
+# acc2 = BankAccount("Bunny", 15000)
+
+# print(acc1 + acc2)
+
+########################################################################################################
+# Question 5: Compare Products
+
+# Create a Product class:
+# name
+# price
+
+# Implement comparison so this works:
+# p1 = Product("Laptop", 50000)
+# p2 = Product("Phone", 30000)
+
+# print(p1 > p2)
+# print(p1 < p2)
+
+# The comparison should happen based on price.
+
+# You will need:
+# __gt__
+# __lt__
+
+# Challenge
+# What should happen here?
+# p1 == p2
+# Implement the appropriate dunder method.
+
+
+# Answer -
+# class Product:
+#     def __init__(self, name, price):
+#         self.name = name
+#         self.price = price
+
+#     def __gt__(self, other):
+#         return self.price > other.price
+
+#     def __lt__(self, other):
+#         return self.price < other.price
+
+#     def __eq__(self, other):
+#         return self.price == other.price
+
+
+# p1 = Product("Milk", 100)
+# p2 = Product("Lemon", 200)
+
+# print(p1 < p2)
+# print(p1 > p2)
+# print(p2 == p1)
+
+########################################################################################################
+# Question 6: Employee Equality
+# Create an Employee class:
+# name
+# employee_id
+# salary
+
+# Two employees should be considered equal if they have the same:
+# employee_id
+
+# Example:
+# e1 = Employee("Rahul", 101, 50000)
+# e2 = Employee("Rahul Kumar", 101, 70000)
+
+# print(e1 == e2)
+
+# Expected:
+# True
+
+# Implement:
+# __eq__
+
+# Interview follow-up
+# Think about:
+# Why should equality sometimes depend on an ID instead of all object attributes?
+# This is very similar to how real systems compare database entities.
+
+
+# Answer -
+# class Employee:
+#     def __init__(self, name, employee_id, salary):
+#         self.name = name
+#         self.employee_id = employee_id
+#         self.salary = salary
+
+#     def __eq__(self, other):
+#         return self.employee_id == other.employee_id
+
+# employee1 = Employee("Rahul", 101, 50000)
+# employee2 = Employee("Rahul Kumar", 101, 70000)
+
+# print(employee1 == employee2)
+
+########################################################################################################
