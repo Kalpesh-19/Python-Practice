@@ -6819,3 +6819,364 @@
 # calculator("power", 2, 2)
 
 ########################################################################################################
+# Question 4: Function Logger Decorator
+# Create a decorator called logger.
+# Whenever a function is called, print:
+# Function <function_name> started
+# Then execute the function.
+
+# After execution:
+# Function <function_name> finished
+
+# Example:
+# @logger
+# def greet(name):
+#     print(f"Hello {name}")
+
+# greet("Bunny")
+
+# Expected:
+# Function greet started
+# Hello Bunny
+# Function greet finished
+
+# Important: Your decorator must support functions with any number of positional and keyword arguments.
+
+# Hint:
+# def wrapper(*args, **kwargs):
+
+
+# Answer -
+
+# def logger(func):
+#     def wrapper(*args, **kwargs):
+#         print(f"Function {func.__name__} Started")
+#         result = func(*args, **kwargs)
+#         print(f"Function {func.__name__} Ended")
+#         return result
+#     return wrapper
+
+
+# @logger
+# def add(a, b):
+#     return a + b
+
+# print(f"Addition : {add(11, 22)}")
+
+########################################################################################################
+# 🟡 Question 5: Function Execution Counter
+# Create a decorator called count_calls.
+# It should count how many times the decorated function has been called.
+
+# Example:
+# @count_calls
+# def hello():
+#     print("Hello")
+
+# Now:
+# hello()
+# hello()
+# hello()
+
+# Expected output:
+# Hello
+# Function called 1 time
+
+# Hello
+# Function called 2 times
+
+# Hello
+# Function called 3 times
+
+# 🎯 Requirements
+# Your decorator should have this basic structure:
+# def count_calls(func):
+#     count = 0
+#     def wrapper(*args, **kwargs):
+#         # Increase count
+#         # Execute original function
+#         # Print how many times it was called
+#         # Return original result
+#     return wrapper
+
+# 🧠 Important challenge
+# You will face a problem when trying to modify:
+# count = 0
+# inside wrapper().
+
+# Try it yourself first. If you get an error like:
+# UnboundLocalError
+# don't worry—that will lead us directly into understanding nonlocal and closures.
+
+# Bonus test
+# Make sure your decorator also works with a function that returns something:
+
+# @count_calls
+# def add(a, b):
+#     return a + b
+
+# Then:
+# print(add(10, 20))
+# print(add(5, 10))
+
+# The function should still return the correct result and keep track of the number of calls.
+
+# Try it yourself and send me your code—even if it gives an error. That's part of the exercise.
+
+
+# Answer -
+# def count_calls(func):
+#     count = 0
+
+#     def wrapper(*args, **kwargs):
+#         nonlocal count
+#         count += 1
+#         result = func(*args, **kwargs)
+#         print(f"Functions called {count} times")
+#         return result
+#     return wrapper
+
+
+# @count_calls
+# def hello(a, b):
+#     return a + b
+
+ 
+# print(f"Addition : {hello(12, 12)}")
+
+########################################################################################################
+# 🟡 Q6 — Authentication Decorator
+# You've already started this one, so we'll keep it—but simplify it.
+# Task
+# Create an authenticate decorator.
+
+# @authenticate
+# def view_profile(username, password):
+#     print(f"Welcome {username}")
+
+# The decorator should check:
+# username == "admin"
+# password == 1234
+
+# If correct:
+# Authentication Successful
+# Welcome admin
+
+# If incorrect:
+# Access Denied
+
+# Version 1 requirement
+# First make it work with positional arguments:
+# view_profile("admin", 1234)
+# Version 2 challenge
+
+# Then make it work with keyword arguments too:
+# view_profile(
+#     username="admin",
+#     password=1234
+# )
+
+# Skills tested
+# Decorators
+# if/else
+# *args
+# **kwargs
+# Preventing the original function from executing
+
+
+# Answer -
+# def authenticate(func):
+#     def wrapper(*args, **kwargs):
+#         if args:
+#             username = args[0]
+#             password = args[1]
+            
+#         elif kwargs:
+#             username = kwargs["username"]
+#             password = kwargs["password"]
+            
+#         if username == "admin" and password == 1234:
+#             print("Authentication Successful")
+#             result = func(*args, **kwargs)
+#             return result
+#         else:
+#             print("Access Denied")
+#     return wrapper
+
+
+# @authenticate
+# def view_profile(username, password):
+#     return f"Welcome {username}!"
+
+
+# print(view_profile("admin", 1234))
+# view_profile(username = "bunny", password = 1234)
+
+########################################################################################################
+# 🟡 Q7 — Function Argument Logger
+# Create a decorator called show_arguments.
+
+# Example:
+# @show_arguments
+# def add(a, b):
+#     return a + b
+
+# When you call:
+# print(add(10, 20))
+
+# Expected:
+# Arguments: (10, 20)
+# Keyword Arguments: {}
+# Result: 30
+
+# It should also work with:
+# @show_arguments
+# def student(name, age, city):
+#     return f"{name} is {age} years old and lives in {city}"
+
+# Call:
+# student(
+#     name="Kalpesh",
+#     age=22,
+#     city="Mumbai"
+# )
+
+# Expected idea:
+# Arguments: ()
+# Keyword Arguments:
+# {'name': 'Kalpesh', 'age': 22, 'city': 'Mumbai'}
+
+# Result:
+# Kalpesh is 22 years old and lives in Mumbai
+
+# Skills tested
+# *args
+# **kwargs
+# Decorators
+# Printing tuples and dictionaries
+# Preserving return values
+
+
+# Answer -
+# def show_arguments(func):
+#     def wrapper(*args, **kwargs):
+#         print(f"Arguments : {args}")
+#         print(f"Keyword Arguments : {kwargs}")
+
+#         result = func(*args, **kwargs)
+#         print(f"Result : {result}")
+#         return result 
+#     return wrapper
+
+
+# @show_arguments
+# def add(a, b):
+#     return a + b
+
+# add(10,  20)
+
+
+# @show_arguments
+# def student(name, age, city):
+#     return f"{name} is {age} years old and lives in {city}"
+
+# student(name = "kalpesh", age = 22, city = "Mumbai")
+
+########################################################################################################
+# 🟠 Q8 — Independent Function Call Counter
+# You already created a count_calls decorator in Q5. Now we will test whether you truly understand closures and nonlocal.
+# 🎯 Task
+# Create a decorator called:
+# count_calls
+# Use it on two different functions:
+# @count_calls
+# def add(a, b):
+#     return a + b
+
+# @count_calls
+# def multiply(a, b):
+#     return a * b
+
+# Now call them like this:
+# print(add(10, 20))
+# print(add(5, 15))
+
+# print(multiply(2, 3))
+# print(multiply(4, 5))
+# print(multiply(10, 2))
+
+# print(add(100, 200))
+# Expected behavior
+# add() should have its own counter:
+# Function add called 1 time
+# 30
+
+# Function add called 2 times
+# 20
+
+# multiply() should start from 1, not continue from add():
+# Function multiply called 1 time
+# 6
+
+# Function multiply called 2 times
+# 20
+
+# Function multiply called 3 times
+# 20
+
+# Then when you call add() again:
+# Function add called 3 times
+# 300
+
+# 🧠 Important Concept
+# The counters should behave like this:
+# add()
+#  ↓
+# count = 1
+#  ↓
+# count = 2
+#  ↓
+# count = 3
+
+
+# multiply()
+#  ↓
+# count = 1
+#  ↓
+# count = 2
+#  ↓
+# count = 3
+
+# They must not share the same counter.
+
+
+# Answer -
+# def count_calls(func):
+#     count = 0
+#     def wrapper(*args, **kwargs):
+#         nonlocal count 
+#         count += 1
+#         print(f"Function {func.__name__} called {count} times")
+#         result = func(*args, **kwargs)
+#         return result
+#     return wrapper
+
+
+# @count_calls
+# def add(a, b):
+#     return a + b
+
+
+
+# @count_calls
+# def multiply(a, b):
+#     return a * b
+
+
+# add(10, 20)
+# add(5, 15)
+# multiply(1, 2)
+# multiply(11, 45)
+# add(55, 1)
+
+########################################################################################################
