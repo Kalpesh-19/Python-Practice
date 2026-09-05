@@ -7329,3 +7329,99 @@
 # info(city = "Banglore", age = 21, name = "Killer")
 
 ########################################################################################################
+###List, Set and Dictionary Comphrehension Questions:
+
+# Q1. Squares of Even Numbers — List Comprehension
+# Given:
+# numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Create a new list containing the square of only the even numbers.
+
+# Expected output:
+# [4, 16, 36, 64, 100]
+
+# Answer -
+# squares_of_even_numbers = [i**2  for i in range(1, 11) if i % 2 == 0]
+# print(f"squares_of_even_numbers : {squares_of_even_numbers}")
+
+########################################################################################################
+# Q2. Remove Duplicates — Set Comprehension
+# Given:
+# numbers = [1, 2, 2, 3, 4, 4, 5, 6, 6, 7]
+
+# Create a set containing only the unique odd numbers.
+
+# Expected output:
+# {1, 3, 5, 7}
+
+# Answer -
+# numbers = [1, 2, 2, 3, 4, 4, 5, 6, 6, 7]
+
+# odd_numbers = {num for num in numbers if num % 2 != 0}
+# print(f"Set of odd Numbers : {odd_numbers}")
+
+########################################################################################################
+# Q3. Dictionary Transformation — Dictionary Comprehension
+# Given:
+# student_marks = {
+#     "Alice": 85,
+#     "Bob": 42,
+#     "Charlie": 76,
+#     "David": 39,
+#     "Eva": 91
+# }
+
+# Create a dictionary containing only the students who passed (marks >= 40).
+# The value should be converted into:
+# "Pass"
+
+# Expected output:
+# {
+#     "Alice": "Pass",
+#     "Bob": "Pass",
+#     "Charlie": "Pass",
+#     "Eva": "Pass"
+# }
+
+
+# Answer -
+# student_marks = {
+#     "Alice": 85,
+#     "Bob": 42,
+#     "Charlie": 76,
+#     "David": 39,
+#     "Eva": 91
+# }
+
+
+# pass_students = {student : "pass"  for student in student_marks if student_marks[student] >= 40}
+# print(f"Dictionary of Passed Students : {pass_students}")
+
+########################################################################################################
+# Q4. Flatten a Nested List
+
+# Given:
+# matrix = [
+#     [1, 2, 3],
+#     [4, 5, 6],
+#     [7, 8, 9]
+# ]
+
+# Using one list comprehension, convert it into:
+# [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# 💡 This tests whether you understand multiple for clauses inside comprehensions.
+
+
+# Answer -
+# matrix = [
+#     [1, 2 ,3],
+#     [4, 5, 6],
+#     [7, 8, 9]
+# ]
+
+
+# flatten_matrix = [num for row in matrix for num in row ]
+# print(flatten_matrix)
+
+########################################################################################################
