@@ -7180,3 +7180,152 @@
 # add(55, 1)
 
 ########################################################################################################
+# 🔴 Q9 — Login Attempt Limiter
+# 🎯 Your Task
+# Create a decorator called:
+# @limit_attempts
+
+# The decorator should allow a function to be executed only 3 times.
+
+# After 3 attempts, the original function should never execute again.
+
+# Example Function
+# @limit_attempts
+# def login(username, password):
+#     if username == "admin" and password == 1234:
+#         return "Login Successful"
+#     else:
+#         return "Invalid Credentials"
+
+# Test it like this:
+# print(login("admin", 1111))
+# print(login("admin", 2222))
+# print(login("admin", 3333))
+
+# print(login("admin", 1234))
+# print(login("admin", 1234))
+
+# Expected behavior:
+# Invalid Credentials
+# Invalid Credentials
+# Invalid Credentials
+
+# Maximum attempts reached
+# Maximum attempts reached
+
+# Notice something important:
+# Attempt 1 → login() executes
+# Attempt 2 → login() executes
+# Attempt 3 → login() executes
+
+# Attempt 4 → login() does NOT execute
+# Attempt 5 → login() does NOT execute
+
+
+
+# Answer -
+
+# def limit_attempts(func):
+#     attempts = 0
+#     def wrapper(*args, **kwargs):
+#         nonlocal attempts
+#         if attempts < 3:
+#             attempts += 1
+#             print(f"Attempt {attempts}")
+#             result = func(*args, **kwargs)
+#             return result
+#         else:
+#             print("Maximum attempts reached")
+#     return wrapper
+
+
+# @limit_attempts
+# def login(username, password):
+#     if username == "admin" and password == 1234:
+#         return "Login Successful"
+#     else:
+#         return "Invalid Credentials"
+
+    
+# print(login("admin", 1234))
+# print(login("admin", 1245))
+# print(login("admin", 1234))
+# login("Kaleo", 4555)
+
+########################################################################################################
+# 🔴 Q10 — Smart Function Tracker
+# Create a decorator called:
+# @smart_logger
+
+# The decorator should do all of the following:
+# 1. Count how many times the function is called
+# Use:
+# count = 0
+
+# and:
+# nonlocal count
+
+# 2. Print the function name
+# Use:
+# func.__name__
+
+# 3. Print positional arguments
+# For example:
+# add(10, 20)
+
+# should show:
+# Arguments: (10, 20)
+
+# 4. Print keyword arguments
+# For example:
+# student(name="Kalpesh", age=22)
+
+# should show:
+# Keyword Arguments: {'name': 'Kalpesh', 'age': 22}
+
+# 5. Execute the original function
+# Use:
+# func(*args, **kwargs)
+
+# 6. Preserve and return the original result
+
+
+# Answer -
+
+# def smart_logger(func):
+#     count = 0
+#     def wrapper(*args, **kwargs):
+#         nonlocal count
+#         count += 1
+#         print(f"Arguments : {args}")
+#         print(f"Keyword Arguments : {kwargs}")
+
+#         print(f"Function {func.__name__} was called {count} times")
+#         result = func(*args, **kwargs)
+#         print(f"Result : {result}")
+#         return result
+#     return wrapper
+
+
+# @smart_logger
+# def add(a, b):
+#     return a + b
+
+
+# add(12, 12)
+# print("-------------------")
+# add(11, 11)
+# print("-------------------")
+# add(22, 22)
+
+
+# @smart_logger
+# def info(name, age, city):
+#     return f"{name} is {age} years old & lives in {city}"
+
+# print("-------------------")
+# info(age = 22, name = "Bunny", city = "Mumbai")
+# print("-------------------")
+# info(city = "Banglore", age = 21, name = "Killer")
+
+########################################################################################################
