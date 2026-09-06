@@ -7737,3 +7737,151 @@
 # print(list(odd_numbers_sqrs))
 
 ########################################################################################################
+# Q6. Increase Salaries of Eligible Employees
+# Given:
+# salaries = [25000, 40000, 55000, 30000, 70000, 45000]
+
+# Using filter() and map():
+
+# Keep only salaries greater than or equal to 40000.
+# Increase each selected salary by 10%.
+
+# Expected output:
+# [44000.0, 60500.0, 77000.0, 49500.0]
+
+# Hint: A 10% increase can be calculated using:
+# salary * 1.10
+
+
+# Answer -
+# salaries = [25000, 40000, 55000, 30000, 70000, 45000]
+
+# incremented_salary = map(lambda x:x + (x * 10/100), filter(lambda x: x >= 40000, salaries))
+# print(list(incremented_salary))
+
+########################################################################################################
+# Q7. Process Valid Scores
+# Given:
+# scores = [95, -10, 80, 120, 45, 67, 101, 88]
+
+# A valid score must be between 0 and 100, inclusive.
+
+# Using filter() and map():
+
+# Remove invalid scores.
+# Add 5 bonus marks to every valid score.
+# Cap the final score at 100.
+
+# Expected output:
+# [100, 85, 50, 72, 93]
+
+# This is a good interview-style logic question because you need to think carefully about the order of operations.
+
+
+# Answer -
+# scores = [98, -10, 80, 120, 45, 67, 101, 88]
+
+# valid_scores = map(lambda x: min(x + 5, 100),  filter(lambda x: 0 <= x <= 100, scores))
+
+# print(list(valid_scores))
+
+########################################################################################################
+# Q8. Filter, Transform, and Filter Again
+# Given:
+# numbers = [2, 5, 8, 11, 14, 17, 20, 23]
+
+# Perform the following using lambda, map(), and filter():
+
+# Keep only numbers greater than 10.
+# Square those numbers.
+# From the squared values, keep only numbers divisible by 4.
+
+# Expected output:
+# [196, 400]
+
+# Think about the flow:
+# Original list
+#      ↓
+# Filter
+#      ↓
+# Map
+#      ↓
+# Filter
+
+
+# Answer -
+# numbers = [2, 5, 8, 11, 14, 17, 20, 23]
+
+# divisible_by_4_squares = filter(lambda x : x % 4 == 0, map(lambda x: x **2 , filter(lambda x: x > 10, numbers)))
+# print(list(divisible_by_4_squares))
+
+########################################################################################################
+# Q9. Process Student Marks
+# Given:
+# marks = [35, 42, 67, 28, 90, 55, 39, 75, 100]
+
+# Using only filter() and map() with lambda:
+
+# Keep only students who passed (marks >= 40).
+# Add 5 grace marks.
+# If the result becomes greater than 100, keep it at 100.
+# From the final marks, keep only marks greater than or equal to 60.
+
+# Expected output:
+# [72, 95, 60, 80, 100]
+
+# This question tests whether you can correctly chain multiple map() and filter() operations.
+
+
+# Answer - 
+# marks = [35, 42, 67, 28, 90, 55, 39, 75, 100]
+
+# final_marks = filter(lambda x : x >= 60 , map(lambda x: min(x + 5, 100) ,filter(lambda x: x >= 40 , marks)))
+# print(list(final_marks))
+
+########################################################################################################
+# Q10. The Combined Challenge 🔥
+# Given:
+# numbers = [-5, 2, 4, 7, 10, 13, 16, 20, 25, 30]
+
+# Perform these operations:
+# Step 1
+# Remove all negative numbers.
+
+# Step 2
+# Keep only even numbers.
+
+# Step 3
+# Square every remaining number.
+
+# Step 4
+# Keep only squared values greater than 100.
+
+# Step 5
+# Divide every remaining number by 2.
+
+# Expected output:
+# [128.0, 200.0, 450.0]
+
+# Your pipeline should conceptually look like:
+# numbers
+#    ↓
+# filter negative numbers
+#    ↓
+# filter even numbers
+#    ↓
+# map square
+#    ↓
+# filter > 100
+#    ↓
+# map divide by 2
+
+
+
+# Answer -
+# numbers = [-5, 2, 4, 7, 10, 13, 16, 20, 25, 30]
+
+# result = map(lambda x : x / 2, filter(lambda x: x > 100, map(lambda x: x ** 2, filter(lambda x: x % 2 == 0, filter(lambda x: x >= 0, numbers)))))
+# print(list(result))
+
+########################################################################################################
