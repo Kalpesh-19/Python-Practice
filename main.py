@@ -7885,3 +7885,188 @@
 # print(list(result))
 
 ########################################################################################################
+###Questions of Modules & Packages :
+
+# 1. Easy — Student Utility Module
+# Create the following structure:
+# project/
+# │
+# ├── main.py
+# └── student_utils.py
+
+# Requirements
+# In student_utils.py, create:
+# A variable:
+# PASS_MARKS = 40
+
+# A function:
+# calculate_average(marks)
+# that returns the average of a list.
+
+# A function:
+# is_pass(marks)
+# that returns True if the student's average is greater than or equal to PASS_MARKS.
+
+# In main.py
+# Import the module.
+# Create a list of marks.
+# Print the average.
+# Print whether the student passed or failed.
+
+# Example
+# Marks: [50, 60, 70]
+# Average: 60.0
+# Result: Pass
+
+# Concepts practiced: module creation, variables, functions, importing a module.
+
+
+# Answer -
+# from student_utils import calculate_average, is_pass
+
+# amol_marks = [75, 80, 79, 75]
+# average = calculate_average(amol_marks)
+# print(f"Average : {average}")
+
+# if is_pass(amol_marks):
+#     print("Result : Pass")
+# else:
+#     print("Result : Fail")
+
+########################################################################################################
+
+# 2. Medium — Calculator Package
+# Create this project structure:
+# project/
+# │
+# ├── main.py
+# │
+# └── calculator/
+#     ├── __init__.py
+#     ├── basic.py
+#     └── advanced.py
+
+# basic.py
+# Create functions:
+# add(a, b)
+# subtract(a, b)
+# multiply(a, b)
+# divide(a, b)
+# Your divide() function should handle division by zero.
+
+# advanced.py
+# Create functions:
+# power(a, b)
+# square_root(n)
+# factorial(n)
+
+# In main.py
+# Build a simple menu:
+# 1. Add
+# 2. Subtract
+# 3. Multiply
+# 4. Divide
+# 5. Power
+# 6. Square Root
+# 7. Factorial
+
+# Take user input and call the appropriate function from your package.
+
+# Challenge
+# Keep asking the user for operations until they choose:
+# 0. Exit
+
+# Concepts practiced: packages, multiple modules, imports, loops, conditionals, exception handling.
+
+
+
+# Answer -
+from calculator import advanced, basic
+
+print("0. Exit")
+print("1. Add")
+print("2. Subtract")
+print("3. Multiply")
+print("4. Divide")
+print("5. Power")
+print("6. Factorial")
+
+
+
+while True:
+    try:
+        option = int(input("Enter option : "))
+    
+    except ValueError as err:
+        print(err)
+        continue
+    
+    if option == 0:
+        print("Exit From Calculator")
+        break
+
+    elif option == 1:
+        try:
+            num1 = int(input("Enter first number : "))
+            num2 = int(input("Enter second number : "))
+            addition = basic.add(num1 , num2)
+            print(f"Addition of {num1} & {num2} : {addition}")
+
+        except ValueError as err:
+            print(err)
+
+    elif option == 2:
+        try:
+            num1 = int(input("Enter first number : "))
+            num2 = int(input("Enter second number : "))
+            subtraction = basic.subtract(num1, num2)
+            print(f"Subtraction of {num1} & {num2} : {subtraction}")
+
+        except ValueError as err:
+            print(err)
+
+    elif option == 3:
+        try:
+            num1 = int(input("Enter first number : "))
+            num2 = int(input("Enter second number : "))
+            multiplication = basic.multiply(num1, num2)
+            print(f"Multiplication of {num1} & {num2} : {multiplication}")
+        
+        except ValueError as err:
+            print(err)
+
+    elif option == 4:
+        try:
+            num1 = int(input("Enter first number : "))
+            num2 = int(input("Enter second number : "))
+            division = basic.divide(num1, num2)
+            print(f"Division of {num1} & {num2} : {division}")
+
+        except ValueError as err:
+            print(err)
+
+        except ZeroDivisionError as err:
+            print(err)
+
+    elif option == 5:
+        try:
+            num1 = int(input("Enter first number : "))
+            num2 = int(input("Enter second number : "))
+            power = advanced.power(num1, num2)
+            print(f"{num1} raised to {num2} : {power}")
+
+        except ValueError as err:
+            print(err)
+
+    elif option == 6:
+        try:
+            n = int(input("Enter number : "))
+            factorial = advanced.factorial(n)
+            print(f"Factorial of {n} : {factorial}")
+
+        except ValueError as err:
+            print(err)
+
+    else:
+        print("Invalid Operation")
+        
