@@ -7425,3 +7425,212 @@
 # print(flatten_matrix)
 
 ########################################################################################################
+# Q5. Find Common Elements
+# Given:
+# list1 = [1, 2, 3, 4, 5, 6]
+# list2 = [4, 5, 6, 7, 8, 9]
+
+# Using a set comprehension, find the common elements.
+
+# Expected output:
+# {4, 5, 6}
+
+# ⚠️ Try to avoid using the direct:
+# set(list1) & set(list2)
+
+# The goal is to practice comprehension logic.
+
+
+# Answer -
+# list1 = [1, 2, 3, 4, 5, 6]
+# list2 = [4, 5, 6, 7, 8, 9]
+
+# common = {i for i in list1 if i in list2}
+# print(f"Common Elements : {common}")
+
+########################################################################################################
+# Q6. Reverse a Dictionary
+
+# Given:
+
+# data = {
+#     "a": 1,
+#     "b": 2,
+#     "c": 3,
+#     "d": 4
+# }
+
+# Create a new dictionary where:
+
+# Values become keys
+# Keys become values
+
+# Expected output:
+
+# {
+#     1: "a",
+#     2: "b",
+#     3: "c",
+#     4: "d"
+# }
+
+
+# Answer -
+
+# data = {
+#     "a": 1,
+#     "b": 2,
+#     "c": 3,
+#     "d": 4
+# }
+
+
+# new_d = {value : key for key, value in data.items()}
+# print(f"New Dictionary : {new_d}")
+
+########################################################################################################
+# Q7. Categorize Numbers
+# Given:
+# numbers = [10, 15, 20, 25, 30, 35, 40]
+
+# Create a dictionary where:
+# Key = number
+# Value = "Even" if the number is even
+# Value = "Odd" otherwise
+
+# Expected output:
+# {
+#     10: "Even",
+#     15: "Odd",
+#     20: "Even",
+#     25: "Odd",
+#     30: "Even",
+#     35: "Odd",
+#     40: "Even"
+# }
+
+# 💡 This practices conditional expressions inside dictionary comprehensions.
+
+
+# Answer -
+# numbers = [10, 15, 20, 25, 30, 35, 40]
+
+
+# even_or_odd = {num : "Even" if num % 2 == 0 else "Odd" for num in numbers }
+# print(f"Dictionary of Even Odd numbers : {even_or_odd}")
+
+########################################################################################################
+# Q8. Flatten + Filter + Transform
+# Given:
+# numbers = [
+#     [1, 2, 3],
+#     [4, 5, 6],
+#     [7, 8, 9],
+#     [10, 11, 12]
+# ]
+
+# Using a single list comprehension:
+
+# Flatten the nested list.
+# Select only even numbers.
+# Square those numbers.
+
+# Expected output:
+# [4, 16, 36, 64, 100, 144]
+
+# This combines:
+# Nested loops
+# + Filtering
+# + Transformation
+
+
+# Answer -
+# numbers = [
+#     [1, 2, 3],
+#     [4, 5, 6],
+#     [7, 8, 9],
+#     [10, 11, 12]
+# ]
+
+
+# sqr_numbers = [num ** 2 for row in numbers for num in row if num % 2 == 0]
+# print(f"List of Squared Numbers : {sqr_numbers}")
+
+########################################################################################################
+# Q9. Word Frequency Dictionary
+# Given:
+# sentence = "python is easy and python is powerful and python is popular"
+
+# Create a dictionary where:
+
+# Key = unique word
+# Value = number of times that word appears
+
+# Expected output:
+# {
+#     "python": 3,
+#     "is": 3,
+#     "easy": 1,
+#     "and": 2,
+#     "powerful": 1,
+#     "popular": 1
+# }
+
+# ⚠️ Try to solve it using a dictionary comprehension.
+
+# 💡 You may use:
+# .split()
+# .count()
+# set()
+
+
+# Answer -
+# sentence = "python is easy and python is powerful and python is popular"
+# words = sentence.split()
+# word_count = {word : words.count(word) for word in set(words) }
+# print(word_count)
+
+########################################################################################################
+# Q10. Student Data Transformation Challenge 🔥
+# Given:
+# students = {
+#     "Alice": [85, 90, 78],
+#     "Bob": [35, 40, 30],
+#     "Charlie": [70, 75, 80],
+#     "David": [50, 45, 55],
+#     "Eva": [95, 92, 98]
+# }
+
+# Create a dictionary containing only students whose average marks are >= 50.
+# The result should look like:
+# {
+#     "Alice": 84.33,
+#     "Charlie": 75.0,
+#     "David": 50.0,
+#     "Eva": 95.0
+# }
+
+# Requirements:
+# Use a dictionary comprehension.
+# Calculate the average dynamically.
+# Round the average to 2 decimal places.
+# Exclude students whose average is below 50.
+
+
+# Answer -
+# students = {
+#     "Alice": [85, 90, 78],
+#     "Bob": [35, 40, 30],
+#     "Charlie": [70, 75, 80],
+#     "David": [50, 45, 55],
+#     "Eva": [95, 92, 98]
+# }
+
+
+# pass_students = {key : round((sum(marks) / len(marks)), 2) for key, marks in students.items() if (sum(marks) / len(marks)) >= 50}
+# print(pass_students)
+
+########################################################################################################
+
+    
+
