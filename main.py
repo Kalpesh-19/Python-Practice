@@ -7632,5 +7632,108 @@
 
 ########################################################################################################
 
+###Questions of Lambda Function with map() & filter() :
     
+# Q1. Square All Even Numbers
+# Given:
+# numbers = [1, 2, 3, 4, 5, 6, 7, 8]
 
+# Using filter() and map() with lambda:
+
+# Filter only the even numbers.
+# Square each remaining number.
+
+# Expected output:
+# [4, 16, 36, 64]
+
+# Challenge: Try to do this in a single expression.
+
+
+# Answer -
+# numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+
+# # check =                             ##For Understanding Purpose
+# # even_numbers = list(check)          ##For Understanding Purpose
+
+# squared_numbers = map(lambda x: x **2, filter(lambda x: x % 2 == 0, numbers))
+
+# print(list(squared_numbers))
+
+########################################################################################################
+# Q2. Convert Names to Uppercase
+# Given:
+# names = ["alice", "bob", "charlie", "david", "eve"]
+
+# Using map() and lambda, convert every name to uppercase.
+
+# Expected output:
+
+# ["ALICE", "BOB", "CHARLIE", "DAVID", "EVE"]
+
+
+
+# Answer -
+# names = ["alice", "bob", "charlie", "david", "eve"]
+
+# uppercase_names = map(lambda x: x.upper(), names)
+# print(list(uppercase_names))
+
+########################################################################################################
+# Q3. Filter Numbers Divisible by 3
+# Given:
+# numbers = [4, 9, 12, 15, 17, 20, 21, 25, 30]
+
+# Using filter() and lambda, keep only numbers divisible by 3.
+
+# Expected output:
+# [9, 12, 15, 21, 30]
+
+
+# Answer -
+# numbers = [4, 9, 12, 15, 17, 20, 21, 25, 30]
+
+# divisible_by_3 = filter(lambda x: x % 3 == 0, numbers)
+# print(list(divisible_by_3))
+
+########################################################################################################
+# Q4. Double Only Positive Numbers
+# Given:
+# numbers = [-10, 5, -3, 8, 0, 12, -7, 4]
+
+# Using filter() and map():
+
+# Remove all negative numbers.
+# Double every remaining number.
+
+# Expected output:
+# [10, 16, 0, 24, 8]
+
+
+# Answer -
+# numbers = [-10, 5, -3, 8, 0, 12, -7, 4]
+
+# doubled_numbers = map(lambda x: x * 2 , filter(lambda x: x >= 0, numbers))
+
+# print(f"Doubled Numbers : {list(doubled_numbers)}")
+
+########################################################################################################
+# Q5. Extract and Square Odd Numbers
+# Given:
+# numbers = [10, 3, 7, 12, 15, 8, 9, 20, 5]
+
+# Using filter() and map():
+
+# Keep only odd numbers.
+# Square every odd number.
+
+# Expected output:
+# [9, 49, 225, 81, 25]
+
+
+# Answer -
+# numbers = [10, 3, 7, 12, 15, 8, 9, 20, 5]
+
+# odd_numbers_sqrs = map(lambda x: x ** 2 , filter(lambda x: x % 2 != 0, numbers))
+# print(list(odd_numbers_sqrs))
+
+########################################################################################################
