@@ -7981,92 +7981,240 @@
 
 
 # Answer -
-from calculator import advanced, basic
+# from calculator import advanced, basic
 
-print("0. Exit")
-print("1. Add")
-print("2. Subtract")
-print("3. Multiply")
-print("4. Divide")
-print("5. Power")
-print("6. Factorial")
+# print("0. Exit")
+# print("1. Add")
+# print("2. Subtract")
+# print("3. Multiply")
+# print("4. Divide")
+# print("5. Power")
+# print("6. Factorial")
 
 
 
-while True:
-    try:
-        option = int(input("Enter option : "))
+# while True:
+#     try:
+#         option = int(input("Enter option : "))
     
-    except ValueError as err:
-        print(err)
-        continue
+#     except ValueError as err:
+#         print(err)
+#         continue
     
-    if option == 0:
-        print("Exit From Calculator")
-        break
+#     if option == 0:
+#         print("Exit From Calculator")
+#         break
 
-    elif option == 1:
-        try:
-            num1 = int(input("Enter first number : "))
-            num2 = int(input("Enter second number : "))
-            addition = basic.add(num1 , num2)
-            print(f"Addition of {num1} & {num2} : {addition}")
+#     elif option == 1:
+#         try:
+#             num1 = int(input("Enter first number : "))
+#             num2 = int(input("Enter second number : "))
+#             addition = basic.add(num1 , num2)
+#             print(f"Addition of {num1} & {num2} : {addition}")
 
-        except ValueError as err:
-            print(err)
+#         except ValueError as err:
+#             print(err)
 
-    elif option == 2:
-        try:
-            num1 = int(input("Enter first number : "))
-            num2 = int(input("Enter second number : "))
-            subtraction = basic.subtract(num1, num2)
-            print(f"Subtraction of {num1} & {num2} : {subtraction}")
+#     elif option == 2:
+#         try:
+#             num1 = int(input("Enter first number : "))
+#             num2 = int(input("Enter second number : "))
+#             subtraction = basic.subtract(num1, num2)
+#             print(f"Subtraction of {num1} & {num2} : {subtraction}")
 
-        except ValueError as err:
-            print(err)
+#         except ValueError as err:
+#             print(err)
 
-    elif option == 3:
-        try:
-            num1 = int(input("Enter first number : "))
-            num2 = int(input("Enter second number : "))
-            multiplication = basic.multiply(num1, num2)
-            print(f"Multiplication of {num1} & {num2} : {multiplication}")
+#     elif option == 3:
+#         try:
+#             num1 = int(input("Enter first number : "))
+#             num2 = int(input("Enter second number : "))
+#             multiplication = basic.multiply(num1, num2)
+#             print(f"Multiplication of {num1} & {num2} : {multiplication}")
         
-        except ValueError as err:
-            print(err)
+#         except ValueError as err:
+#             print(err)
 
-    elif option == 4:
-        try:
-            num1 = int(input("Enter first number : "))
-            num2 = int(input("Enter second number : "))
-            division = basic.divide(num1, num2)
-            print(f"Division of {num1} & {num2} : {division}")
+#     elif option == 4:
+#         try:
+#             num1 = int(input("Enter first number : "))
+#             num2 = int(input("Enter second number : "))
+#             division = basic.divide(num1, num2)
+#             print(f"Division of {num1} & {num2} : {division}")
 
-        except ValueError as err:
-            print(err)
+#         except ValueError as err:
+#             print(err)
 
-        except ZeroDivisionError as err:
-            print(err)
+#         except ZeroDivisionError as err:
+#             print(err)
 
-    elif option == 5:
-        try:
-            num1 = int(input("Enter first number : "))
-            num2 = int(input("Enter second number : "))
-            power = advanced.power(num1, num2)
-            print(f"{num1} raised to {num2} : {power}")
+#     elif option == 5:
+#         try:
+#             num1 = int(input("Enter first number : "))
+#             num2 = int(input("Enter second number : "))
+#             power = advanced.power(num1, num2)
+#             print(f"{num1} raised to {num2} : {power}")
 
-        except ValueError as err:
-            print(err)
+#         except ValueError as err:
+#             print(err)
 
-    elif option == 6:
-        try:
-            n = int(input("Enter number : "))
-            factorial = advanced.factorial(n)
-            print(f"Factorial of {n} : {factorial}")
+#     elif option == 6:
+#         try:
+#             n = int(input("Enter number : "))
+#             factorial = advanced.factorial(n)
+#             print(f"Factorial of {n} : {factorial}")
 
-        except ValueError as err:
-            print(err)
+#         except ValueError as err:
+#             print(err)
 
-    else:
-        print("Invalid Operation")
+#     else:
+#         print("Invalid Operation")
         
+########################################################################################################
+# 3. Medium-Hard — Employee Management Package
+# Create this structure:
+# employee_system/
+# │
+# ├── main.py
+# │
+# └── employee/
+#     ├── __init__.py
+#     ├── utils.py
+#     └── manager.py
+
+# utils.py
+# Create:
+# calculate_bonus(salary, percentage)
+
+# and:
+# calculate_tax(salary)
+
+# Use your own simple tax logic, for example:
+# Salary <= 50000       → 0% tax
+# 50001–100000          → 10%
+# Above 100000          → 20%
+
+# manager.py
+# Create functions:
+# create_employee(name, salary)
+# get_employee_details(employee)
+# calculate_final_salary(employee)
+
+# The final salary should be:
+# Final Salary =
+# Salary + Bonus - Tax
+
+# Use functions from utils.py inside manager.py.
+
+# In main.py
+# Create at least 3 employees and display:
+
+# Name
+# Original Salary
+# Bonus
+# Tax
+# Final Salary
+
+# Important
+
+# This question is designed to make you practice:
+# Module importing another module inside the same package.
+
+# That is a very useful concept in real projects.
+
+
+
+
+# Answer -
+# from employee import utils, manager
+
+
+# employee1 = manager.create_employee("Kalpesh Bhanavse", 75000)
+# employee2 = manager.create_employee("Sanika Bhanavse", 76000)
+# employee3 = manager.create_employee("Bunny Bhanavse", 77000)
+
+
+# print(f"Details : {manager.get_employee_details(employee2)}")
+# print(f"Sanika's Bonus : {utils.calculate_bonus(76000, 20)}")
+# print(f"Sanika's Tax : {utils.calculate_tax(76000)}")
+# print(f"Sanika's Final Salary : {manager.calculate_salary(employee2, 15)}")
+
+########################################################################################################
+
+# 5. Hard — Mini Data Analysis Package 🔥
+# This one is closest to a small real-world project.
+# Create:
+# data_analysis/
+# │
+# ├── main.py
+# │
+# └── analytics/
+#     ├── __init__.py
+#     ├── loader.py
+#     ├── statistics.py
+#     ├── filters.py
+#     └── visualizer.py
+
+# You can start using only Python's built-in modules. Later, you can extend it using third-party packages.
+
+# loader.py
+# Create:
+# load_numbers(filename)
+# Read numbers from a file.
+
+# Example file:
+# 10
+# 20
+# 30
+# 40
+# 50
+# 60
+
+# Return:
+# [10, 20, 30, 40, 50, 60]
+
+# statistics.py
+# Create:
+# calculate_mean(numbers)
+# find_max(numbers)
+# find_min(numbers)
+# calculate_median(numbers)
+
+# filters.py
+# Create:
+# filter_even(numbers)
+# filter_odd(numbers)
+# filter_above_average(numbers)
+
+# For filter_above_average(), import and use calculate_mean() from statistics.py.
+
+# visualizer.py
+# Initially, just create:
+# print_bar_chart(numbers)
+
+# Example:
+# 10 | **********
+# 20 | ********************
+# 30 | ******************************
+
+# You can later replace this with actual graphs using Matplotlib.
+
+# main.py
+# Your program should:
+# Load numbers from a file.
+# Calculate statistics.
+# Filter the numbers.
+# Display a text-based chart.
+# Show everything through a menu.
+
+# Example:
+# 1. Show Statistics
+# 2. Show Even Numbers
+# 3. Show Odd Numbers
+# 4. Show Numbers Above Average
+# 5. Show Bar Chart
+# 0. Exit
+
+
+
+# Answer -
