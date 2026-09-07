@@ -8218,3 +8218,80 @@
 
 
 # Answer -
+
+# from analytics import loader, filters, statistics, visualizer
+
+# print("Menu : ")
+# print("1. Show Statistics")
+# print("2. Show Even Numbers")
+# print("3. Show Odd Numbers")
+# print("4. Show Numbers Above Average")
+# print("5. Show Bar Chart")
+# print("6. Show Median of Numbers")
+# print("0. Exit")
+
+
+# numbers = loader.load_numbers("list.txt")
+
+# while True:
+#     try:
+#         choice = int(input("Enter Your Choice : "))
+
+#     except ValueError as err:
+#         print(err)
+#         continue
+
+
+#     if choice == 0:
+#         print("Exited from Menu")
+#         break
+
+
+#     elif choice == 1:
+#         try:
+#             print(f"Mean of Numbers : {statistics.calculate_mean(numbers)}")
+#             print(f"Maximum number : {statistics.find_max(numbers)}")
+#             print(f"Minimum number : {statistics.find_min(numbers)}")
+        
+#         except Exception as err:
+#             print(err)
+
+#     elif choice == 2:
+#         try:
+#             print(f"Even Numbers : {filters.filter_even(numbers)}")
+
+#         except Exception as err:
+#             print(err)
+
+#     elif choice == 3:
+#         try:
+#             print(f"Odd Numbers : {filters.filter_odd(numbers)}")
+        
+#         except Exception as err:
+#             print(err)
+
+#     elif choice == 5:
+#         try:
+#             print("Bar Chart : ")
+#             visualizer.print_bar_chart(numbers)
+
+#         except Exception as err:
+#             print(err)
+
+#     elif choice == 4:
+#         try:
+#             print(f"Above Average Numbers From list : {filters.filter_above_average(numbers)}")
+            
+#         except Exception as err:
+#             print(err)
+        
+#     elif choice == 6:
+#         try:
+#             print(f"Median of Numbers : {statistics.calculate_median(numbers)}")
+        
+#         except Exception as err:
+#             print(err)
+
+#     else:
+#         print("Invalid Choice")
+#         print("Please Enter valid Choice")
